@@ -14,8 +14,12 @@ Steps for preparing an annotation task (Jacob will probably do this)
 
 Steps for annotators (Jacob & Louis)
     1. in the annotations/*yourname* folder make a new folder with a date for the new annotation session
-    2. run imageant (either on your computer, or the .exe included in the repo)
+    2. run imageant (either on your computer, or the .exe included in the annotations folder in the repo)
     3. click File -> New Image Annotation Session
     4. name the session file within the annotations/*yourname*/*sessionname* folder
     5. pick the annotations/*yourname*/*sessionname* folder as the image folder
-    6. pick odo_view_annot.ias as the script
+    6. pick odo_view_annot.ias from the annotations folder as the script
+    7. annotate using the keys to answer the prompts, you can save and exit and return if you want
+    8. when done go File -> Save Annotations
+    9. on Github Desktop make a commit using the "commit to main" button (this will add the files you created in ImageAnt) 
+    10. hit the "push origin" button to push your additions to the repository 
