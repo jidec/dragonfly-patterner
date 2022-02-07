@@ -1,0 +1,35 @@
+Steps for those starting fresh without any data (Louis or Rob won't have to do this)
+    1. download an iNat or GBIF csv containing all observations of taxon (Odonata), name it "inat_odonata_usa.csv" and place in data
+	2. run data/split/splitCSV.py to split the large csv into smaller csvs to allow GitHub pushing without Git LFS 
+    2. run R/getGenusList.R to create list of all genera from all observations in inat_odonata_usa.csv, genus_list.csv gets placed in data folder automatically
+    3. run downloaders/downloadOdonataImages.py to download images from genera in genus list, images get placed in data/all_images folder automatically 
+
+One-time step for merging split csvs to create inat_odonata_usa.csv (Louis and Rob will have to do this, unsplit is 300 MB so cannot be on GitHub without Git LFS)
+    1. run data/split/mergeCSV.py
+
+Steps for preparing an annotation task (Jacob will do this, possibly Louis)
+    1. in the annotations/*personsname* folder make a new folder with a date for the new annotation session
+    2. run R/moveSelectImages.R with the annotations/*personsname*/*sessionname* as a parameter to move images to this new annotations folder
+    3. AFTER annotation task is complete, run R/concatAnnotations.R to merge the new annotation with a .csv containing all annotations
+
+Steps for annotators (Jacob & Louis)
+    1. in the annotations/*yourname* folder make a new folder with a date and name for the new annotation session i.e. 2-4-22_100Segments or 2-2-22_500Aeshnidae
+    2. run imageant (either on your computer, or the .exe included in the annotations folder in the repo)
+    3. click File -> New Image Annotation Session
+    4. name the session file within the annotations/*yourname*/*sessionname* folder
+    5. pick the annotations/*yourname*/*sessionname* folder as the image folder
+    6. pick odo_view_annot.ias from the annotations folder as the script
+    7. annotate using the keys to answer the prompts, you can save and exit and return if you want
+    8. when done go File -> Save Annotations
+    9. on Github Desktop make a commit using the "commit to main" button (this will add the files you created in ImageAnt) 
+    10. hit the "push origin" button to push your additions to the repository 
+	
+Steps for segment annotation enjoyers (Jacob & Louis)
+    1. install Fiji (https://imagej.net/software/fiji/downloads) if it's not already installed
+	2. start Fiji, go to Plugins -> Macros -> Install and select sioux_segment_helper.ijm to install the helper macro
+	3. go to Plugins -> Macros and click the new SIOUX Segment Helper macro that appeared to run it 
+	4. a file browser will appear, pick the folder containing images in the annotation task folder 
+    5. images will load into SIOUX one by one, see (https://imagej.net/plugins/siox) for how to use SIOUX
+	6. basically just paint over some parts of the background and foreground then hit the Segment button then create Mask, then use the brush tool to refine the Mask a bit 
+	7. click the OK button to save the mask and move to the next image
+	8. the script only uses images that don't already have masks so you can resume easily 

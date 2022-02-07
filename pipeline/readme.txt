@@ -1,1 +1,0 @@
-scripts/folders for classification, segmentation, alignment, color clustering, etc. can be here
