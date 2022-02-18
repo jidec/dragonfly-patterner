@@ -121,3 +121,58 @@ moveAnnotationClassImages <- function(class_name, from, to, split_test_train=FAL
     file.copy(from = class_imgs_from_test, to = class_imgs_to_test)
   }
 }
+
+moveMasks <- function(from, to="../data/segments/masks"){
+  
+  imgs <- list.files(from) 
+  
+  # get masks
+  imgs <- grepl("mask", imgs, fixed = TRUE)
+  
+  # get from and fix
+  imgs_from <- paste0(from, "/", imgs)
+  imgs_to <- paste0(to, "/", imgs)
+
+  # copy files
+  file.copy(from = imgs_from, to = imgs_to)
+}
+
+moveSegmentationMaskImages <- function(from, to, ntest=5){
+  
+  # get mask files from masks only folder
+  masks <- list.files(from) 
+  
+  # subset test and train masks
+  masks_test <- masks[1:ntest]
+  masks_train <- masks[ntest+1:length(masks)]
+  
+  imgs_test <- gsub("_mask","", masks_test, fixed = TRUE)
+  imgs_train <- gsub("_mask","", masks_train, fixed = TRUE)
+
+  # create train test img and mask dirs
+  dir.create(paste0(to, "/train"))
+  dir.create(paste0(to, "/val"))
+  dir.create(paste0(to, "/train/Image"))
+  dir.create(paste0(to, "/train/Mask"))
+  dir.create(paste0(to, "/val/Image"))
+  dir.create(paste0(to, "/val/Mask"))
+    
+  
+  # get mask from and to 
+  masks_from_test <- paste0(from, "/", masks_test)
+  masks_to_test <- paste0(to, "/val/Mask", masks_test)
+  masks_from_train <- paste0(from, "/", masks_train)
+  masks_to_train <- paste0(to, "/train/Mask", masks_train)
+  
+  # get mask from and to 
+  imgs_from_test <- paste0(from, "/", imgs_test)
+  imgs_to_test <- paste0(to, "/val/Image", imgs_test)
+  imgs_from_train <- paste0(from, "/", imgs_train)
+  imgs_to_train <- paste0(to, "/train/Image", imgs_train)
+  
+  # copy files
+  file.copy(from = masks_from_test, to = masks_to_test)
+  file.copy(from = masks_from_train, to = masks_to_train)
+  file.copy(from = imgs_from_test, to = imgs_to_test)
+  file.copy(from = imgs_from_train, to = imgs_to_train)
+}

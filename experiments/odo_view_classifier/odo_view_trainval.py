@@ -25,8 +25,7 @@ data_transforms = {
     ]),
     # just normalization for validation
     'val': transforms.Compose([
-        transforms.Resize(256), # resize image
-        transforms.CenterCrop(224), # crop center
+        transforms.Resize(224), # resize image
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ]),

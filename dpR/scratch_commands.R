@@ -55,3 +55,5 @@ findNDuplicates("../annotations/Jacob/2-4-22_60Segments","../annotations/Louis/2
 
 # remove images from annotation sets once annotations are done
 deleteImagesFromDir("../annotations/Jacob/2-7-22_Classes150")
+
+moveMasks(from=)
