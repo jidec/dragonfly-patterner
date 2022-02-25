@@ -9,7 +9,6 @@ import numpy as np
 from PIL import Image
 from torchvision.datasets.vision import VisionDataset
 
-
 class SegmentationDataset(VisionDataset):
     """A PyTorch dataset for image segmentation task.
     The dataset is compatible with torchvision transforms.
@@ -38,6 +37,7 @@ class SegmentationDataset(VisionDataset):
             subset (str, optional): 'Train' or 'Test' to select the appropriate set. Defaults to None.
             image_color_mode (str, optional): 'rgb' or 'grayscale'. Defaults to 'rgb'.
             mask_color_mode (str, optional): 'rgb' or 'grayscale'. Defaults to 'grayscale'.
+
         Raises:
             OSError: If image folder doesn't exist in root.
             OSError: If mask folder doesn't exist in root.
