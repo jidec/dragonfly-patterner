@@ -54,6 +54,13 @@ moveSelectImages(num_images = 30, class_name = "lateral", from ="../data/all_ima
 findNDuplicates("../annotations/Jacob/2-4-22_60Segments","../annotations/Louis/2-4-22_60Segments")
 
 # remove images from annotation sets once annotations are done
-deleteImagesFromDir("../annotations/Jacob/2-7-22_Classes150")
+deleteImagesFromDir("../annotations/Jacob/2-4-22_60Segments")
 
-moveMasks(from=)
+# move masks to data/segments/masks directory
+moveMasks(from="../annotations/Jacob/2-4-22_60Segments")
+
+# move masks to training and val directories
+moveSegmentationMaskImages(ntest=7)
+
+# open file browser to a directory
+utils::browseURL("../annotations/Jacob/2-4-22_60Segments")

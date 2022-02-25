@@ -3,11 +3,11 @@
 # use to move images from the annotations folder to training/test folders or all_images
 # use to move images from the all_images folder to annotations folder 
 
-num_images = 6
-from="../data/all_images"
-to = "../annotations/Louis/2-4-22_60Segments"
-excl_names = moved
-class_name <- "dorsal"
+#num_images = 6
+#from="../data/all_images"
+#to = "../annotations/Louis/2-4-22_60Segments"
+#excl_names = moved
+#class_name <- "dorsal"
   
 moveSelectImages <- function(num_images= NULL, species = NULL, class_name = NULL, from, to, excl_names= NULL)
 {
@@ -127,25 +127,29 @@ moveMasks <- function(from, to="../data/segments/masks"){
   imgs <- list.files(from) 
   
   # get masks
-  imgs <- grepl("mask", imgs, fixed = TRUE)
-  
+  imgs <- imgs[grepl("mask", imgs, fixed = TRUE)]
+
   # get from and fix
   imgs_from <- paste0(from, "/", imgs)
   imgs_to <- paste0(to, "/", imgs)
-
+  
   # copy files
   file.copy(from = imgs_from, to = imgs_to)
 }
 
-moveSegmentationMaskImages <- function(from, to, ntest=5){
+#from="../data/segments/masks"
+#to="../experiments/odo_segmenter/data"
+#ntest=7
+moveSegmentationMaskImages <- function(from="../data/segments/masks", 
+                                       imgs_from="../data/all_images", ntest=5){
   
   # get mask files from masks only folder
   masks <- list.files(from) 
-  
+ 
   # subset test and train masks
   masks_test <- masks[1:ntest]
   masks_train <- masks[ntest+1:length(masks)]
-  
+
   imgs_test <- gsub("_mask","", masks_test, fixed = TRUE)
   imgs_train <- gsub("_mask","", masks_train, fixed = TRUE)
 
@@ -160,15 +164,15 @@ moveSegmentationMaskImages <- function(from, to, ntest=5){
   
   # get mask from and to 
   masks_from_test <- paste0(from, "/", masks_test)
-  masks_to_test <- paste0(to, "/val/Mask", masks_test)
+  masks_to_test <- paste0(to, "/val/Mask/", masks_test)
   masks_from_train <- paste0(from, "/", masks_train)
-  masks_to_train <- paste0(to, "/train/Mask", masks_train)
+  masks_to_train <- paste0(to, "/train/Mask/", masks_train)
   
   # get mask from and to 
-  imgs_from_test <- paste0(from, "/", imgs_test)
-  imgs_to_test <- paste0(to, "/val/Image", imgs_test)
-  imgs_from_train <- paste0(from, "/", imgs_train)
-  imgs_to_train <- paste0(to, "/train/Image", imgs_train)
+  imgs_from_test <- paste0(imgs_from, "/", imgs_test)
+  imgs_to_test <- paste0(to, "/val/Image/", imgs_test)
+  imgs_from_train <- paste0(imgs_from, "/", imgs_train)
+  imgs_to_train <- paste0(to, "/train/Image/", imgs_train)
   
   # copy files
   file.copy(from = masks_from_test, to = masks_to_test)
