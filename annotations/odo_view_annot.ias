@@ -1,24 +1,27 @@
 
 main_tasks:
-  - text: 'Is a good dorsal OR lateral view?'
-    variable: 'good'
+  - text: 'Is bad, or a reasonably good dorsal or lateral?'
+    variable: 'class'
     responses:
-      - text: 'is good'
-        action: keypress{p ~ 1}
-        jump-to: view_tasks
-      - text: 'is not good'
-        action: keypress{a ~ 0}
+      - text: 'is bad'
+        action: keypress{a ~ bad}
+      - text: 'is dorsal'
+        action: keypress{d ~ dorsal}
+        jump-to: good_or_perfect_tasks
+      - text: 'is lateral'
+        action: keypress{l ~ lateral}
+        jump-to: good_or_perfect_tasks
 
 #
-# Only run these tasks if the image is a good view? 
+# Only run these tasks if the image is a good view 
 #
-view_tasks:
-  - text: 'Dorsal or lateral?' 
-    variable: 'dorsal_lateral'
+good_or_perfect_tasks:
+  - text: 'Good or perfect?' 
+    variable: 'is_perfect'
     default: inherit
     responses:
-      - text: 'Dorsal'
-        action: keypress{p ~ dorsal}
-      - text: 'Lateral'
-        action: keypress{a ~ lateral}
+      - text: 'is just good'
+        action: keypress{a ~ 0}
+      - text: 'is perfect'
+        action: keypress{l ~ 1}
 
