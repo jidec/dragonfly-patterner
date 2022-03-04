@@ -4,6 +4,7 @@
 
 mergeAnnotations <- function(){
   library(dplyr)
+  library(plyr)
   csv_files <- dir(path= "../annotations", pattern='*.csv$', recursive = T)
   csv_files <- paste("../annotations/",csv_files)
   csv_files <- gsub(" ", "", csv_files)
@@ -11,7 +12,7 @@ mergeAnnotations <- function(){
     if(i == 1)
       df <- read.csv(csv_files[i])
     else
-      df <- rbind(df, read.csv(csv_files[i]))
+      df <- rbind.fill(df, read.csv(csv_files[i]))
   }
   df <- df[!duplicated(df$file),]
   

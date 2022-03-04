@@ -9,8 +9,9 @@
 #excl_names = moved
 #class_name <- "dorsal"
   
-moveSelectImages <- function(num_images= NULL, species = NULL, class_name = NULL, from, to, excl_names= NULL)
+moveSelectImages <- function(num_images= NULL, species = NULL, class_name = NULL, from_, to, excl_names= NULL)
 {
+  from <- from_
   # read in all Odonata observations and annotations
   data <- read.csv("../data/inat_odonata_usa.csv",header=TRUE,row.names=NULL,sep="\t")
   annotations <- read.csv("../data/annotations.csv")
@@ -25,8 +26,10 @@ moveSelectImages <- function(num_images= NULL, species = NULL, class_name = NULL
   imgs <- list.files(from) 
   
   # get files of class from annotations
-  class_files <- annotations[annotations$dorsal_lateral==class_name,]$file
-  imgs <- imgs[imgs %in% class_files]
+  if(!is.null(class_name)){
+    class_files <- annotations[annotations$dorsal_lateral==class_name,]$file
+    imgs <- imgs[imgs %in% class_files]
+  }
 
   # exclude excl_names
   if(!is.null(excl_names)){
@@ -52,20 +55,27 @@ moveSelectImages <- function(num_images= NULL, species = NULL, class_name = NULL
   return(imgs)
 }
 
-#class_name = "lateral"
-#from = "../data/all_images"
+#class_col = "class"
+#class_name = "dorsal"
+#from_ = "../data/random_images"
 #to = "../experiments/odo_view_classifier/odo_view_data"
+#ntest=10
 
-moveAnnotationClassImages <- function(class_name, from, to, split_test_train=FALSE, ntest=10){
+moveAnnotationClassImages <- function(class_col, class_name, class_col2=NULL, class_name2=NULL, class_dir_override=NULL,from_, to, split_test_train=FALSE, ntest=10){
+  
+  from <- from_
   
   annotations <- read.csv("../data/annotations.csv")
   
-  annotations$file == "103224054_798.jpg"
-  annotations[annotations$file == "103224054_798.jpg", ]
+  #annotations$file == "103224054_798.jpg"
+  #annotations[annotations$file == "103224054_798.jpg", ]
   imgs <- list.files(from) 
 
   # get image names that are annotated
-  names <- dplyr::filter(annotations, dorsal_lateral == class_name)
+  names <- dplyr::filter(annotations, !!sym(class_col) == class_name)
+  if(!is.null(class_col2)){
+    names <- dplyr::filter(annotations, !!sym(class_col2) == class_name2)
+  }
   names <- names$file
   
   # get matching images from directory
@@ -102,13 +112,24 @@ moveAnnotationClassImages <- function(class_name, from, to, split_test_train=FAL
     class_imgs_from <- paste(from, "/", class_imgs)
     class_imgs_from <- gsub(" ", "", class_imgs_from, fixed = TRUE)
     class_imgs_from_test <- class_imgs_from[1:ntest]
+    class_imgs_from_test
     class_imgs_from_train <- class_imgs_from[ntest+1:length(class_imgs_from)]
     
-    # get to and fix 
-    class_imgs_to_train <- paste(to, "/", "train/", class_name, "/", class_imgs)
-    class_imgs_to_train <- gsub(" ", "", class_imgs_to_train, fixed = TRUE)
-    class_imgs_to_test <- paste(to, "/", "test/", class_name, "/", class_imgs)
-    class_imgs_to_test <- gsub(" ", "", class_imgs_to_test, fixed = TRUE)
+    # override class dir if included (use to send multiple classes to the same folder) 
+    if(!is.null(class_dir_override)){
+      # get to and fix 
+      class_imgs_to_train <- paste0(to, "/", "train/", class_dir_override, "/", class_imgs)
+      class_imgs_to_test <- paste0(to, "/", "test/", class_dir_override, "/", class_imgs)
+      class_imgs_to_test <- class_imgs_to_test[1:ntest]
+    }
+    
+    else{
+      # get to and fix 
+      class_imgs_to_train <- paste0(to, "/", "train/", class_name, "/", class_imgs)
+      class_imgs_to_test <- paste0(to, "/", "test/", class_name, "/", class_imgs)
+      class_imgs_to_test <- class_imgs_to_test[1:ntest]
+    }
+
     
     # create class dirs
     d <- gsub(" ", "", paste(to, "/train/", class_name), fixed = TRUE)
@@ -122,8 +143,9 @@ moveAnnotationClassImages <- function(class_name, from, to, split_test_train=FAL
   }
 }
 
-moveMasks <- function(from, to="../data/segments/masks"){
+moveMasks <- function(from_, to="../data/segments/masks"){
   
+  from <- from_
   imgs <- list.files(from) 
   
   # get masks
@@ -140,9 +162,9 @@ moveMasks <- function(from, to="../data/segments/masks"){
 #from="../data/segments/masks"
 #to="../experiments/odo_segmenter/data"
 #ntest=7
-moveSegmentationMaskImages <- function(from="../data/segments/masks", 
+moveSegmentationMaskImages <- function(from_="../data/segments/masks", 
                                        imgs_from="../data/all_images", ntest=5){
-  
+  from <- from_
   # get mask files from masks only folder
   masks <- list.files(from) 
  

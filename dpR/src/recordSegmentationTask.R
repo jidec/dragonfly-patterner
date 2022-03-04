@@ -1,6 +1,4 @@
 
-#from = "../annotations/Jacob/2-4-22_60Segments"
-
 # write a csv of the names of images that were segmented 
 recordSegmentationTask <- function(from)
 {
