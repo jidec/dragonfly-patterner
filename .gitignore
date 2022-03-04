@@ -168,3 +168,6 @@ data/inat_odonata_usa.csv
 
 # ignore data/all_images
 data/all_images/
+
+# no models - too big!
+*.pt

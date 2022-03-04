@@ -61,4 +61,4 @@ for f in file_list:
     img *= 255
     # find size of original image
     img = cv2.resize(img, img_dims)
-    cv2.imwrite("out/" + imgname + "_segout.png", img)
+    cv2.imwrite("out/" + imgname + "_segout.jpg", img)
