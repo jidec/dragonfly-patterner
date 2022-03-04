@@ -171,3 +171,6 @@ data/all_images/
 
 # no models - too big!
 *.pt
+
+# no silly Notepad++ .baks
+*.bak

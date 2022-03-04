@@ -1,1 +1,0 @@
-move test images here, generated masks will be placed here 

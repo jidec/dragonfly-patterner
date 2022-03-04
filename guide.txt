@@ -1,3 +1,13 @@
+Directories
+	pipeline - contains complete pipeline components
+	experiments - contains WIP pipeline components
+   downloaders - contains scripts to download images
+   data - contains images, all saved annotations, raw odonata data, and processed segments
+   annotations - contains annotation tasks (class & seg) and ImageAnt and Fiji macros for annotation
+   dpR - contains R scripts to organize directories and run analyses
+    
+
+
 Steps for those starting fresh without any data (Louis or Rob won't have to do this)
     1. download an iNat or GBIF csv containing all observations of taxon (Odonata), name it "inat_odonata_usa.csv" and place in data
 	2. run data/split/splitCSV.py to split the large csv into smaller csvs to allow GitHub pushing without Git LFS 
