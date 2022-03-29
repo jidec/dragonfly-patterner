@@ -18,7 +18,8 @@ def alignImages(im1, im2):
   # Match features.
   matcher = cv2.DescriptorMatcher_create(cv2.DESCRIPTOR_MATCHER_BRUTEFORCE_HAMMING)
   matches = matcher.match(descriptors1, descriptors2, None)
-
+  
+  matches = list(matches)
   # Sort matches by score
   matches.sort(key=lambda x: x.distance, reverse=False)
 
@@ -53,12 +54,12 @@ img2name = "56568289_564"
 # Read reference image
 refFilename = "form.jpg"
 print("Reading reference image : ", refFilename)
-imReference = cv2.imread("images/" + img1name + "_clust.png",cv2.IMREAD_COLOR)
+imReference = cv2.imread("images/" + img1name + "_discrete.png",cv2.IMREAD_COLOR)
 
 # Read image to be aligned
 imFilename = "scanned-form.jpg"
 print("Reading image to align : ", imFilename);
-im = cv2.imread("images/" + img2name + "_clust.png",cv2.IMREAD_COLOR)
+im = cv2.imread("images/" + img2name + "_discrete.png",cv2.IMREAD_COLOR)
 
 print("Aligning images ...")
 # Registered image will be resotred in imReg.

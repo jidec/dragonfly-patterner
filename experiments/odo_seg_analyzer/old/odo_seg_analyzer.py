@@ -53,6 +53,8 @@ img = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
 vals = img.reshape((-1,3))
 vals = np.float32(vals)
 
+
+
 # define criteria, number of clusters and apply kmeans
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
 K = 3

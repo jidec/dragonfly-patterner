@@ -12,8 +12,8 @@ show = True
 #im2 = Image.open("images/" + img2name + "_clust.png")
 
 # read images to align
-im1 = cv2.imread("images/" + img1name + "_clust.png")
-im2 = cv2.imread("images/" + img2name + "_clust.png")
+im1 = cv2.imread("../images/" + img1name + "_clust.png")
+im2 = cv2.imread("../images/" + img2name + "_clust.png")
 
 # Convert images to grayscale
 im1_gray = cv2.cvtColor(im1,cv2.COLOR_BGR2GRAY)

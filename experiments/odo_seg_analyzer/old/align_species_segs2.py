@@ -10,7 +10,7 @@ img2name = "56568289_564"
 show = True
 
 # read images to align
-img = cv2.imread("images/" + img1name + "_clust.png",cv2.IMREAD_GRAYSCALE)
+img = cv2.imread("../images/" + img1name + "_clust.png",cv2.IMREAD_GRAYSCALE)
 #img2 = cv2.imread("images/" + img2name + "_clust.png",cv2.IMREAD_GRAYSCALE)
 
 #img = cv2.imread("input.png", cv2.IMREAD_GRAYSCALE)  # Read input image as grayscale.
