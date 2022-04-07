@@ -17,28 +17,20 @@ def extractSegment(img_name,img_dir,mask_dir,erode=True,erode_kernel_size=4,show
     img = Image.open(img_dir + "/" + img_name + ".jpg")
     img = np.array(img, dtype=np.uint8)
 
-    if(show):
-        cv2.imshow('Image', img)
-        cv2.waitKey(0)
+    start_img = img
 
     # open mask and convert to array
     mask = Image.open(mask_dir + "/" + img_name + "_mask" + ".jpg")
 
     mask = ImageOps.invert(mask)  # invert mask so black represents background
     mask = np.array(mask, dtype=np.uint8)
-    prev_mask = mask
+
+    start_mask = mask
     
     # erode border of mask
     if(erode):
         kernel = np.ones((erode_kernel_size, erode_kernel_size), np.uint8)
         mask = cv2.erode(mask, kernel)
-        
-    if(show):
-        cv2.imshow('Mask', prev_mask)
-        cv2.imshow('Eroded Mask', mask)
-        cv2.waitKey(0)
-        cv2.waitKey(0)
-        
 
     # apply mask to get masked img
     masked_img = cv2.bitwise_and(img, img, mask=mask)
@@ -63,9 +55,7 @@ def extractSegment(img_name,img_dir,mask_dir,erode=True,erode_kernel_size=4,show
     masked_img = cv2.cvtColor(masked_img, cv2.COLOR_BGRA2RGBA)
     #cv2.imwrite(out_dir + "/" + img_name + "_masked.png", masked_img)
 
-    if(show):
-        cv2.imshow('Masked', masked_img)
-        cv2.waitKey(0)
+    showImages(show,[start_img,start_mask,mask,masked_img])
 
     # return the segment image as a numpy array and the bounding boxed mask
     # both used in colorDiscretize

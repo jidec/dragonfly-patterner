@@ -1,7 +1,7 @@
 import cv2
 import os
 
-def blendAlignedGroups(species_name=None,morph_id=None):
+def blendAligned(imgs,show=False):
     # set dir containing discretized, aligned, size normalized images
     # dir = "data/segments/discretized_aligned"
     dir = "images"

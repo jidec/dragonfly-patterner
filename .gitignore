@@ -169,6 +169,14 @@ data/inat_odonata_usa.csv
 # ignore data/all_images
 data/all_images/
 
+# ignore temp training images
+pipeline/1_classification/pylib/trainsets/
+pipeline/2_segmentation/pylib/trainset/
+experiments/odo-segmenter/trainset
+
+# ignore downloaded images and data
+pipeline/0_image_downloading/pylib/helpers/genus_image_records
+
 # no models - too big!
 *.pt
 
