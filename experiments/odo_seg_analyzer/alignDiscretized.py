@@ -2,7 +2,7 @@ from skimage.transform import ProjectiveTransform, SimilarityTransform
 from skimage.measure import ransac
 from skimage.transform import warp
 from matplotlib import pyplot as plt
-from skimage.feature import ORB, match_descriptors, plot_matches
+from skimage.feature import ORB, match_descriptors, plot_matches,SIFT
 import numpy as np
 import cv2
 
@@ -10,9 +10,9 @@ def alignDiscretized(ref_img_name,ref_img_dir, img_name,img_dir,out_dir,show=Fal
 
     img1name = ref_img_name
     img2name = img_name
-    image1 = plt.imread(ref_img_dir + "/" + img1name + "_discrete.png")
+    image1 = plt.imread(ref_img_dir + "/" + img1name + "_pattern.jpg") #discrete.png
     image1 = cv2.cvtColor(image1,cv2.COLOR_RGBA2GRAY)
-    image2 = plt.imread(img_dir + "/" + img2name + "_discrete.png")
+    image2 = plt.imread(img_dir + "/" + img2name + "_pattern.jpg") #discrete.png
     image2 = cv2.cvtColor(image2,cv2.COLOR_RGBA2GRAY)
 
     if(show):
@@ -25,7 +25,8 @@ def alignDiscretized(ref_img_name,ref_img_dir, img_name,img_dir,out_dir,show=Fal
     #image2 = image2[50:350,50:350]   # Transformed image
 
     # create orb feature detector
-    orb = ORB(n_keypoints=500, fast_threshold=0.05)
+    # orb = ORB(n_keypoints=500, fast_threshold=0.05)
+    orb = SIFT()
     orb.detect_and_extract(image1)
     # keypoints contains location, scale, and rotation of features
     keypoints1 = orb.keypoints
@@ -58,8 +59,12 @@ def alignDiscretized(ref_img_name,ref_img_dir, img_name,img_dir,out_dir,show=Fal
 
     output_shape = image1.shape
     # warp image to reference image using similarity transformation
-    image2_ = warp(image2, model_robust.inverse, preserve_range=True,
-                   output_shape=output_shape, cval=-1)
+    image2_ = warp(image2, model_robust.inverse, preserve_range=False,
+                   output_shape=output_shape, cval=0)
+
+    if (show):
+        cv2.imshow('Aligned Image', image2_)
+        cv2.waitKey(0)
 
     image2_ = np.ma.array(image2_, mask=image2_==-1)
 

@@ -9,7 +9,7 @@ from scipy.ndimage.filters import minimum_filter
 from helpers import showImages
 
 # extractSegment returns a list of rgba images, masks, and ids tuples to be input to a discretize function
-def extractSegments(image_ids,bound=True,remove_islands=True,erode=True,remove_glare=False,erode_kernel_size=4,show=False,img_dir="../../data/all_images",mask_dir="../../data/masks"):
+def extractSegments(image_ids,bound=True,remove_islands=True,erode=True,remove_glare=False,erode_kernel_size=4,write=True,show=False,img_dir="../../data/all_images",mask_dir="../../data/masks"):
 
     rgba_imgs_masks_ids = []
     for id in image_ids:
@@ -91,6 +91,7 @@ def extractSegments(image_ids,bound=True,remove_islands=True,erode=True,remove_g
             cv2.drawContours(mask, [max(contours, key=len)], -1, 255, thickness=-1)
 
         # apply mask to img to get masked img
+        # showImages(show,[img,mask],["1","2"])
         img = cv2.bitwise_and(img, img, mask=mask)
 
         # create bounding rect around mask
@@ -102,6 +103,10 @@ def extractSegments(image_ids,bound=True,remove_islands=True,erode=True,remove_g
         if bound:
             img = img[y:y + h, x:x + w]
             mask = mask[y:y + h, x:x + w]
+
+        # write segment
+        if write:
+            cv2.imwrite("../../data/segments/" + id + "_segment.jpg",img)
 
         # convert final masked image to RGBA
         img = cv2.cvtColor(img, cv2.COLOR_RGB2RGBA)

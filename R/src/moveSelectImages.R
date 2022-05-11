@@ -13,7 +13,7 @@ moveSelectImages <- function(num_images= NULL, species = NULL, class_name = NULL
 {
   from <- from_
   # read in all Odonata observations and annotations
-  data <- read.csv("../../data/inat_odonata_usa.csv",header=TRUE,row.names=NULL,sep="\t")
+  data <- read.csv("../../data/inat_data.csv",header=TRUE,row.names=NULL,sep="\t")
   annotations <- read.csv("../../data/annotations.csv")
   
   if(!is.null(species)){ # if supplied a species, get only that species

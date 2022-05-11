@@ -16,3 +16,7 @@ mean_size_mb * 10000
 
 # calculate number of obs to download given more than 1 image per obs
 10000/ mean(data$numImages)
+
+mean(data$numImages)
+
+500 * mean(data$numImages)

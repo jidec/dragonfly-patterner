@@ -144,56 +144,62 @@ def retrieveAllRecords(
             else:
                 obs_ids.add(obs_id)
 
+
             img_list = rec['photos']
 
+            # LOOP EDITED
+            # if has an image
             if len(img_list) > 0:
-                img = img_list[0]
-                if (
-                    img['url'] is not None and
-                    img['original_dimensions'] is not None
-                ):
-                    #img_fname = ''.join([
-                    #    random.choice(FNCHARS) for cnt in range(16)
-                    #]) + '.jpg'
-                    img_fname = '' + str(obs_id) + '_' + str(random.randint(0, 1000)) + '.jpg' #hacky solution here OLD: .join(obs_id)
-                    if full_size:
-                        img_url = img['url'].replace('/square.', '/original.')
-                    else:
-                        img_url = img['url'].replace('/square.', '/large.')
+                # for each image in img_list
+                for i in range(0,len(img_list)-1):
+                    img = img_list[i]
+                    img_num = i + 1
+                    if (
+                        img['url'] is not None and
+                        img['original_dimensions'] is not None
+                    ):
+                        #img_fname = ''.join([
+                        #    random.choice(FNCHARS) for cnt in range(16)
+                        #]) + '.jpg'
+                        img_fname = '' + str(obs_id) + '-' + str(img_num) + '.jpg' #str(random.randint(0, 1000)) + '.jpg' #hacky solution here OLD: .join(obs_id)
+                        if full_size:
+                            img_url = img['url'].replace('/square.', '/original.')
+                        else:
+                            img_url = img['url'].replace('/square.', '/large.')
 
-                    # Get the annotations.
-                    annot_list = []
-                    for annot in rec['annotations']:
-                        attr = annot['controlled_attribute_id']
-                        value = annot['controlled_value_id']
-                        annot_list.append(
-                            '{0}:{1}'.format(vocab[attr], vocab[value])
+                        # Get the annotations.
+                        annot_list = []
+                        for annot in rec['annotations']:
+                            attr = annot['controlled_attribute_id']
+                            value = annot['controlled_value_id']
+                            annot_list.append(
+                                '{0}:{1}'.format(vocab[attr], vocab[value])
+                            )
+
+                        if rec['location'] is not None:
+                            latlong = rec['location'].split(',')
+                        else:
+                            latlong = ('', '')
+
+                        row_out['obs_id'] = obs_id
+                        row_out['usr_id'] = rec['user']['id']
+                        row_out['date'] = rec['observed_on']
+                        row_out['latitude'] = latlong[0]
+                        row_out['longitude'] = latlong[1]
+                        row_out['taxon'] = rec['taxon']['name']
+                        row_out['img_cnt'] = len(img_list)
+                        row_out['img_id'] = img['id']
+                        row_out['file_name'] = img_fname
+                        row_out['img_url'] = img_url
+                        row_out['width'] = img['original_dimensions']['width']
+                        row_out['height'] = img['original_dimensions']['height']
+                        row_out['license'] = img['license_code']
+                        row_out['annotations'] = ','.join(annot_list)
+                        row_out['tags'] = ','.join(rec['tags'])
+                        row_out['download_time'] = time.strftime(
+                            '%Y%b%d-%H:%M:%S', time.localtime()
                         )
-
-                    if rec['location'] is not None:
-                        latlong = rec['location'].split(',')
-                    else:
-                        latlong = ('', '')
-
-                    row_out['obs_id'] = obs_id
-                    row_out['usr_id'] = rec['user']['id']
-                    row_out['date'] = rec['observed_on']
-                    row_out['latitude'] = latlong[0]
-                    row_out['longitude'] = latlong[1]
-                    row_out['taxon'] = rec['taxon']['name']
-                    row_out['img_cnt'] = len(img_list)
-                    row_out['img_id'] = img['id']
-                    row_out['file_name'] = img_fname
-                    row_out['img_url'] = img_url
-                    row_out['width'] = img['original_dimensions']['width']
-                    row_out['height'] = img['original_dimensions']['height']
-                    row_out['license'] = img['license_code']
-                    row_out['annotations'] = ','.join(annot_list)
-                    row_out['tags'] = ','.join(rec['tags'])
-                    row_out['download_time'] = time.strftime(
-                        '%Y%b%d-%H:%M:%S', time.localtime()
-                    )
-                    writer.writerow(row_out)
+                        writer.writerow(row_out)
 
         print('  {0:,} records processed...'.format(record_cnt))
         page += 1
@@ -267,8 +273,9 @@ if args.counts_only:
 else:
     ofpath = args.output_file
     if ofpath is None:
-        ofpath = 'helpers/genus_image_records/iNat_images-' + args.taxon.replace(' ', '_') + '.csv' #EDITED
-
+        #ofpath = 'helpers/genus_image_records/iNat_images-' + args.taxon.replace(' ', '_') + '.csv' #EDITED
+        # add param for proj_root
+        ofpath = '../../data/misc/genus_download_records/iNat_images-' + args.taxon.replace(' ', '_') + '.csv'  # EDITED
     of_exists = os.path.exists(ofpath)
     prev_obs_ids = {}
     if of_exists:

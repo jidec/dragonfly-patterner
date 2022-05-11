@@ -1,40 +1,52 @@
-Directories
-	pipeline - contains complete pipeline components
-	experiments - contains WIP pipeline components
-   downloaders - contains scripts to download images
-   data - contains images, all saved annotations, raw odonata data, and processed segments
-   annotations - contains annotation tasks (class & seg) and ImageAnt and Fiji macros for annotation
-   dpR - contains R scripts to organize directories and run analyses
-    
+Project Structure
+    pipeline - contains folders holding complete steps of the pipeline from start to finish, scripts to run steps are contained in these folders
+        and methods called by these scripts are contained within /pylib subfolders
+	experiments - contains wip and experimental pipeline components to be added to full pipeline later
+    data - contains /all_images, /masks, and processed /patterns, an annotations file (annotations.csv) holding merged training set annotations for each imageID,
+        an inat odonata data file (inat_odonata_usa.csv) holding raw iNat information for each observation, and an inferences file (inferences.csv) holding classification
+        and segmentation inference information for each imageID - iNat and inference files are loaded into R and merged for downstream analysis
+    trainset_tasks - contains folders holding tasks for each training set curator, plus a macro for annotation in ImageAnt (odo_view_annot_V3.ias)
+        a copy of the ImageAnt software (imageant.exe), and a macro for semi-supervised segment creation in Fiji (sioux_segment_helper.ijm)
+    R - contains R helper scripts (some of which are run from Python) in /src, and analysis of raw data and patterns in /analyses
 
 
-Steps for those starting fresh without any data (Louis or Rob won't have to do this)
-    1. download an iNat or GBIF csv containing all observations of taxon (Odonata), name it "inat_odonata_usa.csv" and place in data
+Notes
+    ensure you specify folders to source from to allow you to call methods from other scripts
+        in PyCharm do this in File -> Settings -> Project Structure and mark as sources the pipeline folder and all pylib folders
+    pipeline could be expanded to other taxa and observations by simply by downloading a larger subset from GBIF
+
+Steps for those starting fresh without any data (no one but Jacob should have to do this)
+    1. download a GBIF csv containing all USA iNat observations of Odonata (https://www.gbif.org/occurrence/search?country=US&dataset_key=50c9509d-22c7-4a22-a47d-8c48425ef4a7&taxon_key=789&occurrence_status=present),
+        name it "inat_data.csv" and place in data
 	2. run data/split/splitCSV.py to split the large csv into smaller csvs to allow GitHub pushing without Git LFS 
     2. run R/getGenusList.R to create list of all genera from all observations in inat_odonata_usa.csv, genus_list.csv gets placed in data folder automatically
-    3. run downloaders/downloadOdonataImages.py to download images from genera in genus list, images get placed in data/all_images folder automatically 
+    3. use pipeline/0_image_downloading scripts to download iNat images from genera in genus list, images get placed in data/all_images folder automatically
+    4. download the csv from Odonata Central containing more observations
+    5. use cURL script in pipeline/0_image_downloading to download Odonata Central images (a secondary image database), images get placed in data/all_images folder automatically
+    6. (rename image either in cURL or using R script)
 
-One-time step for merging split csvs to create inat_odonata_usa.csv (Louis and Rob will have to do this, unsplit is 300 MB so cannot be on GitHub without Git LFS)
-    1. run data/split/mergeCSV.py
+Steps for those doing data manipulation, if not the one starting fresh (no one currently)
+    1. run data/split/mergeCSV.py to create inat_odonata_usa.csv
+    2. download one of the zipped image files from Jacob's online drive
 
-Steps for preparing an annotation task (Jacob will do this, possibly Louis)
-    1. in the annotations/*personsname* folder make a new folder with a date for the new annotation session
-    2. run R/moveSelectImages.R with the annotations/*personsname*/*sessionname* as a parameter to move images to this new annotations folder
-    3. AFTER annotation task is complete, run R/concatAnnotations.R to merge the new annotation with a .csv containing all annotations
+Steps for preparing an annotation task (Jacob will do this)
+    1. in pipeline/0_trainset_curation run create_training_task.py specifying annotator, task name, and number of images
 
-Steps for annotators (Jacob & Louis)
-    1. in the annotations/*yourname* folder make a new folder with a date and name for the new annotation session i.e. 2-4-22_100Segments or 2-2-22_500Aeshnidae
-    2. run imageant (either on your computer, or the .exe included in the annotations folder in the repo)
-    3. click File -> New Image Annotation Session
-    4. name the session file within the annotations/*yourname*/*sessionname* folder
-    5. pick the annotations/*yourname*/*sessionname* folder as the image folder
-    6. pick odo_view_annot.ias from the annotations folder as the script
+Steps for finalizing an annotation task (Jacob will do this)
+    1. in pipeline/0_trainset_curation run end_training_task.py specifying annotator and task name
+
+Steps for classification annotators (Jacob, Louis, Ana, & Rob)
+    1. start ImageAnt using the .exe included in the /trainset_tasks folder
+    2. click File -> New Image Annotation Session
+    4. create the session file within /trainset_tasks/*yourname*/*sessionname* folder, name it anything (i.e. session.csv)
+    5. pick the /trainset_tasks/*yourname*/*sessionname* folder as the image folder
+    6. pick odo_view_annot.ias from the /trainset_tasks as the annotations script
     7. annotate using the keys to answer the prompts, you can save and exit and return if you want
     8. when done go File -> Save Annotations
     9. on Github Desktop make a commit using the "commit to main" button (this will add the files you created in ImageAnt) 
     10. hit the "push origin" button to push your additions to the repository 
 	
-Steps for segment annotation enjoyers (Jacob & Louis)
+Steps for segment annotators (Jacob, Louis, Ana, & Rob)
     1. install Fiji (https://imagej.net/software/fiji/downloads) if it's not already installed
 	2. start Fiji, go to Plugins -> Macros -> Install and select sioux_segment_helper.ijm to install the helper macro
 	3. go to Plugins -> Macros and click the new SIOUX Segment Helper macro that appeared to run it 
@@ -42,4 +54,16 @@ Steps for segment annotation enjoyers (Jacob & Louis)
     5. images will load into SIOUX one by one, see (https://imagej.net/plugins/siox) for how to use SIOUX
 	6. basically just paint over some parts of the background and foreground then hit the Segment button then create Mask, then use the brush tool to refine the Mask a bit 
 	7. click the OK button to save the mask and move to the next image
-	8. the script only uses images that don't already have masks so you can resume easily 
+	8. the script only uses images that don't already have masks, so you can resume after quitting
+
+Steps for those wanting to train and test... TODO
+
+Points & considerations relating to data management
+    1. All data is kept in the data folder such that one could run code on different sets of data
+    2. all_images, masks, patterns, segments all can contain images from multiple sources
+    3. Image naming goes *SOURCE_*ID_*INTRAOBS#
+        -this accounts for different sources with the same id
+        -INTRAOBS# accounts for the very common organization of having multiple images per observation or specimen
+        -i.e. INTRAOBS# is _1..._2... for INAT images, _DORSAL..._VENTRAL etc for AntWeb images
+
+

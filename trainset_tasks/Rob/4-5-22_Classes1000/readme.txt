@@ -1,2 +1,0 @@
-# images are downloaded here, whether randomly selected or downloaded genus by genus (see downloader scripts)
-# random images are distinguished by having no underscore + additional id, as they are only 1 per observation 

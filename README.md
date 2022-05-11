@@ -1,2 +1,2 @@
 # dragonfly-patterner
- A pipeline to extract & analyze dragonfly color & pattern information using mass iNat images
+ A pipeline to extract & analyze insect color & pattern information using mass iNat images

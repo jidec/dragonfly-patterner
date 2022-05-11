@@ -18,3 +18,6 @@ sum(match) / 150 # 80%
 table(annots_j$dorsal_lateral) # 80 bad, 29 dorsal, 41 lateral
 table(annots_l$dorsal_lateral) # 74 bad, 37 dorsal, 39 lateral
 
+
+annots <- read.csv("../data/annotations.csv")
+table(annots$dorsal_lateral_dorsolateral_bad)

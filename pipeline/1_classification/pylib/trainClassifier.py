@@ -1,8 +1,12 @@
+import pandas
+import pandas as pd
 import torch
 import time
 import copy
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
-def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, scheduler, num_epochs=25):
+def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, scheduler, num_epochs, class_names):
     since = time.time()
 
     best_model_wts = copy.deepcopy(model.state_dict())
@@ -11,8 +15,11 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     for epoch in range(num_epochs):
-        print('Epoch {}/{}'.format(epoch, num_epochs - 1))
+        print("\n","\n",'Epoch {}/{}'.format(epoch, num_epochs - 1))
         print('-' * 10)
+
+        test_preds = []
+        test_labels = []
 
         # Each epoch has a training and validation phase
         for phase in ['train', 'test']:
@@ -47,6 +54,13 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
                 # statistics
                 running_loss += loss.item() * inputs.size(0)
                 running_corrects += torch.sum(preds == labels.data)
+                if phase == 'test':
+                    for val in preds.cpu():
+                        test_preds.append(int(val))
+                    for val in labels.data.cpu():
+                        test_labels.append(int(val))
+                    #test_preds.append(preds.cpu())
+                    #test_labels.append(labels.data.cpu())
             if phase == 'train':
                 scheduler.step()
 
@@ -56,12 +70,28 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
             print('{} Loss: {:.4f} Acc: {:.4f}'.format(
                 phase, epoch_loss, epoch_acc))
 
+            if phase == 'test':
+                preds_labels = pd.DataFrame({'Prediction': test_preds, "Label": test_labels})
+
+                # print and save classification report
+                print(classification_report(test_labels, test_preds, target_names=class_names,zero_division=0))
+
+                # create and label confusion matrix
+                cm = pandas.DataFrame(confusion_matrix(test_labels, test_preds, labels=None, sample_weight=None, normalize=None))
+                cm_colnames = []
+                cm_rownames = []
+                for c in class_names:
+                    cm_colnames.append("Predicted " + c)
+                    cm_rownames.append("Actual " + c)
+                cm.columns = cm_colnames
+                cm.index = cm_rownames
+                print(print(cm.to_string()))
+
+                preds_labels.to_csv("pylib/models/preds.csv")
             # deep copy the model
             if phase == 'test' and epoch_acc > best_acc:
                 best_acc = epoch_acc
                 best_model_wts = copy.deepcopy(model.state_dict())
-
-        print()
 
     time_elapsed = time.time() - since
     print('Training complete in {:.0f}m {:.0f}s'.format(

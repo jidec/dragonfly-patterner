@@ -28,7 +28,7 @@ getFilterImageIDs <- function(annotation_field=NULL,annotation_value=NULL,
   if(exclude_segmented){image_ids <- setdiff(image_ids, segmented_ids)}
   if(only_segmented){image_ids <- intersect(image_ids,segmented_ids)}
   
-  classified_ids <- dplyr::filter(annotations, is.na(dorsal_lateral_bad))$imageID
+  classified_ids <- dplyr::filter(annotations, is.na(dorsal_lateral_dorsolateral_bad))$imageID
   if(exclude_classified){image_ids <- setdiff(image_ids, classified_ids)}
   if(only_classified){image_ids <- intersect(image_ids,classified_ids)}
   

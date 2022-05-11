@@ -163,11 +163,16 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# ignore inat_odonata_usa.csv
-data/inat_odonata_usa.csv
+# ignore data files
+data/inat_data.csv
+data/odonatacentral_data.csv
 
-# ignore data/all_images
+# ignore data folders
 data/all_images/
+data/ml_models/
+data/masks/
+data/other/genus_download_records
+data/other/training_dirs
 
 # ignore temp training images
 pipeline/1_classification/pylib/trainsets/

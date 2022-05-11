@@ -1,14 +1,15 @@
 
 # create a list of genera from all Odonata csv
 
-writeGenusList <- function(){
+writeGenusList <- function(proj_root="../.."){
   
   library(dplyr)
   library(stringr)
   
-  data <- read.csv("../data/inat_odonata_usa.csv",header=TRUE,row.names=NULL,sep=",")
+  data <- read.csv(paste0(proj_root, "/data/inat_data.csv"),header=TRUE,row.names=NULL,sep=",")
   genera <- unique(data$scientificName)
   genera <- str_split_fixed(data$species, " ", n=2)
   genera <- unique(genera[,1])
-  write.csv(genera, "../pipeline/0_image_downloading/pylib/genus_list.csv")
+  write.csv(genera, paste0(proj_root, "/data/other/genus_list.csv"))
+  print("Wrote new genus list .csv to data/misc folder")
 }

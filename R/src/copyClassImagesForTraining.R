@@ -69,6 +69,9 @@ copyClassImagesForTraining <- function(class_col, class_name, class_col2=NULL, c
     
     # override class dir if included (use to send multiple classes to the same folder) 
     if(!is.null(class_dir_override)){
+      
+      dir.create(paste0(to, "/train/", class_dir_override))
+      dir.create(paste0(to, "/test/", class_dir_override))
       # get to and fix 
       class_imgs_to_train <- paste0(to, "/", "train/", class_dir_override, "/", class_imgs)
       class_imgs_to_test <- paste0(to, "/", "test/", class_dir_override, "/", class_imgs)
@@ -83,11 +86,11 @@ copyClassImagesForTraining <- function(class_col, class_name, class_col2=NULL, c
     }
     
     
-    # create class dirs
-    d <- gsub(" ", "", paste(to, "/train/", class_name), fixed = TRUE)
-    dir.create(d)
-    d <- gsub(" ", "", paste(to, "/test/", class_name), fixed = TRUE)
-    dir.create(d)
+    if(is.null(class_dir_override)){
+      # create class dirs
+      dir.create(paste0(to, "/train/", class_name))
+      dir.create(paste0(to, "/test/", class_name))
+    }
     
     # copy files
     file.copy(from = class_imgs_from_train, to = class_imgs_to_train)
