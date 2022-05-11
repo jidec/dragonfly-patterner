@@ -36,11 +36,12 @@ Steps for finalizing an annotation task (Jacob will do this)
     1. in pipeline/0_trainset_curation run end_training_task.py specifying annotator and task name
 
 Steps for classification annotators (Jacob, Louis, Ana, & Rob)
+NOTE - if doing a shared annotation, folder will be /trainset_tasks/Shared/*sessionname* but be sure to name the session file *yourname_session.csv
     1. start ImageAnt using the .exe included in the /trainset_tasks folder
     2. click File -> New Image Annotation Session
-    4. create the session file within /trainset_tasks/*yourname*/*sessionname* folder, name it anything (i.e. session.csv)
+    4. create the session file within /trainset_tasks/*yourname*/*sessionname* folder, name *yourname*_session.csv
     5. pick the /trainset_tasks/*yourname*/*sessionname* folder as the image folder
-    6. pick odo_view_annot.ias from the /trainset_tasks as the annotations script
+    6. pick odo_view_annotV3.ias from the /trainset_tasks as the annotations script
     7. annotate using the keys to answer the prompts, you can save and exit and return if you want
     8. when done go File -> Save Annotations
     9. on Github Desktop make a commit using the "commit to main" button (this will add the files you created in ImageAnt) 
