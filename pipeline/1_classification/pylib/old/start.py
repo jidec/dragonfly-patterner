@@ -1,8 +1,9 @@
 from loadTrainClassModel import loadTrainClassModel
 from torchvision import transforms
 from AddGaussianNoise import AddGaussianNoise
-
-data_dir = "dorsal_bad"
+import torch
+print(torch.cuda.get_device_name(0))
+data_dir = "dorsal_lateral_bad"
 exp_dir = "out"
 data_transforms = {
         # data augmentation and normalization for training
@@ -25,4 +26,4 @@ data_transforms = {
 
 # load and train
 loadTrainClassModel(data_dir=data_dir, exp_dir=exp_dir, num_epochs=10, batch_size=4, num_workers=0,
-                       data_transforms= data_transforms,model_name="dorsal_bad")
+                       data_transforms= data_transforms,model_name="dorsal_lateral_bad")
