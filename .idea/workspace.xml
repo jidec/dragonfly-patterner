@@ -5,659 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/honeSegments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/old/mergeCSV.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/old/splitCSV.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadAntWebImages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_antweb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/filesize_info.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/filesize_info.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/misc_counts.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/misc_counts.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/copyClassImagesForTraining.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/copyClassImagesForTraining.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/createEndTrainingTasks.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/createEndTrainingTasks.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/getFilterImageIDs.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/getFilterImageIDs.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/mergeUpdateAnnotations.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/mergeUpdateAnnotations.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/moveSelectImages.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/moveSelectImages.R" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/R/src/preprocessiNat.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/preprocessiNat.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/writeGenusList.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/writeGenusList.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/annotations.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/patterns/individuals/1088267_677_pattern.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/patterns/individuals/14246470_755_pattern.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/patterns/individuals/15126155_576_pattern.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/patterns/individuals/15357343_836_pattern.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/split/1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/split/2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/split/3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/split/4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/split/mergeCSV.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/split/splitCSV.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/bad/103955005_995.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/bad/1048291_634.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/bad/10575374_465.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/bad/11470573_974.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/bad/12744191.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/dorsal/1088267_677.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/dorsal/12565055_604.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/dorsal/13303974.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/dorsal/14246470_755.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/dorsal/14807040.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/lateral/100596025.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/lateral/10086216_899.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/lateral/101284415.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/lateral/101356433.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/test/lateral/10227425.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/103955005_995.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/1048291_634.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/10575374_465.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/11470573_974.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/12744191.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/13496651.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/13565578.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/13715392.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/14038798.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/14070149.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/14444089_476.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/14479984.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/14601680_583.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/1463042_737.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/14692426.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/148474_796.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/15243698.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/15312748_135.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/15325123.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/15915265.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16056650.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16071092_398.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16118584_518.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16226364_777.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16242159.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16265500_720.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16314171.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16739694_308.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/16779638_41.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/17007370.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/17778683.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/1796947_989.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/1797874_820.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/1844924_720.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/18600171_776.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/18616685_162.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/18662576_87.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/18665422_562.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/1869059.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/18837488_611.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/189868_345.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/1950090_307.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/19571996_368.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/2002899_703.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/20455646_197.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/207899_353.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/21215069.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/213317_282.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/22459914_675.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/22796037.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/22858903.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/24703853.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/25532398.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/25846601.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/27247190.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/27430884.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/27723169.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/27892245_413.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/28047896.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/28147278_957.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/28254330.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/28823980_902.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/29069372.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/29151236_194.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/29380700.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/29503915.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30093929_539.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30270099.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30300880.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30322068_714.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30342229_904.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30678802.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30695959_479.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/30796383_427.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/31070436_659.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/31139188_73.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/31339572.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/31641313_88.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/31701472.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/32020171_201.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/32028420.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/3219114_550.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/32283186_115.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/32289512_469.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/32380556_85.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33132896_937.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33148825_661.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33217510_863.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33499496_27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33500359.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33689471_270.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33711298_576.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33732593.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33853428_57.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33862994_838.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33877301.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/33988310_800.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/34449986.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/34488690_927.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/35208284.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/35606205.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/35650088_327.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/35883342_285.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/361601.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/3635127.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/37573634.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/3814959.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/3871636_890.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/39567765_832.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/4069455_870.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/41974801.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/4233682_156.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/4523241_209.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/46399392.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/4657545.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/46934060.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/46990813.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/47438983_582.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/50211270_109.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/50819310.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/51720002.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/52095859_99.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/52264375_746.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/52381555_241.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/52688142_826.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/52856670_411.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/52959087_24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/53532560.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/53910414_279.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/54111444.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/54114167.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/54218667_126.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/5449550_629.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/5450532.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/54594837_418.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/54605645_708.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/54852222_198.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/5498347_357.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/55564092_448.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/55741896_270.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/55754114_846.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56075457.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56079691_185.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56632332_647.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56636625_154.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56688290_412.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56776731_71.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56900050_819.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/56947318_488.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/57070032_784.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/57241387_182.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/57275756_215.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/57985494.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/58106761_124.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/58543271.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/58619312_771.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/58724309_340.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/58916326.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/59504095_549.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/59719473_101.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/59906556_760.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/59955048_381.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/60538270_217.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/61261654_178.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/61456358_751.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/61616151_24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/61988613.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/62137457.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/62307668_36.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/62507714_816.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/63212556_6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/63633435.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/63924389.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/64050375_617.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/66808738_213.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/6730883.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/6739095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/68182678_912.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/68573640.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/68776793_972.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/6884810_129.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/68946040_93.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/69154799_82.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/6925183.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/6948968_873.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/69886929.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7112722.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7116439_517.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7126845_897.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/72938513.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/730306_213.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7334909.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7354235_562.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/74102606.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7597682_619.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7625436_593.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7639039_167.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7733579_409.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/77743697.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7897543_866.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/7971641.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/806291_52.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/80821965.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/82288104_673.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/82310232.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/82736656.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/8343989.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/83680214.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/84364268.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/84566296_224.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/84639553_93.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/84738329.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/84796767_96.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/84923507_674.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/84953304_994.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/85419349.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/85633305_733.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/86087970.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/86516099_504.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/86658049_617.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/87243732_983.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/87629166_500.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/87782314.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/87807557_51.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88050696_250.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88128802.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88394540.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88407012_840.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88474100_275.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88708098_930.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88741163_652.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/888794.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/88998390_804.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/89258132_507.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/89388720.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/89417820.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/89723858.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/89976333.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/90205128_819.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/90545388.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/91157569_899.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/91305366_997.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/91321678_984.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/91393189_453.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/91477834_73.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/91481885_44.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92001831.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92383767_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92418846_722.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92705415.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92719183.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92734240_72.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92840128_110.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/92867210_233.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/93624767_488.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/93766320.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/93791292_311.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/93921189.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/93922447_690.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/94127757.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/94144338_653.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/9421871_492.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/94220831.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/94499648_78.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/94639937.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/94882973_640.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/95091755.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/95310666_405.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/95379290_938.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/95581426_42.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/96022074_181.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/96085936_462.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/96151717_647.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/96396661_227.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/96641411_484.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/96709471.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/96924562_344.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/bad/9724716.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/1088267_677.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/12565055_604.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/13303974.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/14246470_755.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/14807040.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/15357343_836.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/16272448_645.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/16615437_59.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/1724496.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/1767367_722.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/18299461_678.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/19431466_134.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/20171544_133.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/27049623_17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/27344797.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/27806191.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/28442602.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/28657784.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/30072896_433.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/30474330.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/30567047.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/31364710_443.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/31645134_725.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/32469153_592.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/33642173_160.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/33923222_859.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/35023729.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/35163746.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/36559890.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/3700855.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/3875538_502.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/4067707_267.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/40998323.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/45975485_622.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/49558036_655.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/49568006.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/50361747_902.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/51730544.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/51812273.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/52496852_285.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/52741005_439.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/53321180.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/53770393.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/54075687_217.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/56074242_690.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/56504810.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/57023731.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/57491038_110.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/57607285.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/57956060.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/58091867_156.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/58354649_433.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/5844918.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/59119891_845.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/59637607_958.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/59938901_197.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/5997798_326.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/61180474_66.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/6582215_505.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/67864511_458.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/68707051.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/6987973_570.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/70083372_82.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/7098204.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/74104168.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/7431807_381.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/7467937.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/79423850.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/83171724.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/83187801.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/84639546_249.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/85038839.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/8650092.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/87432878.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/88278035_883.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/89208752.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/90960429_824.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/91864522_65.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/91925562.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/92723783_709.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/dorsal/94063111_970.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/100596025.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/10086216_899.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/101284415.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/101356433.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/10227425.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/10505150_805.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/10571878_704.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1088260_874.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1088264_705.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1126651_837.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1278120_520.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/13872063.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/14013470_517.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/14399543.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/14732587.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15008619.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15123116_527.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15126155_576.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15274093.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15281410.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15666166.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1569499_973.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15799332.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/15879841_752.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1622527.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1653789_935.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1737355_913.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1796868_343.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/18615843.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/1870246_839.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/18760185_247.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/206767_19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/213334_204.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/217606.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/21933952_872.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/2428390_628.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/25586130.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/28394742_676.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/28407836_274.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/284464_72.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/28641663.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/29072207.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/29212106_338.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/29266684_269.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/29489398_178.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/29544805.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/30743651_714.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/30796631.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/30970476_877.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/31573643_319.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/31669612_161.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/31895283.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/32004909_731.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/32919541_682.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/33030804_939.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/33158579_675.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/33853317_807.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/34517367.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/34693573_436.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/35152084_615.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/35586959.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/35642029_842.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/35645158.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/35931837.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/3702128_525.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/37665341.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/37703863_21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/38087827_770.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/38100866_118.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/3908926.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/4228106.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/42351590.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/4333387.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/44964170_618.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/463634_945.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/47385077.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/48194927.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/4895552.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/51891363.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/52141679_935.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/53084632.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/53437863_221.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/53548142_475.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/53559413_672.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/54043475_111.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/54214992_712.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/55087849.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/55488281.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/55621030.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/55870953_596.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/56153671_855.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/56326404.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/56770730_892.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/57157661_93.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/57175141_327.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/58456647_369.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/58924200_97.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/59654695_146.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/59863434.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/60258850_489.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/60283512_157.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/60647090.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/61048734_430.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/65414461_607.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/67644944_404.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/68716858_699.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/68824352_678.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/6902290.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/70021440_391.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/72983132.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/78852126.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/79729397.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/822635_422.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/84793550.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/86245303.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/86658050_342.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/87030262_787.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/87421364.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/88052708.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/89529110.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo-view-classifier/trainsets/dorsal_lateral_bad/train/lateral/90668470_896.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo_seg_analyzer/alignDiscretized.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/odo_seg_analyzer/alignDiscretized.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo_seg_analyzer/images/4155610_198_aligned.png" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/odo_seg_analyzer/images/4155610_198_aligned.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/odo_seg_analyzer/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/odo_seg_analyzer/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide.txt" beforeDir="false" afterPath="$PROJECT_DIR$/guide.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/preprocess_gbif_inat.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/preprocess_gbif_inat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/download_genera.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/download_random.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadGenusImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadGenusImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadRandomSingleImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadRandomSingleImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/genus_list.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/helpers/get_inat_records.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/helpers/get_inat_records.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/create_training_task.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/end_training_task.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/create_2class_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/create_3class_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/infer_2class_multistep.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/infer_3_class.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/infer_3class_multistep.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/inferImageClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/inferImageClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/loadTrainClassModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/loadTrainClassModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/trainClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/trainClassifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/create_segmentation_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/10571878_704_segout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/1088260_874_segout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/1088264_705_segout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/1088267_677_segout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/14246470_755_segout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/15126155_576_segout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/15357343_836_segout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/SegmentationOutput_10571878_704.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/SegmentationOutput_1088260_874.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/SegmentationOutput_1088264_705.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/SegmentationOutput_1088267_677.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/SegmentationOutput_14246470_755.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/SegmentationOutput_15126155_576.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/SegmentationOutput_15357343_836.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/out/log.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/discretize_individuals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/discretize_species.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/pylib/discretizeIndvs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadGenusImages.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadRandomSingleImages.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_genera.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_genera.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/pylib/extractSegments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization/pylib/extractSegments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/blend_species.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/cluster_blend_species_morphs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/pylib/alignDiscretized.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/4_compositing/pylib/alignDiscretized.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/pylib/compositeSpecies.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/sourceRdefs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/sourceRdefs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/2-4-22_60Segments/session.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/2-7-22_Classes150/session.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/2-7-22_Classes150/session.ia_sess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/3-2-22_NewClasses200/session.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/3-2-22_NewClasses200/session.ia_sess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/10086216_899.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/10086216_899_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/10505150_805.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/10505150_805_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/12565055_604.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/12565055_604_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1278120_520.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1278120_520_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/14013470_517.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/14013470_517_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/15123116_527.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/15123116_527_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1569499_973.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1569499_973_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/16118584_518.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/16118584_518_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1653789_935.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1653789_935_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/16615437_59.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/16615437_59_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1767367_722.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1767367_722_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1870246_839.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/1870246_839_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/19431466_134.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/19431466_134_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/206767_19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/206767_19_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/21933952_872.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/21933952_872_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/2428390_628.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/2428390_628_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/27049623_17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/29212106_338.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/30072896_433.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/30743651_714.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/31645134_725.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/31669612_161.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/32004909_731.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/32469153_592.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/33030804_939.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/33158579_675.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/33642173_160.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/35152084_615.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/3875538_502.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/49558036_655.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/50361747_902.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/52688142_826.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/52741005_439.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/53437863_221.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/54075687_217.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/56153671_855.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/56770730_892.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/58456647_369.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/59654695_146.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/59906556_760.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/5997798_326.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/60258850_489.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/6582215_505.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/68824352_678.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/6987973_570.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/70083372_82.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/85633305_733.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/87243732_983.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/88278035_883.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/90668470_896.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/91864522_65.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/92418846_722.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/92723783_709.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/93922447_690.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/94063111_970.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/2-4-22_60Segments/97281541_462.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Rob/4-5-22_Classes1000/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/1-20-22_Stylurus200/Jacob_imagant/session.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/1-20-22_Stylurus200/Jacob_imagant/session.ia_sess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/1-20-22_Stylurus200/Louis_imageant/session1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/1-20-22_Stylurus200/Louis_imageant/session1.ia_sess" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/odo_view_annot.ias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/odo_view_annot_old.ias" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -683,9 +38,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadGenusImages.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pipeline/sourceRdefs.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadRandomSingleImages.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pipeline/0_data_prep/preprocess_gbif_inat.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/venv/Lib/site-packages/PIL/Image.py" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -749,7 +102,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pipeline/helpers/old" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="ReaderModeSettings">
@@ -764,14 +117,14 @@
       <recent name="D:\GitProjects\dragonfly-patterner\experiments\odo_segmenter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitProjects\dragonfly-patterner\pipeline\0_image_downloading" />
       <recent name="F:\GitProjects\dragonfly-patterner\trainset_tasks" />
       <recent name="F:\GitProjects\dragonfly-patterner\pipeline\0_image_downloading\pylib\old" />
       <recent name="F:\GitProjects\dragonfly-patterner\data\other" />
       <recent name="F:\GitProjects\dragonfly-patterner\data" />
-      <recent name="F:\GitProjects\dragonfly-patterner\data\all_images" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run_create_training_task">
+  <component name="RunManager" selected="Python.run_download_antweb">
     <configuration name="create_training_task" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -785,27 +138,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_trainset_curation/create_training_task.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="download_random" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dragonfly-patterner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_image_downloading" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_image_downloading/download_random.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -835,7 +167,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_download_genera" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run_download_antweb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -847,7 +179,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_genera.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_antweb.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -877,20 +209,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dragonfly-patterner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/0278640-210914110416597 (1)" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/0278640-210914110416597 (1)/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.download_random" />
-      <item itemvalue="Python.run_download_genera" />
       <item itemvalue="Python.create_training_task" />
       <item itemvalue="Python.run_download_random" />
       <item itemvalue="Python.run_create_training_task" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.run_download_antweb" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run_download_antweb" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.run_create_training_task" />
         <item itemvalue="Python.run_download_random" />
         <item itemvalue="Python.create_training_task" />
-        <item itemvalue="Python.run_download_genera" />
-        <item itemvalue="Python.download_random" />
       </list>
     </recent_temporary>
   </component>
