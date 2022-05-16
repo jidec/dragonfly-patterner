@@ -16,7 +16,9 @@ def sampleColorCircles(color_segment, n, radius):
         chosen_pixel = np.random.choice(segment_pixels,1)
         # get pixel coordinates within a circular range of the chosen pixel using skimage disk function
         # (or some other function that would just probably be easiest) https://scikit-image.org/docs/stable/api/skimage.draw.html#skimage.draw.disk
+        pixel_coordinates = disk(chosen_pixel, radius)
         # get only non-black pixels from these
+        non_black_pixels = np.any(pixel_coordinates != [0,0,0])
         # calculate average CIE coordinate of those pixels and add it to a vector or list
 
     # return the vector
