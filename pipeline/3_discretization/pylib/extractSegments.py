@@ -9,9 +9,38 @@ from scipy.ndimage.filters import minimum_filter
 from helpers import showImages
 
 # extractSegment returns a list of rgba images, masks, and ids tuples to be input to a discretize function
-def extractSegments(image_ids,bound=True,remove_islands=True,erode=True,remove_glare=False,erode_kernel_size=4,write=True,show=False,img_dir="../../data/all_images",mask_dir="../../data/masks"):
+def extractSegments(image_ids,bound=True,remove_islands=True,erode=True,remove_glare=False,adj_to_background=False,background_mean=None,erode_kernel_size=4,write=True,show=False,img_dir="../../data/all_images",mask_dir="../../data/masks"):
 
     rgba_imgs_masks_ids = []
+
+    # if adjusting to background and background mean not specified, calculate it
+    # not great, pretty redundant, move somewhere else when finalizing this method
+    # probably will involve separating out the mask honing as another method
+    if adj_to_background and background_mean == None:
+        bg_colors = []
+        for id in image_ids:
+            img = cv2.imread(img_dir + "/" + id + ".jpg", cv2.IMREAD_COLOR)
+            # open mask and convert to array
+            mask = cv2.imread(mask_dir + "/" + id + "_mask.jpg", cv2.IMREAD_GRAYSCALE)
+            mask = cv2.bitwise_not(mask)
+
+            # erode border of mask
+            if erode:
+                kernel = np.ones((erode_kernel_size, erode_kernel_size), np.uint8)
+                mask = cv2.erode(mask, kernel)
+            if remove_islands:
+                # keep only biggest contour (i.e. remove islands from mask)
+                contours, hierarchy = cv2.findContours(mask, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+
+                # empty image and fill with big contour
+                mask = np.zeros_like(mask)
+                cv2.drawContours(mask, [max(contours, key=len)], -1, 255, thickness=-1)
+            # apply mask to img to get masked img
+            # showImages(show,[img,mask],["1","2"])
+            background = cv2.bitwise_not(img, img, mask=mask)
+            bg_colors.append(background.mean(axis=(0,1)))
+        background_mean = sum(bg_colors) / 3
+
     for id in image_ids:
         # open image and convert to array
         img = cv2.imread(img_dir + "/" + id + ".jpg",cv2.IMREAD_COLOR)
@@ -93,6 +122,20 @@ def extractSegments(image_ids,bound=True,remove_islands=True,erode=True,remove_g
         # apply mask to img to get masked img
         # showImages(show,[img,mask],["1","2"])
         img = cv2.bitwise_and(img, img, mask=mask)
+
+        if adj_to_background:
+            background = cv2.bitwise_not(img,img,mask=mask)
+            bg_rgb = background.mean(axis=(0,1))
+            bg_luminance = sum(bg_rgb) / 3
+            bg_lum_mult = background_mean / bg_luminance
+            #if dark background, multiplier will be high, increasing the lightness of the image
+            #if light background, multiplier will be low, increasing the darkness of the image
+            img *= bg_lum_mult
+            # adjust the masked image using this difference
+            # change value of red channel
+            #img[:, :, 1] =
+
+
 
         # create bounding rect around mask
         th = cv2.threshold(mask, 0,255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]

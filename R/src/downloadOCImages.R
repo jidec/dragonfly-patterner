@@ -1,24 +1,21 @@
-#records <- read.csv("oc_photos.sh",quote = "",sep=" ",header=FALSE)
 
 # parse dragonfly script
-downloadOCImages <- function(start_image=1, root_path = "../..")
+downloadOCImages <- function(start_image=1, proj_dir = "../..")
 {
   library(curl)
   library(stringr)
-  records <- read.csv("data/oc_curl_records.csv",header=TRUE,row.names = 1)
-  records$url <- str_replace_all(records$url,"\"","")
+  records <- read.csv("../data/other/oc_curl_records.csv",header=TRUE,row.names = 1)
+  records$query <- str_replace_all(records$query,"\"","")
   for(i in start_image:nrow(records))
   {
+    #i = 1
     print(i)
-    url <- records[i,]$url
-    print(url)
+    query <- records[i,]$query
     img_name <- records[i,]$image_name
-    print(img_name)
-    curl_download(url = url, destfile = paste0(root_path, "/data/all_images/", img_name))
+    img_name <- str_replace(img_name,"-0","-")
+    img_name <- paste0("OC-",img_name)
+    curl_download(url = query, destfile = paste0(proj_dir, "/data/all_images/", img_name))
   }
 }
 
-#downloadOCImages(root_path="..")
-
-# NOTE - OC images will contain _oc at the end, iNat images no extension 
-# random images should also have 
+#downloadOCImages(proj_dir="..")
