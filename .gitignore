@@ -6,9 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-# mac folder files
-**.DS_Store
-
 # Distribution / packaging
 .Python
 build/
@@ -190,3 +187,6 @@ pipeline/0_image_downloading/pylib/helpers/genus_image_records
 
 # no silly Notepad++ .baks
 *.bak
+
+# no mac folder files
+*.DS_Store

@@ -74,7 +74,7 @@ def copyClassImagesToTrainingDirs(class_col,class_names,proj_dir,ntest):
     for c in class_names:
         copyClassImagesForTraining(class_col,c, to= to_dir, ntest=ntest, split_test_train=True, class_col2=robj.NULL,class_name2=robj.NULL,class_dir_override=robj.NULL)
 
-def createTrainingTask(trainer, task_name,n,random_downloaded_only,proj_root="../.."):
+def createTrainingTask(trainer, task_name,n,name_contains=robj.NULL,random_downloaded_only=False,proj_root="../.."):
     """
         Create a training task and move images to it
 
@@ -85,7 +85,7 @@ def createTrainingTask(trainer, task_name,n,random_downloaded_only,proj_root="..
     """
     r = ro.r
     r.source("../../R/src/createEndTrainingTasks.R")
-    r.createTrainingTask(trainer,task_name,n,random_downloaded_only)
+    r.createTrainingTask(trainer,task_name,n,name_contains,random_downloaded_only,proj_root)
 
 def endTrainingTask(trainer, task_name, proj_root="../.."):
     """
