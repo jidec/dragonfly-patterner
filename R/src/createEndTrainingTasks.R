@@ -4,7 +4,7 @@
 #py=TRUE
 
 # create one or more training tasks by making dirs and moving exclusive images
-createTrainingTask <- function(trainers,task_name,n,random_downloaded_only=FALSE,proj_root="../..")
+createTrainingTask <- function(trainers,task_name,n,name_contains,random_downloaded_only=FALSE,proj_root="../..")
 {
   library(stringr)
   
@@ -12,10 +12,12 @@ createTrainingTask <- function(trainers,task_name,n,random_downloaded_only=FALSE
   
   print(paste0("Creating training task ", trainers[1],"/",task_name,"..."))
   
+  print("Reading in annotations")
+  
   # read in annotations and get names of images already in training set
   annotations <- read.csv(paste0(proj_root, "/data/annotations.csv"),row.names = 1)
   used_names <- paste0(annotations$imageID, ".jpg")
-  
+
   # if only use random downloads, add names to underscores (non random dls) to used names
   if(random_downloaded_only){
     names <- list.files(paste0(proj_root, "/data/all_images"))
@@ -24,12 +26,23 @@ createTrainingTask <- function(trainers,task_name,n,random_downloaded_only=FALSE
     names <- names[str_detect(names,"OC-")]
     used_names <- c(used_names,names)
   }
-  
+
+  if(!is.null(name_contains)){
+    print("Filtering for names containing specified string")
+    #proj_root = ".."
+    #name_contains = "-h"
+    names <- list.files(paste0(proj_root, "/data/all_images"))
+    names <- names[str_detect(names,name_contains,negate=TRUE)]
+    used_names <- c(used_names,names)
+  }
   for(i in 1:length(trainers))
   {
+    print("Creating new training dir")
     #i = 1
     target_dir <- paste0(proj_root, "/trainset_tasks/",trainers[i],"/",task_name)
     dir.create(target_dir)
+    print("Moving images to new dir")
+    print(used_names)
     more_used_names <- moveSelectImages(num_images=n, from_=paste0(proj_root,"/data/all_images"),
                      to = target_dir, excl_names=used_names)
     more_used_names <- str_remove(more_used_names,".jpg")
@@ -37,6 +50,7 @@ createTrainingTask <- function(trainers,task_name,n,random_downloaded_only=FALSE
     more_used_names$in_task <- rep(TRUE,nrow(more_used_names))
    
     colnames(more_used_names) <- c("imageID","in_task")
+    print("Adding names to annotations")
     annotations <- merge(annotations, more_used_names, by="imageID",all=TRUE)
     write.csv(annotations,paste0(proj_root, "/data/annotations.csv"))
   }

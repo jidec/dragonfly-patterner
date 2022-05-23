@@ -3,6 +3,8 @@ import json
 import pandas as pd
 from sourceRdefs import getFilterImageIDs
 from os import listdir
+import time
+import datetime
 
 def downloadiNatRandomSingleImages(n,proj_root="../.."):
     """
@@ -23,6 +25,13 @@ def downloadiNatRandomSingleImages(n,proj_root="../.."):
     ids = data.sample(n)['catalogNumber']
     print("Downloading observations...")
     for index, i in enumerate(ids):
+
+        # every 300 observations, sleep for an hour to avoid throttling by iNat server
+        if index % 300 == 0 and index != 0:
+            now = datetime.now()
+            current_time = now.strftime("%H:%M:%S")
+            print("Downloaded 300 images, waiting one hour until next 300 starting at " + current_time)
+            time.sleep(3600)
         try:
             link = 'https://api.inaturalist.org/v1/observations/' + str(i)
             x = requests.get(link)

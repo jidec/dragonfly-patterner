@@ -9,17 +9,17 @@
 #excl_names = moved
 #class_name <- "dorsal"
 
-moveSelectImages <- function(num_images= NULL, species = NULL, class_name = NULL, from_, to, excl_names= NULL)
+moveSelectImages <- function(num_images= NULL, data_file_name="inat_data.csv", species = NULL, class_name = NULL, from_, to, excl_names= NULL)
 {
   from <- from_
   # read in all Odonata observations and annotations
-  data <- read.csv("../../data/inat_data.csv",header=TRUE,row.names=NULL,sep="\t")
+  # data <- read.csv("../../data/inat_data.csv",header=TRUE,row.names=NULL,sep=",")
   annotations <- read.csv("../../data/annotations.csv")
   
-  if(!is.null(species)){ # if supplied a species, get only that species
-    data <- subset(data, scientificName = species)
-  }
-  inat_ids <- data$catalogNumber # get inat ids from data
+  #if(!is.null(species)){ # if supplied a species, get only that species
+  #  data <- subset(data, scientificName = species)
+  #}
+  # inat_ids <- data$catalogNumber # get inat ids from data
   # TODO - match inat_ids to imgs
   
   # get all images in from directory 

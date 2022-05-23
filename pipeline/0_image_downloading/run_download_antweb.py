@@ -1,3 +1,4 @@
 from downloadAntWebImages import downloadAntWebImages
 
-downloadAntWebImages(start_index=0,end_index=1)
+#2369
+downloadAntWebImages(start_index=1000,end_index=10000,proj_root="G:/ant-patterner")

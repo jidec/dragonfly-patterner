@@ -6,7 +6,7 @@ from sourceRdefs import preprocessiNat, writeGenusList
 
 # run preprocess function
 # Note - throws a replacement has 0 rows error if already preprocessed
-# preprocessiNat()
+preprocessiNat()
 
 # create genus list from iNat data for downloaders to use, gets placed in downloaders folder in pipeline
 writeGenusList()
