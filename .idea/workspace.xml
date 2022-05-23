@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/3214-01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/createEndTrainingTasks.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/createEndTrainingTasks.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/moveSelectImages.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/moveSelectImages.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/annotations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/annotations.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/preprocess_gbif_inat.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/preprocess_gbif_inat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadAntWebImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadAntWebImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatRandomSingleImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatRandomSingleImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_antweb.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_antweb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_task.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/sourceRdefs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/sourceRdefs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/ana_session.csv.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/ana_session.csv.ia_sess" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
