@@ -275,7 +275,7 @@ else:
     if ofpath is None:
         #ofpath = 'helpers/genus_image_records/iNat_images-' + args.taxon.replace(' ', '_') + '.csv' #EDITED
         # add param for proj_root
-        ofpath = '../../data/misc/genus_download_records/iNat_images-' + args.taxon.replace(' ', '_') + '.csv'  # EDITED
+        ofpath = '../../data/other/genus_download_records/iNat_images-' + args.taxon.replace(' ', '_') + '.csv'  # EDITED
     of_exists = os.path.exists(ofpath)
     prev_obs_ids = {}
     if of_exists:

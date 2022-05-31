@@ -5,15 +5,15 @@ import pandas as pd
 import os
 import numpy as np
 from os.path import exists
-from helpers import showImages
+from showImages import showImages
 
 # need function to get image ids without segments/classes, and not annotated yet, infer these and merge into inferences.csv
-def inferSegments(image_ids, model_location,image_size, activation_threshold=0.7, export_dir="../../data/masks", show=False):
+def inferSegments(image_ids, model_location,image_size, activation_threshold=0.7, export_dir="../../data/masks", show=False, proj_dir="../.."):
 
     image_locs = image_ids
     # turn list of ids into list of locations
     for i in range(0,len(image_locs)):
-        image_locs[i] = "../../data/all_images/" + image_locs[i] + ".jpg"
+        image_locs[i] = proj_dir + "/data/all_images/" + image_locs[i] + ".jpg"
 
     # for testing
     #image_locs = os.listdir("../../data/test_images")
@@ -35,7 +35,7 @@ def inferSegments(image_ids, model_location,image_size, activation_threshold=0.7
         start_img = np.copy(img)
         img = cv2.resize(img, (image_size, image_size)) #344
 
-        img = img.transpose(2, 0, 1).reshape(1, 3, 344, 344)  # cracks are 480 x 320
+        img = img.transpose(2, 0, 1).reshape(1, 3, image_size, image_size)  #344 # cracks are 480 x 320
 
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model.to(device)

@@ -8,26 +8,6 @@ from torchvision import models
 from torch.utils.data import DataLoader
 from SegmentationDataset import SegmentationDataset
 
-@click.command()
-@click.option("--data_dir",
-              required=True,
-              help="Specify the data directory.")
-@click.option("--exp_dir",
-              required=True,
-              help="Specify the experiment directory.")
-@click.option("--num_epochs",
-              default=25,
-              type=int,
-              help="Specify the number of epochs you want to run the experiment for.")
-@click.option("--batch_size",
-              default=4,
-              type=int,
-              help="Specify the batch size for the dataloader.")
-@click.option("--num_workers",
-              default=4,
-              type=int,
-              help="Specify the number of workers for the dataloader.")
-
 def loadTrainSegModel(data_dir, num_epochs, batch_size, num_workers, data_transforms, model_name, model_dir, export_dir):
 
     # download the deeplabv3 resnet101 model which is pretrained on a subset
@@ -45,7 +25,7 @@ def loadTrainSegModel(data_dir, num_epochs, batch_size, num_workers, data_transf
     data_dir = Path(data_dir)
 
     # create the experiment directory if not present
-    exp_directory = Path(exp_directory)
+    exp_directory = Path(export_dir)
     if not exp_directory.exists():
         exp_directory.mkdir()
 
@@ -74,16 +54,16 @@ def loadTrainSegModel(data_dir, num_epochs, batch_size, num_workers, data_transf
     image_datasets = {
         x: SegmentationDataset(root=Path(data_dir) / x,
                                transforms=data_transforms,
-                               image_folder="image",
-                               mask_folder="mask")
-        for x in ['train', 'test']
+                               image_folder="Image",
+                               mask_folder="Mask")
+        for x in ['Train', 'Test']
     }
     dataloaders = {
         x: DataLoader(image_datasets[x],
                       batch_size=batch_size,
                       shuffle=True,
                       num_workers=num_workers)
-        for x in ['train', 'test']
+        for x in ['Train', 'Test']
     }
 
     trainModel(model,

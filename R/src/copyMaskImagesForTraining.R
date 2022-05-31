@@ -3,8 +3,10 @@
 copyMaskImagesForTraining <- function(from_="../data/segments/masks/train_masks", 
                                       imgs_from="../data/all_images", to="", ntest=5){
   from <- from_
+  print(from)
   # get mask files from masks only folder
   masks <- list.files(from) 
+  print(masks)
   
   # subset test and train masks
   masks_test <- masks[1:ntest]
@@ -37,6 +39,8 @@ copyMaskImagesForTraining <- function(from_="../data/segments/masks/train_masks"
   imgs_from_train <- paste0(imgs_from, "/", imgs_train)
   imgs_to_train <- paste0(to, "/train/Image/", imgs_train)
   
+  print(masks_from_test)
+  print(masks_to_test)
   # copy files
   file.copy(from = masks_from_test, to = masks_to_test)
   file.copy(from = masks_from_train, to = masks_to_train)

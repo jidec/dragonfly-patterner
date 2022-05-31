@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 import shutil
 
-def downloadiNatGenusImages(start_index,end_index,split_start=None, skip_records=False,skip_images=False,full_size=True,proj_root='../..'):
+def downloadiNatGenusImages(start_index,end_index,split_start=1, skip_records=False,skip_images=False,full_size=True,proj_root='../..'):
     """
        Download iNat images by genus using the genus_list.csv created using a different method,
        This method downloads and splits records then referring to those records to download in parallel
@@ -21,7 +21,7 @@ def downloadiNatGenusImages(start_index,end_index,split_start=None, skip_records
     """
 
     # read in all genera
-    genera = pd.read_csv(proj_root + "/data/misc/genus_list.csv")
+    genera = pd.read_csv(proj_root + "/data/other/genus_list.csv")
     #start_index = 41 # genus Stylurus
 
     pylib_root_cmd = proj_root.replace("/","\\") + '\\pipeline\\0_image_downloading\\pylib\\'
@@ -33,7 +33,7 @@ def downloadiNatGenusImages(start_index,end_index,split_start=None, skip_records
         if(not skip_records):
             # get and save records for a genus
             print("Started getting records for genus " + genus)
-            shell_cmd = pylib_root_cmd + + 'helpers\\get_inat_records.py ' + genus + ' -r --research_only'
+            shell_cmd = pylib_root_cmd + 'helpers\\get_inat_records.py ' + genus + ' -r --research_only'
             # add full size param if specified
             if full_size == True:
                 shell_cmd = shell_cmd + ' -f --full_size'

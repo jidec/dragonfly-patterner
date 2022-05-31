@@ -74,7 +74,7 @@ endTrainingTask <- function(trainers,task_name,proj_root="../..")
     # get all masks from folder and copy to data folder
     mask_files <- img_files[grepl("_mask", img_files, fixed = TRUE)]
     masks_from <- paste0(target_dir,mask_files)
-    masks_to <- paste0(proj_root, "/data/segments/masks/train_masks")
+    masks_to <- paste0(proj_root, "/data/masks/train_masks/", mask_files)
     file.copy(from = masks_from, to = masks_to)
     
     # delete all images from dir

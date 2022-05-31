@@ -96,7 +96,7 @@ def endTrainingTask(trainer, task_name, proj_root="../.."):
     """
     r = ro.r
     r.source("../../R/src/createEndTrainingTasks.R")
-    r.endTrainingTask(trainer,task_name)
+    r.endTrainingTask(trainer,task_name, proj_root)
 
 def getFilterImageIDs(annotation_field=robj.NULL,annotation_value=robj.NULL,
                       exclude_training=False,only_training=False,
