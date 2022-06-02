@@ -5,8 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dragonfly-patterner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dragonfly-patterner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/copyClassImagesForTraining.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/copyClassImagesForTraining.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/createEndTrainingTasks.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/createEndTrainingTasks.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/mergeUpdateAnnotations.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/mergeUpdateAnnotations.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/annotations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/annotations.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/antweb_records.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/other/genus_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/other/genus_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide.txt" beforeDir="false" afterPath="$PROJECT_DIR$/guide.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/preprocess_gbif_inat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/trainClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/trainClassifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/run_create_3class_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/run_create_3class_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/run_create_4class_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/run_create_4class_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/sourceRdefs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/sourceRdefs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,12 +104,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "E:/dragonfly-patterner/venv2",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  }
+}]]></component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
   </component>
@@ -106,15 +124,15 @@
       <recent name="D:\GitProjects\dragonfly-patterner\experiments\odo_segmenter" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\dragonfly-patterner\pipeline\helpers" />
+      <recent name="E:\dragonfly-patterner\pipeline\1_classification\pylib" />
+      <recent name="F:\GitProjects\dragonfly-patterner\experiments\bio-gans" />
+      <recent name="F:\GitProjects\dragonfly-patterner\experiments\bio-gans\pylib" />
       <recent name="F:\GitProjects\dragonfly-patterner\pipeline\0_image_downloading" />
-      <recent name="F:\GitProjects\dragonfly-patterner\trainset_tasks" />
-      <recent name="F:\GitProjects\dragonfly-patterner\pipeline\0_image_downloading\pylib\old" />
-      <recent name="F:\GitProjects\dragonfly-patterner\data\other" />
-      <recent name="F:\GitProjects\dragonfly-patterner\data" />
     </key>
   </component>
   <component name="RunManager" selected="Python.run_create_training_task">
-    <configuration name="create_training_task" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="preprocess_gbif_inat" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,11 +140,53 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_trainset_curation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_data_prep" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_trainset_curation/create_training_task.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_data_prep/preprocess_gbif_inat.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocess_records" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dragonfly-patterner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_data_prep" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_data_prep/preprocess_records.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_create_4class_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dragonfly-patterner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/1_classification" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/1_classification/run_create_4class_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,7 +216,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_download_antweb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="update_training_metadata" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,53 +224,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_image_downloading" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_trainset_curation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_antweb.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run_download_random" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dragonfly-patterner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_image_downloading" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dragonfly-patterner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/0278640-210914110416597 (1)" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/0278640-210914110416597 (1)/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_trainset_curation/update_training_metadata.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -220,19 +238,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.create_training_task" />
-      <item itemvalue="Python.run_download_random" />
+      <item itemvalue="Python.preprocess_records" />
+      <item itemvalue="Python.update_training_metadata" />
+      <item itemvalue="Python.preprocess_gbif_inat" />
+      <item itemvalue="Python.run_create_4class_model" />
       <item itemvalue="Python.run_create_training_task" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.run_download_antweb" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.run_create_training_task" />
-        <item itemvalue="Python.run_download_random" />
-        <item itemvalue="Python.run_download_antweb" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.create_training_task" />
+        <item itemvalue="Python.preprocess_records" />
+        <item itemvalue="Python.update_training_metadata" />
+        <item itemvalue="Python.preprocess_gbif_inat" />
+        <item itemvalue="Python.run_create_4class_model" />
       </list>
     </recent_temporary>
   </component>
@@ -274,6 +292,9 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

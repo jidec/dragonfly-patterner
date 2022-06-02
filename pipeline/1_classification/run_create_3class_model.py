@@ -34,7 +34,7 @@ class_col_name = "dorsal_lateral_dorsolateral_bad"
 # move dorsal images to dorsal dir, lateral images to lateral dir etc
 copyClassImagesForTraining(class_col = class_col_name, class_name = "dorsal",
                           to = "pylib/trainsets/" + class_col_name,
-                          split_test_train = True, ntest = 12)
+                          split_test_train = True, ntest = )
 copyClassImagesForTraining(class_col = class_col_name, class_name = "lateral",
                           to = "pylib/trainsets/" + class_col_name,
                           split_test_train = True, ntest = 12)

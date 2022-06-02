@@ -85,9 +85,15 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
                     cm_rownames.append("Actual " + c)
                 cm.columns = cm_colnames
                 cm.index = cm_rownames
+
+                #print("Bad % perfect: " + cm[0,0] / (cm[1,0] + cm[2,0] + cm[3,0]))
+                #print("Dorsal % perfect: " + cm[1,1])
+                #print("Dorsal % good: ")
+                #print("DL % good: ")
+                #print("DL % perfect: ")
                 print(print(cm.to_string()))
 
-                preds_labels.to_csv("pylib/models/preds.csv")
+                #preds_labels.to_csv("pylib/models/preds.csv")
             # deep copy the model
             if phase == 'test' and epoch_acc > best_acc:
                 best_acc = epoch_acc

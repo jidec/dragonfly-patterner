@@ -190,3 +190,11 @@ pipeline/0_image_downloading/pylib/helpers/genus_image_records
 
 # no mac folder files
 *.DS_Store
+
+#
+experiments/bio-gans/data/data
+experiments/bio-gans/model
+data/annotations.csv
+
+#
+*_records.csv

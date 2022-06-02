@@ -10,6 +10,7 @@ mergeUpdateAnnotations <- function(skip_string=NULL,proj_root="../.."){
   # gather all csv files in trainset_tasks
   csv_files <- dir(path= paste0(proj_root, "/trainset_tasks"), pattern='*.csv$', recursive = T)
   csv_files <- paste0(proj_root,"/trainset_tasks/",csv_files)
+  print(csv_files)
   
   # if a skip string provided, skip files containing that string 
   if(!is.null(skip_string)){
@@ -27,6 +28,7 @@ mergeUpdateAnnotations <- function(skip_string=NULL,proj_root="../.."){
   
   # replace file col with imageID col
   colnames(df)[1] <- "imageID"
+  df$imageID <- str_replace(df$file,".jpg","")
   
   # get image names with training masks and merge with df 
   # segments <- list.files(paste0(proj_root,"/data/masks/train_masks"))

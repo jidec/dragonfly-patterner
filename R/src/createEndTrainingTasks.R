@@ -17,7 +17,7 @@ createTrainingTask <- function(trainers,task_name,n,name_contains,random_downloa
   # read in annotations and get names of images already in training set
   annotations <- read.csv(paste0(proj_root, "/data/annotations.csv"),row.names = 1)
   used_names <- paste0(annotations$imageID, ".jpg")
-
+  
   # if only use random downloads, add names to underscores (non random dls) to used names
   if(random_downloaded_only){
     names <- list.files(paste0(proj_root, "/data/all_images"))

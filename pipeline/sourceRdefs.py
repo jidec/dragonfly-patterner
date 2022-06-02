@@ -44,7 +44,7 @@ def moveSelectImages(num_images, species,class_name,from_,to,excl_names):
     p = r.moveSelectImages(num_images, species, class_name,from_, to, excl_names)
     return p
 
-def copyClassImagesForTraining(class_col,class_name, to, ntest, split_test_train=True, class_col2=robj.NULL,class_name2=robj.NULL,class_dir_override=robj.NULL):
+def copyClassImagesForTraining(class_col,class_name, to, ntest, split_test_train=True, class_col2=robj.NULL,class_name2=robj.NULL,class_dir_override=robj.NULL,proj_dir="../.."):
     """
         Copies images of a specific annotation class to the "to" folder for training
 
@@ -63,16 +63,18 @@ def copyClassImagesForTraining(class_col,class_name, to, ntest, split_test_train
 
     r = ro.r
     r.source("../../R/src/copyClassImagesForTraining.R")
-    p = r.copyClassImagesForTraining(class_col,class_name, class_col2,class_name2,class_dir_override, to, split_test_train, ntest)
+    p = r.copyClassImagesForTraining(class_col=class_col,class_name=class_name, class_col2=class_col2,class_name2=class_name2,class_dir_override=class_dir_override, to=to, split_test_train=split_test_train, ntest=ntest, proj_dir=proj_dir)
     return p
 
-def copyClassImagesToTrainingDirs(class_col,class_names,proj_dir,ntest):
+def copyClassImagesToTrainingDirs(class_col,class_names,ntest,proj_dir="../.."):
     """
         More or less a wrapper for copyClassImagesForTraining, bringing it into the data oriented paradigm
     """
     to_dir = proj_dir + "/data/other/training_dirs/" + class_col
+    print(to_dir)
     for c in class_names:
-        copyClassImagesForTraining(class_col,c, to= to_dir, ntest=ntest, split_test_train=True, class_col2=robj.NULL,class_name2=robj.NULL,class_dir_override=robj.NULL)
+        print(c)
+        copyClassImagesForTraining(class_col=class_col,class_name = c, proj_dir=proj_dir, to= to_dir + "/" + c, ntest=ntest, split_test_train=True, class_col2=robj.NULL,class_name2=robj.NULL,class_dir_override=robj.NULL)
 
 def createTrainingTask(trainer, task_name,n,name_contains=robj.NULL,random_downloaded_only=False,proj_root="../.."):
     """

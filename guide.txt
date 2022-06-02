@@ -49,11 +49,11 @@ NOTE - if doing a shared annotation, folder will be /trainset_tasks/Shared/*sess
 	
 Steps for segment annotators (Jacob, Louis, Ana, & Rob)
     1. install Fiji (https://imagej.net/software/fiji/downloads) if it's not already installed
-	2. start Fiji, go to Plugins -> Macros -> Install and select sioux_segment_helper.ijm to install the helper macro
+	2. start Fiji, go to Plugins -> Macros -> Install and select trainset_tasks/sioux_segment_helper.ijm to install the helper macro
 	3. go to Plugins -> Macros and click the new SIOUX Segment Helper macro that appeared to run it 
-	4. a file browser will appear, pick the folder containing images in the annotation task folder 
+	4. a file browser will appear, pick the folder containing images in the segment annotation task folder 
     5. images will load into SIOUX one by one, see (https://imagej.net/plugins/siox) for how to use SIOUX
-	6. basically just paint over some parts of the background and foreground then hit the Segment button then create Mask, then use the brush tool to refine the Mask a bit 
+	6. basically just paint over some parts of the background and foreground then hit the Segment button then the create Mask button, then use the brush tool to refine the Mask a bit if necessary 
 	7. click the OK button to save the mask and move to the next image
 	8. the script only uses images that don't already have masks, so you can resume after quitting
 

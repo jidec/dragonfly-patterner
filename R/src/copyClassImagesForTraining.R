@@ -5,7 +5,7 @@
 #ntest=10
 
 # copies images of a specific class to the target dir in a new folder named with the class name,or the class_dir_override name
-copyClassImagesForTraining <- function(class_col, class_name, class_col2=NULL, class_name2=NULL, class_dir_override=NULL, to, split_test_train=FALSE, ntest=10){
+copyClassImagesForTraining <- function(class_col, class_name, class_col2=NULL, class_name2=NULL, class_dir_override=NULL, to, split_test_train=FALSE, ntest=10,proj_dir){
   
   library(rlang)
   

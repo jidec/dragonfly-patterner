@@ -1,9 +1,9 @@
 # some code to compare shared annotations
 
 # read in annotations
-annots_j <- read.csv("../trainset_tasks/Shared/5-10-22_Classes_150/jacob_session.csv")
-annots_l <- read.csv("../trainset_tasks/Shared/5-10-22_Classes_150/louis_session.csv")
-annots_a <- read.csv("../trainset_tasks/Shared/5-10-22_Classes_150/ana_session.csv.csv")
+annots_j <- read.csv("../trainset_tasks/Jacob/5-23-22_Classes500/jacob_session.csv")
+annots_l <- read.csv("../trainset_tasks/Louis/5-23-22_Classes500/louis_session.csv")
+annots_a <- read.csv("../trainset_tasks/Ana/5-23-22_Classes500/ana_session.csv.csv")
 
 # look at annotations
 annots_j$class
@@ -26,3 +26,8 @@ table(annots_a$class)
 
 annots <- read.csv("../data/annotations.csv")
 table(annots$dorsal_lateral_dorsolateral_bad)
+
+# get a vector of TRUE or FALSE describing which annotations are equal (equal annotations are TRUE) 
+match <- (annots_a$class == annots_j$class)
+sum(match)
+annots_j$file[match == FALSE]

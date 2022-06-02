@@ -32,11 +32,15 @@ data_transforms = {
 
 # create dorsal_lateral_bad classifier model
 # move dorsal images to dorsal dir, lateral images to lateral dir etc
-copyClassImagesToTrainingDirs(class_col_name="dorsal_lateral_dorsolateral_bad",class_names=["dorsal","lateral","dorsolateral","bad"],ntest=12)
+# copyClassImagesToTrainingDirs(class_col="dorsal_lateral_dorsolateral_bad",class_names=["dorsal","lateral","dorsolateral","bad"],ntest=40)
+copyClassImagesForTraining(class_col="class",class_name="dorsal",ntest=30,to="../../data/other/training_dirs/4-class")
+copyClassImagesForTraining(class_col="class",class_name="lateral",ntest=30,to="../../data/other/training_dirs/4-class")
+copyClassImagesForTraining(class_col="class",class_name="dorsolateral",ntest=30,to="../../data/other/training_dirs/4-class")
+copyClassImagesForTraining(class_col="class",class_name="bad",ntest=30,to="../../data/other/training_dirs/4-class")
 
 # load, train, and save model
 # still have to update this to match new paradigm
-loadTrainClassModel(data_dir="../../data/other/training_dirs/dorsal_lateral_dorsolateral_bad",
+loadTrainClassModel(data_dir="../../data/other/training_dirs/4-class",
                     num_epochs=20, batch_size=6, num_workers=0,
                     data_transforms= data_transforms,
                     model_name="dorsal_lateral_bad",
