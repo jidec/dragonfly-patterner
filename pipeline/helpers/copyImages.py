@@ -2,7 +2,6 @@ import os
 import shutil
 import pandas as pd
 
-# skeleton - doesn't work yet
 def copyImages(source,dest,ids=None):
     """
         Copy images from source to dest, with option to specify image ids
@@ -15,9 +14,9 @@ def copyImages(source,dest,ids=None):
     files = files[file_image_ids.isin(ids)]
     # create src and dest file locs
     source_files = source + "/" + files
-    print(source_files)
+    #print(source_files)
     dest_files = dest + "/" + files
-    print(dest_files)
+    #print(dest_files)
 
     for source, dest in tuple(zip(source_files, dest_files)):
         shutil.copy(source,dest)

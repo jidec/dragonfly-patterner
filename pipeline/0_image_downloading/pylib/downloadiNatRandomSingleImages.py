@@ -4,7 +4,7 @@ import pandas as pd
 from sourceRdefs import getFilterImageIDs
 from os import listdir
 import time
-import datetime
+from datetime import datetime
 
 def downloadiNatRandomSingleImages(n,proj_root="../.."):
     """
@@ -14,7 +14,7 @@ def downloadiNatRandomSingleImages(n,proj_root="../.."):
         :param str proj_root: the path to the project folder
     """
     print("Loaded all observation info")
-    data = pd.read_csv(proj_root + '/data/inat_data.csv',sep=',')
+    data = pd.read_csv(proj_root + '/data/inatdragonflyusa_records.csv',sep=',')
 
     # WIP implementation to download only non-downloaded images
     #existing_image_ids = pd.DataFrame(listdir(pylib_root + '/../../../data/all_images'))

@@ -29,6 +29,9 @@ def updateTrainingMetadata(skip_string="skip",proj_dir="../.."):
     df['imageID'] = df['file'].str.replace('.jpg','')
     print("Added imageID column...")
 
+    # fill -1s in NAs or NaNs
+    df.fillna(int(-1), inplace=True)
+
     # write merged training metadata to /data
     df.to_csv(proj_dir + "/data/train_metadata.csv")
     print("Wrote updated training metadata - finished")
