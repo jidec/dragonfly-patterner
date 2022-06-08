@@ -1,11 +1,12 @@
-from sourceRdefs import moveSelectImages,mergeUpdateAnnotations,copyClassImagesForTraining,copyClassImagesToTrainingDirs
+#from sourceRdefs import moveSelectImages,mergeUpdateAnnotations,copyClassImagesForTraining,copyClassImagesToTrainingDirs
+from updateTrainingMetadata import updateTrainingMetadata
 from loadTrainClassModel import loadTrainClassModel
 from torchvision import transforms
 from AddGaussianNoise import AddGaussianNoise
 import shutil
 
 # update annotations so all finished annotations from trainset_tasks are known
-mergeUpdateAnnotations()
+updateTrainingMetadata()
 
 # specify size to reduce image to
 image_pixels = 256
