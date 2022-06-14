@@ -6,13 +6,16 @@ import copy
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
-def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, scheduler, num_epochs, class_names):
+def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, scheduler, num_epochs, class_names, cost_matrix_name=None):
     since = time.time()
 
     best_model_wts = copy.deepcopy(model.state_dict())
     best_acc = 0.0
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+    if cost_matrix_name is not None:
+        cost_matrix = pd.read_csv("../../data/other/cost_matrices/" + cost_matrix_name + ".csv")
 
     for epoch in range(num_epochs):
         print("\n","\n",'Epoch {}/{}'.format(epoch, num_epochs - 1))
@@ -45,6 +48,8 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
                     outputs = model(inputs)
                     _, preds = torch.max(outputs, 1)
                     loss = criterion(outputs, labels)
+                    c_multipliers = cost_matrix[outputs,labels]
+                    loss = loss * c_multipliers
 
                     # backward + optimize only if in training phase
                     if phase == 'train':
