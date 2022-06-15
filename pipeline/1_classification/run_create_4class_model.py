@@ -4,6 +4,7 @@ from loadTrainClassModel import loadTrainClassModel
 from torchvision import transforms
 from AddGaussianNoise import AddGaussianNoise
 import shutil
+from getFilterImageIDs import getFilterImageIDs
 
 # update annotations so all finished annotations from trainset_tasks are known
 updateTrainingMetadata()
@@ -34,6 +35,8 @@ data_transforms = {
 # create dorsal_lateral_bad classifier model
 # move dorsal images to dorsal dir, lateral images to lateral dir etc
 # copyClassImagesToTrainingDirs(class_col="dorsal_lateral_dorsolateral_bad",class_names=["dorsal","lateral","dorsolateral","bad"],ntest=40)
+copy
+ids = getFilterImageIDs
 copyClassImagesForTraining(class_col="class",class_name="dorsal",ntest=30,to="../../data/other/training_dirs/4-class")
 copyClassImagesForTraining(class_col="class",class_name="lateral",ntest=30,to="../../data/other/training_dirs/4-class")
 copyClassImagesForTraining(class_col="class",class_name="dorsolateral",ntest=30,to="../../data/other/training_dirs/4-class")
