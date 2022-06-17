@@ -2,6 +2,7 @@ from random import sample
 from copyImages import copyImages
 import os
 import pandas as pd
+import numpy as np
 
 def createTrainingTask(trainer_name,task_name,image_id_pool,num_images,proj_dir="../.."):
     """
@@ -30,8 +31,15 @@ def createTrainingTask(trainer_name,task_name,image_id_pool,num_images,proj_dir=
 
     # add image IDs to in_task column in train_metadata
     train_metadata = pd.read_csv(proj_dir + "/data/train_metadata.csv")
-    id_series = pd.Series(sample_image_ids, name="in_task")
-    train_metadata = pd.concat([train_metadata,id_series.rename('in_task')],axis=1)
+    id_series = pd.Series([s + ".jpg" for s in sample_image_ids], name="file")
+    one_series = pd.Series(np.repeat(1,len(sample_image_ids)),name="in_task")
+    #df = pd.concat([id_series, one_series],axis=0)
+    df = pd.merge(id_series, one_series, right_index=True,
+                  left_index=True)
+
+    train_metadata = pd.concat([train_metadata,df])
+    train_metadata.fillna(int(-1), inplace=True)
+    #print(train_metadata)
     train_metadata.to_csv(proj_dir + "/data/train_metadata.csv")
     print("Added training samples to the in_task column to maintain exclusivity via the not_in_train_data parameter of getFilterImageIDs until updateTrainingMetadata is called again...")
 

@@ -6,11 +6,11 @@ from updateTrainingMetadata import updateTrainingMetadata
 updateTrainingMetadata()
 
 # get image ids to move to training task, staying exclusive via not_in_train_data
-training_id_pool = getFilterImageIDs(contains_str="INATRANDOM",not_in_train_data=True)
-createTrainingTask(trainer_name="Louis",task_name="6-3-22_Classes1000",image_id_pool=training_id_pool,num_images=1000)
+training_id_pool = getFilterImageIDs(contains_str="INATRANDOM",train_fields=["class","has_segment"],train_values=["dorsal",-1])
+createTrainingTask(trainer_name="Ana",task_name="6-17-22_Segments75",image_id_pool=training_id_pool,num_images=75)
 
-training_id_pool = getFilterImageIDs(contains_str="INATRANDOM",not_in_train_data=True)
-createTrainingTask(trainer_name="Jacob",task_name="6-3-22_Classes1000",image_id_pool=training_id_pool,num_images=1000)
+training_id_pool = getFilterImageIDs(contains_str="INATRANDOM",train_fields=["class","has_segment","in_task"],train_values=["dorsolateral",-1,-1])
+createTrainingTask(trainer_name="Jacob",task_name="6-17-22_Segments75",image_id_pool=training_id_pool,num_images=75)
 
-training_id_pool = getFilterImageIDs(contains_str="INATRANDOM",not_in_train_data=True)
-createTrainingTask(trainer_name="Ana",task_name="6-3-22_Classes1000",image_id_pool=training_id_pool,num_images=1000)
+training_id_pool = getFilterImageIDs(contains_str="INATRANDOM",train_fields=["class","has_segment","in_task"],train_values=["lateral",-1,-1])
+createTrainingTask(trainer_name="Louis",task_name="6-17-22_Segments75",image_id_pool=training_id_pool,num_images=75)

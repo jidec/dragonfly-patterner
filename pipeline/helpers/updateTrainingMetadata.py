@@ -17,9 +17,16 @@ def updateTrainingMetadata(skip_string="skip",proj_dir="../.."):
 
     # concatenate all csv dataframes
     df = pd.DataFrame()
+    df['file'] = "1"
+
     for csv_loc in csv_file_locs:
+        #print(pd.read_csv(csv_loc))
+        #if "segment" in csv_loc:
+        #df = df.merge(pd.read_csv(csv_loc), on='file', how='outer')
+        #else:
         df = pd.concat([df, pd.read_csv(csv_loc)])
-    print("Merged training metadata...")
+        print("Merged " + csv_loc + "...")
+    print("Finished merging training metadata...")
 
     # drop duplicate annotations, may add more sophicated merging options for this later
     df = df.drop_duplicates(subset='file', keep='first')

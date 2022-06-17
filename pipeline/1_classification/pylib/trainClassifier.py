@@ -6,7 +6,7 @@ import copy
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
-def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, scheduler, num_epochs, class_names, cost_matrix_name=None):
+def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, scheduler, num_epochs, class_names, loss_matrix_name=None):
     since = time.time()
 
     best_model_wts = copy.deepcopy(model.state_dict())
@@ -14,8 +14,8 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    if cost_matrix_name is not None:
-        cost_matrix = pd.read_csv("../../data/other/cost_matrices/" + cost_matrix_name + ".csv")
+    if loss_matrix_name is not None:
+        loss_matrix = pd.read_csv("../../data/other/loss_matrices/" + loss_matrix_name + ".csv",header=None)
 
     for epoch in range(num_epochs):
         print("\n","\n",'Epoch {}/{}'.format(epoch, num_epochs - 1))
@@ -48,8 +48,25 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
                     outputs = model(inputs)
                     _, preds = torch.max(outputs, 1)
                     loss = criterion(outputs, labels)
-                    c_multipliers = cost_matrix[outputs,labels]
-                    loss = loss * c_multipliers
+
+                    # loss matrix calculations
+                    labels_cpu = labels.cpu()
+                    outputs_cpu = outputs.argmax(1).cpu()
+                    if loss_matrix_name is not None:
+                        #print(loss_matrix)
+                        # init list to hold loss multipliers for each label output combo
+                        loss_multipliers = []
+                        # for each label output combo
+                        for i in range(0,len(labels_cpu) - 1):
+                            # append the loss mult
+                            loss_multipliers.append(loss_matrix.iat[outputs_cpu[i].item(),labels_cpu[i].item()])
+
+                        #print("Loss mults" + str(loss_multipliers))
+                        # get mean loss mult and multiply loss
+                        mean_loss_mult = sum(loss_multipliers) / len(loss_multipliers)
+                        loss = loss.cpu()
+                        loss = loss * mean_loss_mult
+                        loss = loss.to(device)
 
                     # backward + optimize only if in training phase
                     if phase == 'train':

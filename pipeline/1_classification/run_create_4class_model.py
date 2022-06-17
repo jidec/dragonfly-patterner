@@ -5,6 +5,9 @@ from torchvision import transforms
 from AddGaussianNoise import AddGaussianNoise
 import shutil
 from getFilterImageIDs import getFilterImageIDs
+from copyImagesToTrainingDir import copyImagesToTrainingDir
+
+# 87% lateral #90% dorsal # 94% dl
 
 # update annotations so all finished annotations from trainset_tasks are known
 updateTrainingMetadata()
@@ -32,23 +35,24 @@ data_transforms = {
         ]),
     }
 
-# create dorsal_lateral_bad classifier model
-# move dorsal images to dorsal dir, lateral images to lateral dir etc
-# copyClassImagesToTrainingDirs(class_col="dorsal_lateral_dorsolateral_bad",class_names=["dorsal","lateral","dorsolateral","bad"],ntest=40)
-copy
-ids = getFilterImageIDs
-copyClassImagesForTraining(class_col="class",class_name="dorsal",ntest=30,to="../../data/other/training_dirs/4-class")
-copyClassImagesForTraining(class_col="class",class_name="lateral",ntest=30,to="../../data/other/training_dirs/4-class")
-copyClassImagesForTraining(class_col="class",class_name="dorsolateral",ntest=30,to="../../data/other/training_dirs/4-class")
-copyClassImagesForTraining(class_col="class",class_name="bad",ntest=30,to="../../data/other/training_dirs/4-class")
+#dorsal_ids = getFilterImageIDs(train_fields=["class"],train_values=["dorsal"])
+#lateral_ids = getFilterImageIDs(train_fields=["class"],train_values=["lateral"])
+#dl_ids = getFilterImageIDs(train_fields=["class"],train_values=["dorsolateral"])
+#bad_ids = getFilterImageIDs(train_fields=["class"],train_values=["bad"])
+
+#copyImagesToTrainingDir(training_dir_name="4-class", image_ids=dorsal_ids, ntest = 150, class_dir_name="dorsal", proj_dir="../..")
+#copyImagesToTrainingDir("4-class", lateral_ids, 150, "lateral", proj_dir="../..")
+#copyImagesToTrainingDir("4-class", dl_ids, 150, "dorsolateral", proj_dir="../..")
+#copyImagesToTrainingDir("4-class", bad_ids, 150, "bad", proj_dir="../..")
+
 
 # load, train, and save model
 # still have to update this to match new paradigm
 loadTrainClassModel(data_dir="../../data/other/training_dirs/4-class",
                     num_epochs=20, batch_size=6, num_workers=0,
                     data_transforms= data_transforms,
-                    model_name="dorsal_lateral_bad",
-                    model_dir="../../data/ml_models")
+                    model_name="4-class",
+                    model_dir="../../data/ml_models",loss_matrix_name="dfly_views_loss_mat")
 
 # remove copied training images from the temporary training dir
-shutil.rmtree(path="../../data/training_dirs/dorsal_lateral_dorsolateral_bad")
+shutil.rmtree(path="../../data/training_dirs/4-class")

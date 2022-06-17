@@ -17,7 +17,7 @@ from torchsampler import ImbalancedDatasetSampler #pip install https://github.co
 
 # pretrained model can be models.resnet18 or models.inception_v3
 def loadTrainClassModel(data_dir, num_epochs, batch_size, num_workers, data_transforms, model_name, model_dir,
-                        pretrained_model=models.resnet18(pretrained=True), criterion=nn.modules.loss.CrossEntropyLoss()):
+                        pretrained_model=models.resnet18(pretrained=True), criterion=nn.modules.loss.CrossEntropyLoss(),loss_matrix_name=None):
 
     image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
@@ -55,6 +55,6 @@ def loadTrainClassModel(data_dir, num_epochs, batch_size, num_workers, data_tran
     exp_lr_scheduler = lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
     
     model = trainClassifier(model=model, dataloaders=dataloaders,dataset_sizes=dataset_sizes, criterion=criterion,
-                             optimizer=optimizer, scheduler=exp_lr_scheduler, num_epochs=num_epochs,class_names=class_names)
+                             optimizer=optimizer, scheduler=exp_lr_scheduler, num_epochs=num_epochs,class_names=class_names,loss_matrix_name=loss_matrix_name)
     
     torch.save(model, model_dir + "/" + model_name + ".pt")

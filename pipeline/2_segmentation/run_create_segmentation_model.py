@@ -1,9 +1,14 @@
 from loadTrainSegModel import loadTrainSegModel
 from torchvision import transforms
 from sourceRdefs import copyMaskImagesForTraining
+from copyImagesToTrainingDir import copyImagesToTrainingDir
+import os
 
 # copy training segments from
-copyMaskImagesForTraining(from_="../../data/segments/masks/train_masks", imgs_from="../../data/all_images", to="pylib/trainset", ntest=5)
+mask_image_ids = os.listdir("../../data/masks/train_masks")
+mask_image_ids = [s.removesuffix("_mask.jpg") for s in mask_image_ids]
+
+copyImagesToTrainingDir("segmenter", mask_image_ids, 25, "mask", is_segment_training=True, proj_dir="../..")
 
 data_transforms = transforms.Compose([
         # transforms.RandomResizedCrop(224), # crop a random part of the image and resize it to size 224
@@ -14,8 +19,8 @@ data_transforms = transforms.Compose([
         # transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
 
-loadTrainSegModel(data_dir="pylib/trainset",
+loadTrainSegModel(data_dir="../../data/other/training_dirs/segmenter",
                   num_epochs=10, batch_size=4, num_workers=0,
                   data_transforms = data_transforms,
-                  model_name="odonata_segment",
-                  model_dir="pylib/models")
+                  model_name="segmenter",
+                  model_dir="../../data/ml_models", export_dir="../../data/ml_models")
