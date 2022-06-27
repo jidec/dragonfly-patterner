@@ -11,8 +11,8 @@ from inferSegments import inferSegments
 # get image IDs not in training set, not already classified
 # image_ids = getFilterImageIDs(exclude_training=False)
 
-image_ids = [str(x) for x in [1,2,3]] #,3,4,5,6,7,8,9]]
+image_ids = [str(x) for x in [4,5,6]] #,3,4,5,6,7,8,9]]
 
 # infer segments
-inferSegments(image_ids=image_ids,model_location="G:/ant-patterner/data/ml_models/ant_head_segment.pt",image_size=200,show=True, proj_dir="G:/ant-patterner")
+inferSegments(image_ids=image_ids,model_location="E:/ant-patterner/data/ml_models/ant_thorax_segment.pt",image_size=200,show=True, proj_dir="E:/ant-patterner")
 

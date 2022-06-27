@@ -15,9 +15,9 @@ data_transforms = transforms.Compose([
         # transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
 
-loadTrainSegModel(data_dir="G:/ant-patterner/data/other/training_dirs",
-                  num_epochs=10, batch_size=5, num_workers=0,
+loadTrainSegModel(data_dir="E:/ant-patterner/data/other/training_dirs/thorax",
+                  num_epochs=10, batch_size=7, num_workers=0,
                   data_transforms = data_transforms,
-                  model_name="ant_head_segment",
-                  model_dir="G:/ant-patterner/data/ml_models",
-                  export_dir="G:/ant-patterner/data")
+                  model_name="ant_thorax_segment",
+                  model_dir="E:/ant-patterner/data/ml_models",
+                  export_dir="E:/ant-patterner/data")

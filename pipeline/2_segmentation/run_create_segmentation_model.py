@@ -8,7 +8,7 @@ import os
 mask_image_ids = os.listdir("../../data/masks/train_masks")
 mask_image_ids = [s.removesuffix("_mask.jpg") for s in mask_image_ids]
 
-copyImagesToTrainingDir("segmenter", mask_image_ids, 25, "mask", is_segment_training=True, proj_dir="../..")
+copyImagesToTrainingDir("head_segmenter", mask_image_ids, 25, "mask", is_segment_training=True, proj_dir="../..")
 
 data_transforms = transforms.Compose([
         # transforms.RandomResizedCrop(224), # crop a random part of the image and resize it to size 224

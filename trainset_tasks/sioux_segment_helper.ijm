@@ -2,6 +2,11 @@ macro "SIOUX Segment Helper" {
 
 first = true; 
 
+part_name = getString("Enter a segment part name - leave empty if not annotating multiple parts:", "");
+if(part_name != ""){
+	part_name = part_name + "-";
+}
+
 input = getDirectory(""); // images
 
 processFolder(input);
@@ -39,7 +44,7 @@ function processFolder(input) {
 			msg = "Click OK to Save Mask and Move To Next Image";
 			waitForUser(title, msg);
 			output = replace(input+file, ".jpg", "");
-			output = output + "_mask.jpg";
+			output = output + "_" + part_name + "mask.jpg";
 			saveAs("/formats/jpg", output);
 			close();
 			close();
