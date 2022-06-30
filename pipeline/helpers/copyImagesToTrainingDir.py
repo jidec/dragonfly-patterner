@@ -2,7 +2,7 @@ import random
 import os
 from copyImages import copyImages
 
-def copyImagesToTrainingDir(training_dir_name, image_ids, ntest, class_dir_name, is_segment_training=False, proj_dir="../.."):
+def copyImagesToTrainingDir(training_dir_name, image_ids, ntest, class_dir_name, is_segment_training=False, seg_part_name=None, proj_dir="../.."):
 
     random.shuffle(image_ids)
     test_ids = image_ids[0:ntest-1]
@@ -22,18 +22,27 @@ def copyImagesToTrainingDir(training_dir_name, image_ids, ntest, class_dir_name,
         # create train dirs
         os.mkdir(proj_dir + "/data/other/training_dirs/" + training_dir_name + "/train/image")
         os.mkdir(proj_dir + "/data/other/training_dirs/" + training_dir_name + "/train/mask")
-        # copy train masks
-        copyImages(proj_dir + "/data/masks/train_masks", training_dir + "/train/mask",[s + "_mask" for s in train_ids])
-        # copy train images
-        copyImages(proj_dir + "/data/all_images", training_dir + "/train/image", train_ids)
 
         # create test dirs
         os.mkdir(proj_dir + "/data/other/training_dirs/" + training_dir_name + "/test/image")
         os.mkdir(proj_dir + "/data/other/training_dirs/" + training_dir_name + "/test/mask")
+
+        if seg_part_name is not None:
+            train_masks = [s + "_" + seg_part_name + "-mask" for s in train_ids]
+            test_masks = [s + "_" + seg_part_name + "-mask" for s in test_ids]
+        else:
+            train_masks = [s + "_mask" for s in train_ids]
+            test_masks = [s + "_mask" for s in test_ids]
+
+        # copy train masks
+        copyImages(proj_dir + "/data/masks/train_masks", training_dir + "/train/mask",train_masks)
+        # copy train images
+        copyImages(proj_dir + "/data/all_images", training_dir + "/train/image", train_ids)
+
         # copy test masks
-        copyImages(proj_dir + "/data/masks/train_masks", training_dir + "/test/mask", [s + "_mask" for s in train_ids])
+        copyImages(proj_dir + "/data/masks/train_masks", training_dir + "/test/mask", test_masks)
         # copy test images
-        copyImages(proj_dir + "/data/all_images", training_dir + "/test/image", train_ids)
+        copyImages(proj_dir + "/data/all_images", training_dir + "/test/image", test_ids)
 
     else:
         # create train dirs

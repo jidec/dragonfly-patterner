@@ -5,7 +5,7 @@ import pandas as pd
 import os
 import numpy as np
 from os.path import exists
-from helpers import showImages
+from showImages import showImages
 
 # need function to get image ids without segments/classes, and not annotated yet, infer these and merge into inferences.csv
 def inferImageClasses(image_ids, infer_colname, infer_names, model_location, image_size, show):
@@ -21,7 +21,7 @@ def inferImageClasses(image_ids, infer_colname, infer_names, model_location, ima
 
     inferences = []
 
-    for img_loc in image_locs:
+    for index, img_loc in enumerate(image_locs):
         # read  a sample image
         img = cv2.imread(img_loc)
         # save start dims and resize to input
@@ -41,7 +41,7 @@ def inferImageClasses(image_ids, infer_colname, infer_names, model_location, ima
         if show:
             print(infer_names[max_index])
             showImages(show,cv2.imread(img_loc),["Inferred " + infer_names[max_index]])
-
+        print(index)
         # Plot histogram of the prediction to find a suitable threshold. From the histogram a 0.1 looks like a good choice.
         # plt.hist(a['out'].data.cpu().numpy().flatten())
         #plt.show()
@@ -66,5 +66,4 @@ def inferImageClasses(image_ids, infer_colname, infer_names, model_location, ima
     inferences.loc[inferences[:,1] == 0, infer_colname] = infer_names[0]
     inferences.loc[inferences[:,1] == 1, infer_colname] = infer_names[1]
     inferences.loc[inferences[:,1] == 2, infer_colname] = infer_names[2]
-    inferences.to_csv("../../../data/inferences.csv")
-    return(inferences)
+    inferences.to_csv("../../data/inferences.csv")
