@@ -33,9 +33,11 @@ def endTrainingTask(trainer_names,task_names, proj_dir="../.."):
 
             # save segmented ids as csv
             ids = [s.removesuffix(".jpg") for s in image_filenames]
-            ids = pd.Series(ids)
+            ones = [1] * len(ids)
+            df = pd.DataFrame(data={'file': ids, 'has_segment': ones})
+            #ids = pd.Series(ids)
             source = proj_dir + "/trainset_tasks/" + trainer_name + "/" + task_name
-            ids.to_csv(source + "/segmented_ids.csv")
+            df.to_csv(source + "/segmented_ids.csv")
 
         source = proj_dir + "/trainset_tasks/" + trainer_name + "/" + task_name
         # remove every image file

@@ -24,7 +24,8 @@ def updateTrainingMetadata(skip_string="skip",proj_dir="../.."):
         #if "segment" in csv_loc:
         #df = df.merge(pd.read_csv(csv_loc), on='file', how='outer')
         #else:
-        df = pd.concat([df, pd.read_csv(csv_loc)])
+        new_df = pd.read_csv(csv_loc)
+        df = pd.concat([df, new_df])
         print("Merged " + csv_loc + "...")
     print("Finished merging training metadata...")
 

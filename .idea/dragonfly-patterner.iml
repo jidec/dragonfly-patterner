@@ -16,6 +16,8 @@
       <sourceFolder url="file://$MODULE_DIR$/pipeline/helpers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/0_data_prep/pylib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/0_trainset_curation/pylib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pipeline/3_discretization+compositing/pylib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pipeline/3_discretization_compositing/pylib" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/venv2" />
       <excludeFolder url="file://$MODULE_DIR$/venv3" />

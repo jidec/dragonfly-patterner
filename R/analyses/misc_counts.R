@@ -1,7 +1,7 @@
 # count number of a specific genus
-data <- read.csv("../data/inat_odonata_usa.csv",header=TRUE,row.names=NULL,sep=",")
+data <- read.csv("../data/inatdragonflyusa_records.csv",header=TRUE,row.names=NULL,sep=",")
 library(dplyr)
-
+View(table(data$genus))
 devtools::install_github("jaredhuling/jcolors")
 
 genus_obs <- dplyr::filter(data, genus == "Stylurus")
@@ -36,6 +36,9 @@ for(i in 1:j){
   df$count_threshold[i] <- ti
 }
 
+training_metadata <- read.csv("../data/train_metadata.csv")
+
+table(training_metadata$class) / 10
 df$count_threshold <- as.factor(df$count_threshold)
 df$percent_species <- df$num_species / 450
 
@@ -44,4 +47,7 @@ ggplot(df,aes(x=count_threshold,y=percent_species,fill=percent_species)) + geom_
   labs(x="Count Threshold",y="Percent of USA Species") + scale_y_continuous(breaks = scales::pretty_breaks(n = 5))+
   geom_text(aes(label=num_species), position=position_dodge(width=0.9), vjust=-0.25) +
   scale_color_gradient()
+
+test <- read.csv("../data/train_metadata.csv")
+table(test$has_segment)
 

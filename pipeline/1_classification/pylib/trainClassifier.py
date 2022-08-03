@@ -6,6 +6,7 @@ import copy
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
+# called by loadTrainClassModel
 def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, scheduler, num_epochs, class_names, loss_matrix_name=None):
     since = time.time()
 
@@ -65,7 +66,9 @@ def trainClassifier(model, dataloaders, dataset_sizes, criterion, optimizer, sch
                         # get mean loss mult and multiply loss
                         mean_loss_mult = sum(loss_multipliers) / len(loss_multipliers)
                         loss = loss.cpu()
+                        #print("Loss " + str(loss))
                         loss = loss * mean_loss_mult
+                        #print("Loss * mult" + str(loss))
                         loss = loss.to(device)
 
                     # backward + optimize only if in training phase

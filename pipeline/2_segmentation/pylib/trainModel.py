@@ -7,7 +7,7 @@ import torch
 from tqdm import tqdm
 
 def trainModel(model, criterion, dataloaders, optimizer, metrics, bpath,
-                num_epochs):
+                num_epochs, name):
     since = time.time()
     best_model_wts = copy.deepcopy(model.state_dict())
     best_loss = 1e10
@@ -68,7 +68,7 @@ def trainModel(model, criterion, dataloaders, optimizer, metrics, bpath,
         for field in fieldnames[3:]:
             batchsummary[field] = np.mean(batchsummary[field])
         print(batchsummary)
-        with open(os.path.join(bpath, 'log.csv'), 'a', newline='') as csvfile:
+        with open(os.path.join(bpath, name + '_log.csv'), 'a', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow(batchsummary)
             # deep copy the model

@@ -32,7 +32,7 @@ def showImages(show, images, titles=None, list_cmaps=None, grid=False, num_cols=
         # if not given lists, convert to lists
         if not type(images) is list:
             images = [images]
-        if not type(titles) is list:
+        if not type(titles) is list and titles is not None:
             titles = [titles]
         list_images = images
         list_titles = titles

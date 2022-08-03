@@ -1,4 +1,4 @@
-from preprocessRecords import preprocessRecords
+from mergePreprocessRecords import mergePreprocessRecords
 from writeiNatGenusList import writeiNatGenusList
 
 # for dragonfly-patterner, download Odonata research-grade iNat observations from USA
@@ -6,9 +6,7 @@ from writeiNatGenusList import writeiNatGenusList
 # place in root of data folder and rename as <preferred_dataset_name>_records.csv
 # _records is a needed identifier for downstream functions
 
-# add imageID and dataSource columns to record files
-#preprocessRecords(csv_names=["inatdragonflyusa_records"],id_cols=["catalogNumber"],csv_seps=['\t'])
-#preprocessRecords(csv_names=["inatdragonflyusa_records"],id_cols=["catalogNumber"],csv_seps=['\t'])
+mergePreprocessRecords(raw_records_csv_names=["inatdragonflyusa","odonatacentral"],
+                       id_cols=["catalogNumber","OC #"],id_prefixes=["INAT","OC"],csv_seps=['\t',','])
 
-# write genus list for iNat downloading
 writeiNatGenusList(inat_csv_name="inatdragonflyusa_records")

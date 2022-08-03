@@ -171,6 +171,11 @@ data/odonatacentral_data.csv
 data/all_images/
 data/ml_models/
 data/masks/
+data/patterns/
+data/segments/
+data/other/
+R/data/large/
+data/records.csv
 data/other/genus_download_records
 data/other/training_dirs
 
