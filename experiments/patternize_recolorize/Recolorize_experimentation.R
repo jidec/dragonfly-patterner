@@ -1,10 +1,10 @@
 
 library(recolorize)
 
-setwd("/Users/louiseppel/Desktop/Dragonfiles/Argia_inculta-Argia_oculata")
+setwd("/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade")
 
-#create a list of the files from your target directory
-file_list <- list.files(path="/Users/louiseppel/Desktop/Dragonfiles/Argia_inculta-Argia_oculata")
+#create a list of the files from target directory
+file_list <- list.files(path="/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade")
 
 viewChannels <- function(file_list) {
   for (i in 1:length(file_list)){
@@ -53,7 +53,7 @@ recolorizeImages <- function(file_list, bins, method) {
 
 # dealing with shine experimentation
 library(recolorize)
-img <- "/Users/louiseppel/Desktop/Dragonfiles/Aeschnosoma_elegans-Aeshna_petalura/Aeschnosoma_elegans.jpg"
+img <- "/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade/INATRANDOM-23567781_segment.png"
 s0 <- recolorize2(img, bins = 2, cutoff = 20, color_space = "sRGB")
 # plot(s0)
 
