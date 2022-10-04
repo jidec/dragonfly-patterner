@@ -2,26 +2,13 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/experiments/odo-color-sampler" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/pipeline" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/0_image_downloading/pylib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/pipeline/1_classification/odo_view_classifier" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/1_classification/pylib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/pipeline/2_segmentation/odo_segmenter" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/2_segmentation/pylib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/pipeline/3_segment_analysis/odo_seg_analyzer" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/pipeline/3_discretization/pylib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/pipeline/4_compositing/pylib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/experiments/bio-gans/pylib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/helpers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/0_data_prep/pylib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/0_trainset_curation/pylib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/pipeline/3_discretization+compositing/pylib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/pipeline/3_discretization_compositing/pylib" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/venv" />
-      <excludeFolder url="file://$MODULE_DIR$/venv2" />
-      <excludeFolder url="file://$MODULE_DIR$/venv3" />
-      <excludeFolder url="file://$MODULE_DIR$/venv4" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

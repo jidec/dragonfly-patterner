@@ -1,14 +1,11 @@
 import cv2
 import torch
-import matplotlib.pyplot as plt
 import pandas as pd
-import os
 import numpy as np
-from os.path import exists
 from showImages import showImages
 from writeToInferences import writeToInferences
 
-def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False, part_suffix=None, activation_threshold=0.5, show=False, print_steps=False, proj_dir="../.."):
+def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False, greyscale=False, part_suffix=None, activation_threshold=0.5, show=False, print_steps=False, proj_dir="../.."):
     """
         Infer and save segment masks for the specified image_ids using a trained model
 
@@ -40,8 +37,16 @@ def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False
     if (print_steps): print("Starting loop through image ids...")
     # for each image location
     for index, img_loc in enumerate(image_locs):
+
         # read a sample image
         img = cv2.imread(img_loc)
+
+        if(img is None):
+            continue
+
+        if greyscale:
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img = cv2.merge((img, img, img))
 
         if increase_contrast:
             #clahefilter = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))

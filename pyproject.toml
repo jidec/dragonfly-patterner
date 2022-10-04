@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "biopattern-tools"
+authors = [
+  { name="Jacob Idec", email="jacob.idec@ufl.edu" },
+]
+description = "Various pipeline-oriented tools to extract color pattern information from specimen images using deep learning and image processing"
+readme = "README.md"
+license = "GPL-2.0-or-later"
+requires-python = ">=3.7"
+classifiers = [
+]
+dependencies = [
+  "pandas",
+  "numpy",
+  "torch",
+  "opencv-python",
+  "readchar",
+  "scikit-learn",
+  "matplotlib",
+  "scikit-image",
+  "scipy",
+  "torchvision",
+]
+dynamic = ["version"]
+[project.urls]
+"Homepage" = "https://github.com/jidec/dragonfly-patterner"
+
+[tool.hatch.build]
+include = [
+  "biopattern-tools/*.py"]
+[tool.hatch.version]
+path = "biopattern-tools/__init__.py"

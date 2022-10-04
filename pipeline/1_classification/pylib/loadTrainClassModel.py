@@ -16,7 +16,7 @@ from trainClassifier import trainClassifier
 from torchsampler import ImbalancedDatasetSampler #pip install https://github.com/ufoym/imbalanced-dataset-sampler/archive/master.zip
 
 def loadTrainClassModel(training_dir_name, num_epochs, batch_size, num_workers, model_name, data_transforms=None,
-                        pretrained_model=models.resnet18(pretrained=True), criterion=nn.modules.loss.CrossEntropyLoss(),loss_matrix_name=None,
+                        pretrained_model=models.resnet50(pretrained=True), criterion=nn.modules.loss.CrossEntropyLoss(),loss_matrix_name=None,
                         print_steps=False, proj_dir = "../.."):
     """
         Load and train a classification model

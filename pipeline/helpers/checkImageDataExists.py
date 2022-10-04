@@ -9,7 +9,7 @@ def checkValidImageData(direct_data_dir):
         if img is None:
             print(name + " is None")
 
-checkValidImageData("../../data/masks")
+#checkValidImageData("../../data/masks")
 
 def checkValidImageDataFromIDs(image_ids, direct_data_dir, suffix):
     data_names = [i + suffix for i in image_ids]
@@ -18,9 +18,9 @@ def checkValidImageDataFromIDs(image_ids, direct_data_dir, suffix):
         if img is None:
             print(name + " is None")
 
-ids = getFilterImageIDs(records_fields=["genus"],records_values=["Dythemis"])
-ids = ids[2:9]
-checkValidImageDataFromIDs("../../data/masks")
+#ids = getFilterImageIDs(records_fields=["genus"],records_values=["Dythemis"])
+#ids = ids[2:9]
+#checkValidImageDataFromIDs("../../data/masks")
 
 def imageDataNameToImageID(name):
     return name.split("_")[0]

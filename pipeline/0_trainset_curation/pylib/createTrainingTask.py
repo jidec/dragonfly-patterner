@@ -31,16 +31,19 @@ def createTrainingTask(trainer_name,task_name,image_id_pool,num_images,proj_dir=
 
     # add image IDs to in_task column in train_metadata
     train_metadata = pd.read_csv(proj_dir + "/data/train_metadata.csv")
-    id_series = pd.Series([s + ".jpg" for s in sample_image_ids], name="file")
-    one_series = pd.Series(np.repeat(1,len(sample_image_ids)),name="in_task")
-    #df = pd.concat([id_series, one_series],axis=0)
-    df = pd.merge(id_series, one_series, right_index=True,
+    id_series = pd.Series(sample_image_ids, name="imageID")
+    one_series = pd.Series(np.repeat(1, len(sample_image_ids)), name="in_active_task")
+    df = pd.merge(id_series, one_series, right_index=True, # combine series columns
                   left_index=True)
-
-    train_metadata = pd.concat([train_metadata,df])
+    #id_df =
+    #df = id_series.join(one_series, on='in_active_task', how='left')
+    if 'in_active_task' in train_metadata:
+        train_metadata = pd.merge(train_metadata, df, how="outer", on=["imageID",'in_active_task']) # merge new in_active_task df with train_metadata
+    else:
+        train_metadata = pd.merge(train_metadata, df, how="outer", on=["imageID"])  # merge new in_active_task df with train_metadata
     train_metadata.fillna(int(-1), inplace=True)
-    #print(train_metadata)
-    train_metadata.to_csv(proj_dir + "/data/train_metadata.csv")
+
+    train_metadata.to_csv(proj_dir + "/data/train_metadata.csv",index=False)
     print("Added training samples to the in_task column to maintain exclusivity via the not_in_train_data parameter of getFilterImageIDs until updateTrainingMetadata is called again...")
 
     # copy images

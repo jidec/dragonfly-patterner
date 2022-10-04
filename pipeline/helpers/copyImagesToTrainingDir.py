@@ -2,7 +2,7 @@ import random
 import os
 from copyImages import copyImages
 
-def copyImagesToTrainingDir(training_dir_name, image_ids, ntest, class_dir_name, is_segment_training=False, seg_part_name=None, proj_dir="../.."):
+def copyImagesToTrainingDir(training_dir_name, image_ids, ntest, class_dir_name=None, is_segment_training=False, seg_part_name=None, proj_dir="../.."):
 
     random.shuffle(image_ids)
     test_ids = image_ids[0:ntest-1]

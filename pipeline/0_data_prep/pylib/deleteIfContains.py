@@ -1,5 +1,4 @@
 import os
-import shutil
 
 def deleteIfContains(direct_dir, contains, if_not_contains=False):
     for index, path in enumerate(os.listdir(direct_dir)):

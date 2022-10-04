@@ -1,5 +1,4 @@
 import os
-import itertools
 import shutil
 
 def deleteFolders(direct_dir):

@@ -51,6 +51,8 @@ def colorDiscretize(image_ids, group_cluster_records_col = None, group_cluster_r
 
         #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         if print_details: print("Loaded segment for ID " + id)
+        if img is None:
+            continue
         if by_contours:
             contour_or_pixel_data.append(getContoursAndContourPixelMeans(img,erode_contours_kernel_size,dilate_multiplier,min_contour_pixel_area,show))
             if print_details: print("Gathered contour data")

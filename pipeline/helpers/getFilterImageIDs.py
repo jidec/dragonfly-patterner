@@ -49,7 +49,9 @@ def getFilterImageIDs(start_ids=None,records_fields=[],records_values=[], in_rec
         # filter for records matching every value in every respective field
         for field, value in tuple(zip(train_fields,train_values)):
             train_metadata = train_metadata[train_metadata[field] == value]
+
         train_ids = train_metadata['imageID']
+
         # match image ids to train ids
         image_ids = list(set(image_ids).intersection(train_ids))
         if print_steps: print("Filtered to " + str(len(image_ids)) + " using training...")

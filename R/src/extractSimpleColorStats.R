@@ -35,3 +35,8 @@ extractSimpleColorStats <- function(img_paths){
     df <- rbind(df,row)
   }
 }
+
+data <- read.csv("analyses/specimen_colors_unadj.csv")
+unique(data$recordID)
+
+

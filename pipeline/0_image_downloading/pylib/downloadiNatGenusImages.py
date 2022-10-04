@@ -1,6 +1,5 @@
 import pandas as pd
 import os
-import subprocess
 import time
 from datetime import datetime
 import shutil

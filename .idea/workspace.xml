@@ -5,553 +5,217 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/experiments/clahe_glare_removal/clahe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/clahe_glare_removal/inpaint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/clahe_glare_removal/local_maxima.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/morph_clustering/clusterMorphsTest2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/0_data_prep/old/run_unnest_images.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/deleteFolders.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/removeFromFilenames.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/renameRecordsCol.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/unnestImagesAntWeb.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/old/renameAntWebPredownload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/1_classification/run_infer_4class_all.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/old/run_create_segmentation_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/old/run_extract_training_segments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/old/run_infer_classified_segments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/old/run_infer_segments_ants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/checkImageDataExists.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/getIDsFromDir.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/imageIDToRecordID.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/writeToInferences.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/run_create_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/run_dythemis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/biopattern-tools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments/build_tests/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/infillGlare.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_train_new_new_segs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_train_new_segs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/tests/test_infer_segments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/train_one_segmenter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/helpers/makeTrainingImagesGreyscale.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/helpers/tests/test_update_training_meta.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/run_show_steps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dragonfly-patterner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dragonfly-patterner.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/misc_counts.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/misc_counts.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/color-extraction/getColorsAndCoverage.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/old/expandObsToImages.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/old/mergeImageObsData.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/old/prepGBIFdownload.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/old/rinat_downloader.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/old/scratch_commands.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/old/testImageR.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/run_from_R.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/copyClassImagesForTraining.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/copyMaskImagesForTraining.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/createEndTrainingTasks.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/downloadOCImages.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/getFilterImageIDs.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/mergeUpdateAnnotations.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/moveSelectImages.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/preprocessGBIF.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/preprocessiNat.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/proprocessOC.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/recordSegmentationTask.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/smallHelpers.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/writeGenusList.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/annotations.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/other/loss_matrices/dfly_views_loss_mat.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/other/loss_matrices/dfly_views_loss_mat.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/analyze_antheads.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/analyze_antheads.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/extractMeanColor.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/extractMeanColor.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/inferences.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/train_metadata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/train_metadata.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/preprocessRecords.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/writeiNatGenusList.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/writeiNatGenusList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/run_preprocess_records.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/run_preprocess_records.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadAntWebImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/old/downloadAntWebImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/clahe_glare_removal/local_maxima.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/clahe_glare_removal/local_maxima.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide.txt" beforeDir="false" afterPath="$PROJECT_DIR$/guide.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/deleteFolders.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/deleteFolders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/deleteIfContains.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/deleteIfContains.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/removeFromFilenames.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/removeFromFilenames.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/unnestImagesAntWeb.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/pylib/unnestImagesAntWeb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadImages.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatGenusImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatGenusImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/helpers/download_images.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/helpers/get_inat_records.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/old/get_inat_records.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/helpers/imgfiles.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/imgfiles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/helpers/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/helpers/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_antweb.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/old/run_download_antweb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_genera.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_genera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatRandomSingleImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatRandomSingleImages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/getiNatRecords.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/getiNatRecords.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/pylib/createTrainingTask.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/pylib/createTrainingTask.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/pylib/endTrainingTask.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/pylib/endTrainingTask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_task.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_end_training_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_end_training_task.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/inferImageClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/inferImageClasses.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/loadTrainClassModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/loadTrainClassModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/trainClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/trainClassifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/1_classification/run_create_4class_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/run_create_4class_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/run_infer_3class_multistep.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/honeSegments.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/run_infer_4class_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/run_infer_4class_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/extractHoneSegments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/extractHoneSegments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/loadTrainSegModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/loadTrainSegModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/old/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/start_infer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/old/start_infer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/trainModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/trainModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_ant_head_segmentation_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_segmentation_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_segments.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_segments_ants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/pylib/colorDiscretize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/pylib/extractSegments.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/pylib/getMeanSegmentColor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/pylib/rotateToVertical.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/run_discretize_individuals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization/run_discretize_species.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/pylib/alignDiscretized.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/pylib/blendAligned.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/pylib/blendAlignedGroups.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/pylib/clusterMorphs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/pylib/procrustesComposite.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/run_blend_species.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/4_compositing/run_cluster_blend_species_morphs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_ant_head_segmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_ant_head_segmodel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_extract_segments_ants.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_extract_segments_ants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/run_color_discretize.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/run_color_discretize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/helpers/checkImageDataExists.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/checkImageDataExists.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/helpers/copyImagesToTrainingDir.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/copyImagesToTrainingDir.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/helpers/getFilterImageIDs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/getFilterImageIDs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/invertMasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/invertMasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/showImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/showImages.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/helpers/updateTrainingMetadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/updateTrainingMetadata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/sourceRdefs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/temporary/downloadiNatRandomSingleImages.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/temporary/run_download_random.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/temporary/sourceRdefs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-107132037.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-107132037_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-110322341.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-110322341_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-110773615.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-110773615_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-115820103.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-115820103_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-11805304.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-11805304_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-13876951.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-13876951_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-15138951.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-15138951_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-16062195.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-16062195_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-1637768.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-1637768_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-1738422.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-1738422_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-18953301.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-18953301_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-20192065.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-20192065_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-24064580.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-24064580_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-25711605.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-25711605_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-26806385.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-26806385_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-26950274.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-26950274_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28343884.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28343884_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28438702.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28438702_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28449390.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28449390_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28518328.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-28518328_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29347271.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29347271_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29412145.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29412145_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29427491.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29427491_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29440930.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-29440930_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-30203058.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-30203058_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-3463672.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-3463672_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-35613709.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-35613709_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-35643126.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-35643126_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-35739986.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-35739986_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-36094565.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-36094565_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-3890044.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-3890044_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-42084680.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-42084680_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-47193154.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-47193154_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-47580331.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-47580331_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-47829557.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-47829557_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-49071644.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-49071644_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-49121632.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-49121632_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-49421864.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-49421864_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-50518821.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-50518821_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-50724075.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-50724075_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-51324309.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-51324309_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-52407126.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-52407126_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-53126727.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-53126727_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-53306524.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-53306524_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-53552400.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-53552400_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-5440722.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-5440722_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-55005326.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-55005326_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-5576669.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-5576669_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-58733900.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-58733900_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-58800864.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-58800864_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-59636869.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-59636869_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-60017244.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-60017244_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-60219007.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-60219007_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-60963163.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-60963163_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-61515501.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-61515501_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-64802707.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-64802707_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-6682596.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-6682596_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-76370697.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-76370697_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-77656050.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-77656050_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-78624678.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-78624678_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-78758800.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-78758800_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-81110675.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-81110675_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-83390864.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-83390864_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-83866661.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-83866661_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-85652245.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-85652245_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-86498620.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-86498620_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-89408155.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-89408155_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-89428513.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-89428513_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-90707228.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-90707228_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-90837080.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-90837080_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-91344157.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-91344157_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-9229367.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-9229367_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-92975696.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-92975696_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-96697246.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-96697246_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-98745130.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/INATRANDOM-98745130_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-10551184.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-10551184_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-107204038.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-107204038_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-113539403.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-113539403_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-1163832.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-1163832_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-1368211.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-1368211_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-13962100.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-13962100_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-14123470.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-14123470_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-1540145.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-1540145_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-16301992.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-16301992_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-17396628.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-17396628_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-17593591.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-210309.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-210309_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-21811421.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-21811421_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-24425404.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-24425404_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-24635495.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-24635495_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-25463530.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-25463530_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-25814653.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-25814653_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26320675.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26320675_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26369415.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26369415_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26520418.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26520418_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26878051.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-26878051_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-28028471.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-28028471_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-28193429.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-28193429_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-28533015.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-28533015_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-29280850.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-29280850_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-29637671.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-29637671_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-30080044.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-30080044_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-30463996.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-30463996_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-30653746.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-30653746_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-31170955.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-31170955_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-31381441.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-31381441_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-33254118.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-33254118_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-40342590.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-40342590_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-48482800.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-48482800_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-49974649.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-49974649_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-50327937.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-50327937_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-50659252.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-50659252_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-5276068.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-5276068_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-53286007.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-53286007_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-54291494.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-54291494_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-54682425.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-54682425_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-55761987.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-55761987_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-56477664.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-56477664_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-57304136.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-57304136_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-59864638.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-59864638_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-64728292.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-64728292_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-6968637.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-6968637_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-70917436.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-70917436_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-72653929.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-72653929_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-7641343.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-7641343_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-7660492.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-7660492_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-77046811.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-77046811_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-77710301.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-77710301_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-80645162.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-80645162_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-81914724.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-81914724_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-8236665.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-8236665_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-82532936.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-82532936_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-83017240.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-83017240_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-83297308.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-83297308_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-83563592.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-83563592_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-84619959.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-84619959_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-85683034.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-85683034_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-86000066.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-86000066_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-86646383.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-86646383_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-86818497.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-86818497_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-87648051.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-87648051_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-89250223.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-89250223_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-89509873.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-89509873_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-91411321.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-91411321_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-92308216.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-92308216_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-93799495.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-93799495_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-97800123.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-97800123_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-98566651.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-98566651_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-9900864.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-9900864_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-99673372.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/INATRANDOM-99673372_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-100521809.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-100521809_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-101284254.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-101284254_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-104577580.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-104577580_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-111887589.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-111887589_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-11270054.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-11270054_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-116724379.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-116724379_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-11910981.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-11910981_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-12273790.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-12273790_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-13494471.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-13494471_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-14087075.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-14087075_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-1458280.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-1458280_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-15179803.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-15179803_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-15798624.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-15798624_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-1686487.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-1686487_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-18736283.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-18736283_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-24826155.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-24826155_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-25681385.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-25681385_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-25706210.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-25706210_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-26729430.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-26729430_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-27468456.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-27468456_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-28608516.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-28608516_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-28743205.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-28743205_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-31557604.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-31557604_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-3805844.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-3805844_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-3828987.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-3828987_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-38411356.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-38411356_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-3944725.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-3944725_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-4125246.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-4125246_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-42976294.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-42976294_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-45389259.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-45389259_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-45654213.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-45654213_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-4605590.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-4605590_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-4620035.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-4620035_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-47474047.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-47474047_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-48367558.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-48367558_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-49065516.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-49065516_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-49759016.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-49759016_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-51458677.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-51458677_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-52814334.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-52814334_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-53367472.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-53367472_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-53599643.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-53599643_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-55840701.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-55840701_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-56157141.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-56157141_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-56508902.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-56508902_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-58201562.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-58201562_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-5880177.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-5880177_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-61632683.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-61632683_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-61902446.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-61902446_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-64710732.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-64710732_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-6631928.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-6631928_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-6684315.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-6684315_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-69218587.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-69218587_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-6982858.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-6982858_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-72656392.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-72656392_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7314899.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7314899_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7383079.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7383079_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7517109.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7517109_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-76630795.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-76630795_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7924575.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-7924575_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-80190495.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-80190495_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-82184911.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-82184911_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-8364450.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-8364450_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-84382560.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-84382560_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-85795092.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-85795092_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-87911435.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-87911435_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-879191.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-879191_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-89836142.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-89836142_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-90214408.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-90214408_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-92017324.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-92017324_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-92412148.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-92412148_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-92977445.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-92977445_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-94152840.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-94152840_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-94650519.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-94650519_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-94992759.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-94992759_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-99288698.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/INATRANDOM-99288698_mask.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/segmented_ids.csv" beforeDir="false" afterPath="$PROJECT_DIR$/trainset_tasks/Ana/6-17-22_Segments75/segmented_ids.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Ana/6-3-22_LateralSegments26/segmented_ids.csv" beforeDir="false" afterPath="$PROJECT_DIR$/trainset_tasks/Ana/6-3-22_LateralSegments26/segmented_ids.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/segmented_ids.csv" beforeDir="false" afterPath="$PROJECT_DIR$/trainset_tasks/Jacob/6-17-22_Segments75/segmented_ids.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Jacob/6-3-22_DorsalSegments50/segmented_ids.csv" beforeDir="false" afterPath="$PROJECT_DIR$/trainset_tasks/Jacob/6-3-22_DorsalSegments50/segmented_ids.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/segmented_ids.csv" beforeDir="false" afterPath="$PROJECT_DIR$/trainset_tasks/Louis/6-17-22_Segments75/segmented_ids.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Louis/6-3-22_DorsolateralSegments50/segmented_ids.csv" beforeDir="false" afterPath="$PROJECT_DIR$/trainset_tasks/Louis/6-3-22_DorsolateralSegments50/segmented_ids.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-100271582.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-101649950 - Shortcut.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-101649950.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-1101340.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-12221075.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-12316487.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-12343157.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-12774861.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-12798848.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-13165288.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-13329531.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-13349711.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-13564083.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-13618011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-13758288.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-13960609.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-14379453.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-14394859.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-14778069.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-15153602.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-16111370.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-16156739.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-17252164.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-1766491.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-17984394.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-1839508.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-18610886.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-1863615.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-19657985.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-20091388.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-20255951.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-20515232.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-219675.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-22604760.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-24126477.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-25186647.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-25211783.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-25311954.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-25533209.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-25671702.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-26620343.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-27594908.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-27735709.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-28748282.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-29082645.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-29150919.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-29280850.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-2937686.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-2964595.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-29818892.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-30274463.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-30628843.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-30647276.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-30788756.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-31038972.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-31267153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-31586008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-3384665.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-35033205.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-3513817.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-36828972.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-3696266.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-37148380.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-383174.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-40049875.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-40995607.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-41767818.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-42341826.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-43010909.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-44401911.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-45416762.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-47265879.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-48294146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-49193775.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-50823808.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-50841671.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-51034990.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-51227361.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-51460798.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-52074059.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-52207882.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-52250232.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-52329898.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-53286007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-53290128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-53595094.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-53792710.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-54950695.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-55194883.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-56255668.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-57167699.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-57928706.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-58078909.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-5830493.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-5899325.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-59869405.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-59943821.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-6555717.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-6577665.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-65918392.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-66705586.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-6682596.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-668275.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-6900539.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-6957157.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-70094409.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-704851.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-7195055.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-7198278.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-73428826.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-74581257.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-7461461.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-75002557.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-7517109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-7533643.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-77309262.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-78461131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-79301528.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-81076836.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-81379583.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-82547736.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-83512044.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-83604309.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-84086131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-84312876.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-8445659.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-84962244.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-85403781.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-8571152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-858162.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-85848651.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-85906201.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-87802704.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-88616138.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-8932757.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-90077324.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-90933819.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-91062960.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-91699453.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-91842778.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-91893537.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-92424351.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-93480979.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-95193708.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-95311562.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-96238238.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-97666246.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-98312683.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-9883418.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-99288698.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/INATRANDOM-99936787.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/ana_session.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/jacob_session.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/Shared/5-10-22_Classes_150/louis_session.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/annots_seed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainset_tasks/sioux_segment_helper.ijm" beforeDir="false" afterPath="$PROJECT_DIR$/trainset_tasks/sioux_segment_helper.ijm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -561,6 +225,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Setup Script" />
         <option value="Python Script" />
       </list>
     </option>
@@ -638,7 +303,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/dragonfly-patterner&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="ReaderModeSettings">
@@ -646,22 +311,22 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\dragonfly-patterner\biopattern-tools" />
+      <recent name="E:\dragonfly-patterner" />
+      <recent name="E:\dragonfly-patterner\dist\inatpatterner" />
+      <recent name="E:\dragonfly-patterner\src_test" />
       <recent name="E:\dragonfly-patterner\data\other\raw_records" />
-      <recent name="E:\dragonfly-patterner\pipeline\0_image_downloading\pylib\helpers" />
-      <recent name="F:\GitProjects\dragonfly-patterner\pipeline\helpers\old" />
-      <recent name="F:\GitProjects\dragonfly-patterner\pipeline\4_compositing\pylib" />
-      <recent name="D:\GitProjects\dragonfly-patterner\experiments\odo_seg_analyzer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\dragonfly-patterner" />
       <recent name="E:\dragonfly-patterner\pipeline\1_classification\pylib\old" />
       <recent name="E:\dragonfly-patterner\pipeline\0_image_downloading\old" />
       <recent name="E:\dragonfly-patterner\pipeline\2_segmentation\old" />
       <recent name="E:\dragonfly-patterner\pipeline\3_discretization_compositing\old" />
-      <recent name="E:\dragonfly-patterner\pipeline\3_discretization+compositing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run_extract_segments_ants">
-    <configuration name="run_create_ant_head_segmentation_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.run_create_training_tasks">
+    <configuration name="makeTrainingImagesGreyscale" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -669,11 +334,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/2_segmentation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/helpers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/2_segmentation/run_create_ant_head_segmentation_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/helpers/makeTrainingImagesGreyscale.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -682,7 +347,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_dythemis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run_color_discretize" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -690,11 +355,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/3_discretization_compositing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/run_dythemis.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/3_discretization_compositing/run_color_discretize.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -703,7 +368,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_extract_segments_ants" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run_create_4class_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -711,11 +376,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/2_segmentation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/1_classification" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/2_segmentation/run_extract_segments_ants.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/1_classification/run_create_4class_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -724,7 +389,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run_train_many_segmenters" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run_create_training_tasks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -732,32 +397,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/2_segmentation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_trainset_curation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/2_segmentation/run_train_many_segmenters.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run_unnest_images" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dragonfly-patterner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/0_data_prep/old" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_data_prep/old/run_unnest_images.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_tasks.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -787,21 +431,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test_infer_segments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dragonfly-patterner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/2_segmentation/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/2_segmentation/tests/test_infer_segments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.run_update_training_metadata" />
-      <item itemvalue="Python.run_create_ant_head_segmentation_model" />
-      <item itemvalue="Python.run_extract_segments_ants" />
-      <item itemvalue="Python.run_unnest_images" />
-      <item itemvalue="Python.run_train_many_segmenters" />
-      <item itemvalue="Python.run_dythemis" />
+      <item itemvalue="Python.run_create_training_tasks" />
+      <item itemvalue="Python.makeTrainingImagesGreyscale" />
+      <item itemvalue="Python.run_create_4class_model" />
+      <item itemvalue="Python.run_color_discretize" />
+      <item itemvalue="Python.test_infer_segments" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_extract_segments_ants" />
-        <item itemvalue="Python.run_create_ant_head_segmentation_model" />
-        <item itemvalue="Python.run_unnest_images" />
-        <item itemvalue="Python.run_dythemis" />
-        <item itemvalue="Python.run_train_many_segmenters" />
+        <item itemvalue="Python.run_create_training_tasks" />
+        <item itemvalue="Python.run_color_discretize" />
+        <item itemvalue="Python.run_create_4class_model" />
+        <item itemvalue="Python.makeTrainingImagesGreyscale" />
+        <item itemvalue="Python.test_infer_segments" />
       </list>
     </recent_temporary>
   </component>

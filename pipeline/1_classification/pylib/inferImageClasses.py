@@ -98,7 +98,7 @@ def inferImageClasses(image_ids, infer_colname, infer_names,model_name, image_si
         inferences.loc[inferences[infer_colname] == index, infer_colname] = name
 
     if exists(proj_dir + "/data/inferences.csv"):
-        current_infers = pd.read_csv(proj_dir + "/data/inferences.csv",header=None)
+        current_infers = pd.read_csv(proj_dir + "/data/inferences.csv")
         inferences = pd.concat([current_infers,inferences])
 
     inferences.to_csv(proj_dir + "/data/inferences.csv")

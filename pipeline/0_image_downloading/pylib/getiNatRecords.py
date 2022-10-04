@@ -2,10 +2,8 @@
 import requests
 import csv
 import string
-import random
 import time, datetime
 import os.path
-from argparse import ArgumentParser
 
 base_url = 'https://api.inaturalist.org/v1/'
 #("Starting")

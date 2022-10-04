@@ -38,16 +38,32 @@ function processFolder(input) {
 		// send to SIOUX if image is not a mask and mask doesn't exist yet 
 		if(!isMask && !hasMask){
 			open(input + file);
+			
+			params = "blocksize=100 histogram=256 maximum_slope=7 mask=*None* fast_(less_accurate)";
+			run("Enhance Local Contrast (CLAHE)",params);
+			
 			run("SIOX: Simple Interactive Object Extraction");
 			setTool("brush");
-			title = "WaitForUser";
-			msg = "Click OK to Save Mask and Move To Next Image";
-			waitForUser(title, msg);
-			output = replace(input+file, ".jpg", "");
-			output = output + "_" + part_name + "mask.jpg";
-			saveAs("/formats/jpg", output);
-			close();
-			close();
+
+			waitForUser("WaitForUser", "Click OK after you hit *Create mask* in the segmenter and finished editing the B/W segment if not scrapping it");
+			message = "Click YES to save finished mask and move To next image, NO to skip this image if the segmenter fails badly and is not worth fixing";
+			bool = getBoolean(message, "YES: Save mask", "NO: Skip image");
+			
+			if(bool){
+				output = replace(input+file, ".jpg", "");
+				output = output + "_" + part_name + "mask.jpg";
+				saveAs("/formats/jpg", output);
+				close();
+				close();
+			}
+			if(!bool){
+				run("Subtract...", "value=255");
+				output = replace(input+file, ".jpg", "");
+				output = output + "_" + part_name + "mask.jpg";
+				saveAs("/formats/jpg", output);
+				close();
+				close();
+			}
 		}
 	}
 }

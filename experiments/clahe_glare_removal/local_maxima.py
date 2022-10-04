@@ -7,6 +7,11 @@ from skimage import data
 from skimage.color import rgb2gray, rgb2hsv
 import numpy as np
 from skimage import util
+from infillGlare import infillGlare
+import cv2
+
+img = cv2.imread("../../data/segments/INATRANDOM-24635495_segment.png")
+infillGlare(img)
 
 imgs = os.listdir("../../data/all_images")
 imgs = imgs[1100:]
@@ -58,10 +63,7 @@ for img_name in imgs:
     ax[2].set_title('Peak local max')
 
     fig.tight_layout()
-
     plt.show()
-
-    plt.imshow(og_img)
 
     img = rgb2hsv(og_img)
     img = img[:, :, 1]

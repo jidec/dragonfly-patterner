@@ -1,20 +1,12 @@
-from PIL import Image
-from PIL import ImageOps
-import numpy as np
-import cv2
-from skimage import measure
 from sklearn.cluster import KMeans
 from sklearn.neighbors import NearestCentroid
 import cv2
 import numpy as np
-from scipy.ndimage.filters import minimum_filter
 from showImages import showImages
-from numpy import unique
-import colorsys
 from rotateToVertical import rotateToVertical
 import warnings
 
-def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical=True, remove_islands=True,erode_kernel_size=0,adj_to_background_col=False,target_bg_col=[160,160,160],
+def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical=True, remove_islands=True,erode_kernel_size=0,adj_to_background_col=False,target_bg_col=[160,160,160], target_range = 90,
                         set_nonwhite_to_black=False,write=True,show=False,print_steps=False,seg_subfolder="", proj_dir="../.."): #img_dir="../../data/all_images",mask_dir="../../data/masks"):
 
     """
@@ -46,10 +38,11 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
         start_img = np.copy(img)
         if(print_steps):{print("Processing ID " + id)}
 
-        print(mask_dir + "/" + id + "_mask.jpg")
         # open mask and convert to array
         mask = cv2.imread(mask_dir + "/" + id + "_mask.jpg",cv2.IMREAD_GRAYSCALE)
 
+        if mask is None:
+            continue
         if cv2.countNonZero(mask) == mask.shape[0] * mask.shape[1]:
             warnings.warn("Found empty mask, skipping it but consider filtering for ids with good/usable masks")
             continue
@@ -77,7 +70,7 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
             if (print_steps): {print("Removed islands")}
 
         # apply mask to img to get masked img
-        showImages(show,[img,mask],["1","2"])
+        # showImages(show,[img,mask],["1","2"])
 
         bg_mask = cv2.bitwise_not(mask)
         bg = cv2.bitwise_and(img, img, mask=bg_mask)
@@ -108,52 +101,41 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
             # get the cluster with the lowest saturation
             preds = model.predict(cluster_values)
             clf = NearestCentroid()
-            clf.fit(cluster_values, preds)
-            centers = clf.centroids_.astype(int)
-            print(centers)
 
+            if len(np.unique(preds)) > 1 and len(np.unique(cluster_values)) > 1:
+                if (print_steps): {print("Background pixel clustering successful")}
+                clf.fit(cluster_values, preds)
+                centers = clf.centroids_.astype(int)
 
-            #for index in range(0,centers.shape[0]):
-            #    row = centers[index]
-            #    if index == 0:
-            #        least_sat_hls = colorsys.rgb_to_hls(row[2]/255,row[1]/255,row[0]/255)
-            #    hls = colorsys.rgb_to_hls(row[2]/255,row[1]/255,row[0]/255)
-            #    if hls[2] < least_sat_hls[2]:
-            #        least_sat_hls = hls
-            #    #print(hls[hls[:, 2].argmin()])
-            #least_sat_rgb = colorsys.hls_to_rgb(least_sat_hls[0],least_sat_hls[1],least_sat_hls[2])
-            #least_sat_rgb = [int(r * 255) for r in least_sat_rgb]
+                # find the closest color to the reference grey
+                for index in range(0, centers.shape[0]):
+                    row = centers[index]
+                    if index == 0:
+                        best_diff = 100000
+                    diff = abs(row[0] - target_bg_col[0]) + abs(row[1] - target_bg_col[1]) + abs(row[2] - target_bg_col[2])
+                    if diff < best_diff:
+                        closest_to_grey = row
+                        best_diff = diff
 
-            # find the closest color to the reference grey
-            for index in range(0, centers.shape[0]):
-                row = centers[index]
-                if index == 0:
-                    best_diff = 100000
-                diff = abs(row[0] - target_bg_col[0]) + abs(row[1] - target_bg_col[1]) + abs(row[2] - target_bg_col[2])
-                print(diff)
-                if diff < best_diff:
-                    closest_to_grey = row
-                    best_diff = diff
+                if (print_steps): {print("Found closest color to target: " + str(closest_to_grey))}
 
-            #print(closest_to_grey)
+                # continue adjustment only if in range of reference grey and (maybe later) occupies a lot of size
+                grey_dist = np.linalg.norm(closest_to_grey - np.array(target_bg_col)) #[160,160,160]
+                if(grey_dist < target_range):
+                    ref_b = closest_to_grey[0]
+                    ref_g = closest_to_grey[1]
+                    ref_r = closest_to_grey[2]
 
-            # continue adjustment only if in range of reference grey and (maybe later) occupies a lot of size
-            grey_dist = np.linalg.norm(closest_to_grey - np.array(target_bg_col)) #[160,160,160]
-            if(grey_dist < 60):
-                ref_b = closest_to_grey[0]
-                ref_g = closest_to_grey[1]
-                ref_r = closest_to_grey[2]
+                    ref_lum = (ref_r + ref_g + ref_b) / 3
 
-                ref_lum = (ref_r + ref_g + ref_b) / 3
+                    # if dark background, multiplier will be high, increasing the lightness of the image
+                    # if light background, multiplier will be low, increasing the darkness of the image
+                    img[:,:,0] = img[:,:,0] * ref_lum / ref_b
+                    img[:,:,1] = img[:,:,1] * ref_lum / ref_g
+                    img[:,:,2] = img[:,:,2] * ref_lum / ref_r
 
-                # if dark background, multiplier will be high, increasing the lightness of the image
-                # if light background, multiplier will be low, increasing the darkness of the image
-                img[:,:,0] = img[:,:,0] * ref_lum / ref_b
-                img[:,:,1] = img[:,:,1] * ref_lum / ref_g
-                img[:,:,2] = img[:,:,2] * ref_lum / ref_r
-
-                if (print_steps): {print("Adjusted using known bg color")}
-                showImages(show, [start_img,img], ["start","adj"])
+                    if (print_steps): {print("Adjusted using known background color")}
+                    showImages(show, [start_img,img], ["start","adj"])
 
         img = cv2.bitwise_and(img, img, mask=mask)
         if (print_steps): {print("Applied mask to image")}
@@ -188,8 +170,9 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
         if img.shape[0] != 0:
             # write segment
             if write:
-                cv2.imwrite(proj_dir + "/data/segments/" + seg_subfolder + id + "_segment.png",img) # plus part suffix
-                if (print_steps): {print("Wrote segment")}
+                write_path = proj_dir + "/data/segments/" + seg_subfolder + id + "_segment.png"
+                cv2.imwrite(write_path,img) # plus part suffix
+                if (print_steps): {print("Wrote segment to " + write_path)}
 
             # convert final masked image to RGBA
             img = cv2.cvtColor(img, cv2.COLOR_RGB2RGBA)
@@ -199,7 +182,7 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
             # add new tuple to list
             rgba_imgs_masks_ids.append((img,mask,id))
 
-        if index % 1000 == 0:
+        if index % 10 == 0:
             print("Processed " + str(index))
 
     return rgba_imgs_masks_ids

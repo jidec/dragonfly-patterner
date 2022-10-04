@@ -6,9 +6,8 @@
 
 import os.path
 import csv
-from argparse import ArgumentParser
 import time
-from imgfiles import getImageSize, mtDownload, ImageDownloadWorkerResult
+from imgfiles import mtDownload, ImageDownloadWorkerResult
 
 def getDownloadRequests(fpath, img_dir, skip_existing):
     """

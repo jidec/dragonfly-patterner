@@ -1,10 +1,10 @@
 from loadTrainSegModel import loadTrainSegModel
 from torchvision import transforms
+from copyImagesToTrainingDir import copyImagesToTrainingDir
 import torch
+from getFilterImageIDs import getFilterImageIDs
 
 # copy training segments from
-#copyMaskImagesForTraining(from_="G:/ant-patterner/data/masks/train_masks", imgs_from="G:/ant-patterner/data/all_images",
-#                          to="G:/ant-patterner/data/other/training_dirs", ntest=10)
 
 data_transforms = transforms.Compose([
         transforms.Resize([200, 200]), #344

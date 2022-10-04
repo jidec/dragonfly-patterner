@@ -1,5 +1,4 @@
 import os
-import shutil
 
 def removeFromFilenames(direct_dir, remove="_1_med"):
     for index, path in enumerate(os.listdir(direct_dir)):

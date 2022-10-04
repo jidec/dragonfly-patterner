@@ -1,5 +1,4 @@
 import os
-import itertools
 import shutil
 import os.path
 

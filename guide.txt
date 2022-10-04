@@ -9,8 +9,7 @@ Project Structure
         a copy of the ImageAnt software (imageant.exe), and a macro for semi-supervised segment creation in Fiji (sioux_segment_helper.ijm)
     R - contains R helper scripts (some of which are run from Python) in /src, and analysis of raw data and patterns in /analyses
 
-
-Notes
+Notes to get things working
     ensure you specify folders to source from to allow you to call methods from other scripts
         in PyCharm do this in File -> Settings -> Project Structure and mark as sources the pipeline folder and all pylib folders
     pipeline could be expanded to other taxa and observations by simply by downloading a larger subset from GBIF
@@ -57,8 +56,6 @@ Steps for segment annotators (Jacob, Louis, Ana, & Rob)
 	7. click the OK button to save the mask and move to the next image
 	8. the script only uses images that don't already have masks, so you can resume after quitting
 
-Steps for those wanting to train and test... TODO
-
 Points & considerations relating to data management
     1. All data is kept in the data folder such that one could run code on different sets of data
     2. all_images, masks, patterns, segments all can contain images from multiple sources
@@ -67,4 +64,9 @@ Points & considerations relating to data management
         -INTRAOBS# accounts for the very common organization of having multiple images per observation or specimen
         -i.e. INTRAOBS# is _1..._2... for INAT images, _DORSAL..._VENTRAL etc for AntWeb images
 
+Builds
+    Although I like this directory structure for operating in PyCharm, I haven't gotten it to build for command line applications and distribution
+    To build, COPY all scripts you want in the build from pylib folders into the biopattern-tools folder
+    With package 'hatch' installed, run 'hatch build' from the terminal while in the dragonfly-patterner directory. This builds tars to dist folder.
+    To install, run 'pip install dist/biopattern_tools-0.1.tar.gz'. You should then be able to import all modules from the installed package.
 
