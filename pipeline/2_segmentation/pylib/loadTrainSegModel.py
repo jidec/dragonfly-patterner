@@ -11,7 +11,7 @@ from torchvision import transforms
 import os
 
 def loadTrainSegModel(training_dir_name, num_epochs, batch_size, num_workers, model_name, data_transforms=None,
-                      criterion = torch.nn.BCEWithLogitsLoss(pos_weight=torch.tensor(15)), resnet_size="50",
+                      criterion = torch.nn.BCEWithLogitsLoss(pos_weight=torch.tensor(15)), resnet_type="deeplabv3", resnet_size="50", pretrained=True,
                       print_steps=True, print_details=False, proj_dir="../.."):
     """
         Load and train a segmentation model
@@ -41,10 +41,13 @@ def loadTrainSegModel(training_dir_name, num_epochs, batch_size, num_workers, mo
     # of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset
     # TODO- allow specifying a model
     if resnet_size == "50":
-        model = models.segmentation.deeplabv3_resnet50(pretrained=True,
-                                                        progress=True)
+        if resnet_type == "deeplabv3":
+            model = models.segmentation.deeplabv3_resnet50(pretrained=pretrained,
+                                                            progress=True)
+        elif resnet_type == "maskrcnn":
+            model = models.detection.maskrcnn_resnet50_fpn(pretrained=pretrained)
     elif resnet_size == "101":
-        model = models.segmentation.deeplabv3_resnet101(pretrained=True,
+        model = models.segmentation.deeplabv3_resnet101(pretrained=pretrained,
                                                        progress=True)
     # set the model head
     # change output channel size to greater than 1 for multichannel segmentation

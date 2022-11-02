@@ -9,4 +9,4 @@ from writeiNatGenusList import writeiNatGenusList
 mergePreprocessRecords(raw_records_csv_names=["inatdragonflyusa","odonatacentral"],
                        id_cols=["catalogNumber","OC #"],id_prefixes=["INAT","OC"],csv_seps=['\t',','])
 
-writeiNatGenusList(inat_csv_name="inatdragonflyusa_records")
+#writeiNatGenusList(inat_csv_name="inatdragonflyusa_records")

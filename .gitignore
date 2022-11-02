@@ -163,32 +163,37 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# ignore data files
-data/inat_data.csv
-data/odonatacentral_data.csv
 
-# ignore data folders
-data/all_images/
-data/ml_models/
-data/masks/
-data/patterns/
-data/segments/
-data/other/
-R/data/large/
+# keep readme txts
+!*.txt
+
+# data folders
 data/records.csv
-data/other/genus_download_records
-data/other/training_dirs
+
+data/all_images/*.jpg
+data/masks/*.jpg
+data/ml_models/
+data/patterns/
+!data/patterns/patterns_readme.txt
+#!*/
+data/segments/*.png
+
+data/other/*.csv
+data/other/genus_download_records/
+!*.txt
+data/other/loss_matrices/*.csv
+data/other/raw_records/*.csv
+data/other/train_metadata/*.csv
+data/other/train_metadata/*.csv
+data/other/training_dirs/
+!*.txt
 
 # ignore temp training images
 pipeline/1_classification/pylib/trainsets/
 pipeline/2_segmentation/pylib/trainset/
 experiments/odo-segmenter/trainset
-
-# ignore downloaded images and data
-pipeline/0_image_downloading/pylib/helpers/genus_image_records
-
-# no models - too big!
-*.pt
+experiments/odo-segmenter/models
+R/data/large
 
 # no silly Notepad++ .baks
 *.bak
@@ -196,13 +201,7 @@ pipeline/0_image_downloading/pylib/helpers/genus_image_records
 # no mac folder files
 *.DS_Store
 
-#
+# misc
 experiments/bio-gans/data/data
 experiments/bio-gans/model
 data/annotations.csv
-
-#
-*_records.csv
-
-#
-*.csv#

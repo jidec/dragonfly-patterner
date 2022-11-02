@@ -21,9 +21,11 @@ def getTaxonID(taxon_name):
 
     match_cnt = 0
     taxon_id = None
+    taxon_ids = []
     for t_info in res['results']:
         if t_info['name'] == taxon_name:
             taxon_id = t_info['id']
+            taxon_ids.append(t_info['id'])
             match_cnt += 1
 
     if match_cnt == 0:
@@ -31,9 +33,15 @@ def getTaxonID(taxon_name):
             rank, taxon_name
         ))
     elif match_cnt > 1:
-        raise Exception(
-            'More than one {0} name match for "{1}".\n'.format(rank, taxon_name
-        ))
+        #raise Exception(
+           # 'More than one {0} name match for "{1}".\n'.format(rank, taxon_name
+        #))
+        print("Genus matches " + str(match_cnt) + " using the first")
+        print(len(taxon_ids))
+        taxon_id = taxon_ids[0]
+        print(taxon_ids)
+        print(taxon_id)
+
 
     return taxon_id
 
@@ -141,9 +149,10 @@ def retrieveAllRecords(
                 continue
 
             if obs_id in obs_ids:
-                raise Exception(
-                    'Repeat observation encountered: {0}'.format(obs_id)
-                )
+                print("Repeat observation encountered")
+                #raise Exception(
+                #    'Repeat observation encountered: {0}'.format(obs_id)
+                #)
             else:
                 obs_ids.add(obs_id)
 
@@ -219,13 +228,19 @@ def readExtantObsIds(fpath):
 
     return obs_ids
 
-def getiNatRecords(genus, research_only=True,output_file=None,update=False,full_size=True,proj_dir="../.."):
+def getiNatRecords(genus, research_only=True,usa_only=True,output_file=None,update=True,full_size=True,proj_dir="../.."):
     taxon_id = getTaxonID(genus)
 
     base_params = {'taxon_id': taxon_id}
     if research_only:
         print("Research only")
         base_params['quality_grade'] = 'research'
+    if usa_only:
+        print("Contiguous USA only")
+        base_params['swlat'] = 24.396308
+        base_params['swlng'] = -124.848974
+        base_params['nelat'] = 49.384358
+        base_params['nelng'] = -66.885444
     ofpath = output_file
     if ofpath is None:
         #ofpath = 'helpers/genus_image_records/iNat_images-' + args.taxon.replace(' ', '_') + '.csv' #EDITED

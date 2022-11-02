@@ -1,6 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
+from skimage.filters import roberts
 
 def showImages(show, images, titles=None, list_cmaps=None, grid=False, num_cols=3, figsize=(10, 10),
                     title_fontsize=30):
@@ -38,6 +39,9 @@ def showImages(show, images, titles=None, list_cmaps=None, grid=False, num_cols=
         list_titles = titles
 
         for index, img in enumerate(list_images):
+            if len(img.shape) == 4:
+                img = img[:, :, :3]
+                img = img.astype(np.uint8)
             list_images[index] = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
 
         assert isinstance(list_images, list)

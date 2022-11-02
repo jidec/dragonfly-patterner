@@ -4,6 +4,7 @@ library(recolorize)
 setwd("/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade")
 
 #create a list of the files from target directory
+file_list <- list.files(path="E:/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade_2")
 file_list <- list.files(path="/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade")
 
 viewChannels <- function(file_list) {
@@ -53,8 +54,10 @@ recolorizeImages <- function(file_list, bins, method) {
 
 # dealing with shine experimentation
 library(recolorize)
-img <- "/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade/INATRANDOM-23567781_segment.png"
-s0 <- recolorize2(img, bins = 2, cutoff = 20, color_space = "sRGB")
+img <- "E:/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade/INATRANDOM-23567781_segment.png"
+#img <- "/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade/INATRANDOM-23567781_segment.png"
+
+s0 <- recolorize2(img, bins = 3, cutoff = 40, color_space = "sRGB")
 # plot(s0)
 
 

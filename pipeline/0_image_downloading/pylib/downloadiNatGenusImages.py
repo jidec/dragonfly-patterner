@@ -5,8 +5,9 @@ from datetime import datetime
 import shutil
 from getiNatRecords import getiNatRecords
 from downloadImages import downloadImages
+from pathlib import Path
 
-def downloadiNatGenusImages(start_index,end_index,split_start=1, skip_records=False,skip_images=False,full_size=True,proj_dir='../..'):
+def downloadiNatGenusImages(start_index,end_index,split_start=1, redownload=False, skip_records=False,skip_images=False,full_size=True,proj_dir='../..'):
     """
        Download iNat images by genus using the genus_list.csv created using a different method,
        This method downloads and splits records then referring to those records to download in parallel
@@ -44,6 +45,18 @@ def downloadiNatGenusImages(start_index,end_index,split_start=1, skip_records=Fa
             getiNatRecords(genus=genus,research_only=True,full_size=full_size,proj_dir=proj_dir)
             print("Finished getting records for genus " + genus)
 
+            # if not redownloading, remove already downloaded images from records
+            if not redownload:
+                print("Filtering out already downloaded images")
+                existing_imgnames = os.listdir(proj_dir + '/data/all_images')
+                existing_imgnames = [i.replace('INAT-', '') for i in existing_imgnames]
+                records = pd.read_csv(proj_dir + '/data/other/genus_download_records/iNat_images-' + genus + '.csv')
+                print("Total images: " + str(records.shape[0]))
+                mask = records["img_url"].isin(existing_imgnames)
+                records = records[~mask]
+                print("Undownloaded images: " + str(records.shape[0]))
+                records.to_csv(proj_dir + '/data/other/genus_download_records/iNat_images-' + genus + '.csv',index=False,mode='w+')
+
             # split genus records into chunks such that a max of ~4.5 gb of images are downloaded per hour
             # dirname = proj_root + '/pipeline/0_image_downloading/pylib/helpers/genus_download_records/iNat_images-' + genus + '-records_split'
             dirname = proj_dir + '/data/other/genus_download_records/iNat_images-' + genus + '-records_split'
@@ -66,7 +79,9 @@ def downloadiNatGenusImages(start_index,end_index,split_start=1, skip_records=Fa
 
                     # make raw images folder
                     imgdir = proj_dir + "/data/other/genus_download_records/iNat_images-" + genus + "-raw_images"
-                    fileout =  proj_dir + "/data/other/genus_download_records/" + genus + '-download_log.csv'
+                    if not os.path.exists(imgdir):
+                        os.mkdir(imgdir)
+                    fileout = proj_dir + "/data/other/genus_download_records/" + genus + '-download_log.csv'
                     downloadImages(img_records=proj_dir + '/data/other/genus_download_records/iNat_images-' + genus + '.csv',imgdir=imgdir,fileout=fileout)
                     print("Finished downloading images for genus " + genus)
 
@@ -74,7 +89,6 @@ def downloadiNatGenusImages(start_index,end_index,split_start=1, skip_records=Fa
 
                     # add INAT tag to id
                     # used to add tags for multiple images of same obs
-                    # for every split record csv
                     names = os.listdir(dirname)
                     new_names = []
                     counter = 1
@@ -89,11 +103,15 @@ def downloadiNatGenusImages(start_index,end_index,split_start=1, skip_records=Fa
                         counter += 1
                     print("Finished fixing same observation image names")
 
+                    print("Started renaming images as JPGs, then moving them to all_images")
                     # rename images as JPGs and move
                     dirname = proj_dir + '/data/other/genus_download_records/iNat_images-' + genus + "-raw_images"
                     for i, filename in enumerate(os.listdir(dirname)):
-                        os.rename(dirname + "/" + filename, dirname + "/" + filename + ".jpg")
+                        file = Path(dirname + "/" + filename + ".jpg")
+                        if not file.exists():
+                            os.rename(dirname + "/" + filename, dirname + "/" + filename + ".jpg")
                         shutil.move(dirname + "/" + filename + ".jpg", proj_dir + "/data/all_images/" + filename + ".jpg")
+                    print("Started renaming images as JPGs, then moving them to all_images")
 
                     # if there are more chunks left, wait for an hour before doing the next chunk
                     if c < len(os.listdir(proj_dir + '/data/other/genus_download_records/iNat_images-' + genus + '-records_split')) - 1:

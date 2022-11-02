@@ -15,6 +15,8 @@ def getFilterImageIDs(start_ids=None,records_fields=[],records_values=[], in_rec
     # get image_ids
     if start_ids == None:
         image_ids = [s.replace('.jpg', '') for s in os.listdir(proj_dir + "/data/all_images")]
+        image_ids = [s.replace('.tif', '') for s in image_ids]
+        image_ids = [s.replace('.png', '') for s in image_ids]
         if print_steps: print("Retrieved " + str(len(image_ids)) + " ids from images...")
     else:
         image_ids = start_ids
@@ -29,10 +31,12 @@ def getFilterImageIDs(start_ids=None,records_fields=[],records_values=[], in_rec
 
     # add all records matching
     records_ids = list(records['recordID'])
+    print(records_ids[1:100])
     if print_steps: print("Retrieved/filtered " + str(len(records_ids)) + " ids from records...")
 
     if len(records_fields) > 0 or in_records_data == True:
         image_record_ids = imageIDToRecordID(image_ids)
+        print(image_record_ids[1:100])
         if print_steps: print("Converted image ids to records ids")
 
         # convert to a series, get boolean indices of that series, then convert back to a list
@@ -69,6 +73,12 @@ def getFilterImageIDs(start_ids=None,records_fields=[],records_values=[], in_rec
         for field, value in tuple(zip(infer_fields, infer_values)):
             inferences = inferences[inferences[field] == value]
         infer_ids = inferences['imageID']
+        #print(len(image_ids))
+        #print(image_ids)
+        #print(len(infer_ids))
+        #print(infer_ids)
+        infer_ids = list(infer_ids)
+        print(infer_ids)
         # match image ids to infer ids
         image_ids = list(set(image_ids).intersection(infer_ids))
         if print_steps: print("Filtered to " + str(len(image_ids)) + " using inferences...")

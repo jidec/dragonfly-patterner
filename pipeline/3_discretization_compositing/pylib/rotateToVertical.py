@@ -23,6 +23,9 @@ def rotateToVertical(imgs,show=False):
 
       # get the biggest contour and fit an ellipse to it
       big_contour = max(contours, key = cv2.contourArea)
+      if len(big_contour) < 5:
+        return None
+
       big_ellipse = cv2.fitEllipse(big_contour)
 
       # get params from ellipse
@@ -88,7 +91,7 @@ def rotateToVertical(imgs,show=False):
         img = img[y:y + h, x:x + w]
 
         showImages(show,[start_img,line_img,img],["Discretized Segment","Ellipse Axis Line","Verticalized Segment"])
-        print(img.shape[0])
+        #print(img.shape[0])
         bot_half = img[int(img.shape[0]/2):img.shape[0]]
         top_half = img[0:int(img.shape[0]/2)]
 

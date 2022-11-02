@@ -7,7 +7,7 @@ from rotateToVertical import rotateToVertical
 import warnings
 
 def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical=True, remove_islands=True,erode_kernel_size=0,adj_to_background_col=False,target_bg_col=[160,160,160], target_range = 90,
-                        set_nonwhite_to_black=False,write=True,show=False,print_steps=False,seg_subfolder="", proj_dir="../.."): #img_dir="../../data/all_images",mask_dir="../../data/masks"):
+                        set_nonwhite_to_black=False,write=True,show=False,print_steps=True,print_details=False,seg_subfolder="", proj_dir="../.."): #img_dir="../../data/all_images",mask_dir="../../data/masks"):
 
     """
         Hone masks, then extract and save their segments to data/segments
@@ -32,11 +32,14 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
     mask_dir = proj_dir + "/data/masks"
     rgba_imgs_masks_ids = []
 
+    if (print_steps): print("Started extractHoneSegments loop over images")
+    if (print_steps): print("Estimated time " + str(1.5 * (len(image_ids) / 1000)) + " minutes")
+
     for index, id in enumerate(image_ids):
         # open image and convert to array
         img = cv2.imread(img_dir + "/" + id + ".jpg",cv2.IMREAD_COLOR)
         start_img = np.copy(img)
-        if(print_steps):{print("Processing ID " + id)}
+        if(print_details):{print("Processing ID " + id)}
 
         # open mask and convert to array
         mask = cv2.imread(mask_dir + "/" + id + "_mask.jpg",cv2.IMREAD_GRAYSCALE)
@@ -52,22 +55,22 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
 
         if set_nonwhite_to_black:
             mask[np.where(mask != 255)] = 0
-            if (print_steps): {print("Set nonwhite to black")}
+            if (print_details): {print("Set nonwhite to black")}
 
         # erode border of mask
         if erode_kernel_size > 0:
             kernel = np.ones((erode_kernel_size, erode_kernel_size), np.uint8)
             mask = cv2.erode(mask, kernel)
-            if (print_steps): {print("Eroded mask")}
+            if (print_details): {print("Eroded mask")}
 
         if remove_islands:
             # keep only biggest contour (i.e. remove islands from mask)
             contours, hierarchy = cv2.findContours(mask, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-
-            # empty image and fill with big contour
-            mask = np.zeros_like(mask)
-            cv2.drawContours(mask, [max(contours, key=len)], -1, 255, thickness=-1)
-            if (print_steps): {print("Removed islands")}
+            if len(contours) > 0:
+                # empty image and fill with big contour
+                mask = np.zeros_like(mask)
+                cv2.drawContours(mask, [max(contours, key=len)], -1, 255, thickness=-1)
+                if (print_details): {print("Removed islands")}
 
         # apply mask to img to get masked img
         # showImages(show,[img,mask],["1","2"])
@@ -75,7 +78,7 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
         bg_mask = cv2.bitwise_not(mask)
         bg = cv2.bitwise_and(img, img, mask=bg_mask)
 
-        if (print_steps): {print("Retrieved background")}
+        if (print_details): {print("Retrieved background")}
 
         if adj_to_background_col:
 
@@ -103,7 +106,7 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
             clf = NearestCentroid()
 
             if len(np.unique(preds)) > 1 and len(np.unique(cluster_values)) > 1:
-                if (print_steps): {print("Background pixel clustering successful")}
+                if (print_details): {print("Background pixel clustering successful")}
                 clf.fit(cluster_values, preds)
                 centers = clf.centroids_.astype(int)
 
@@ -117,7 +120,7 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
                         closest_to_grey = row
                         best_diff = diff
 
-                if (print_steps): {print("Found closest color to target: " + str(closest_to_grey))}
+                if (print_details): {print("Found closest color to target: " + str(closest_to_grey))}
 
                 # continue adjustment only if in range of reference grey and (maybe later) occupies a lot of size
                 grey_dist = np.linalg.norm(closest_to_grey - np.array(target_bg_col)) #[160,160,160]
@@ -134,11 +137,11 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
                     img[:,:,1] = img[:,:,1] * ref_lum / ref_g
                     img[:,:,2] = img[:,:,2] * ref_lum / ref_r
 
-                    if (print_steps): {print("Adjusted using known background color")}
+                    if (print_details): {print("Adjusted using known background color")}
                     showImages(show, [start_img,img], ["start","adj"])
 
         img = cv2.bitwise_and(img, img, mask=mask)
-        if (print_steps): {print("Applied mask to image")}
+        if (print_details): {print("Applied mask to image")}
 
         # narrow image to bounding rect
         if bound:
@@ -148,7 +151,7 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
             x, y, w, h = cv2.boundingRect(coords)
             img = img[y:y + h, x:x + w]
             mask = mask[y:y + h, x:x + w]
-            if (print_steps): {print("Narrowed image to bounding box")}
+            if (print_details): {print("Narrowed image to bounding box")}
 
         # Make a True/False mask of pixels whose BGR values sum to more than zero
         alpha = np.sum(img, axis=-1) > 0
@@ -159,12 +162,12 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
         # Stack new alpha layer with existing image to go from BGR to BGRA, i.e. 3 channels to 4 channels
         img = np.dstack((img, alpha))
 
-        if (print_steps): {print("Added alpha channel")}
+        if (print_details): {print("Added alpha channel")}
 
         if rotate_to_vertical:
             rotated = rotateToVertical([img],show=show)
             img = rotated[0]
-            if (print_steps): {print("Rotated to vertical")}
+            if (print_details): {print("Rotated to vertical")}
 
         # stop if image is 0 pixels in height (mask ended up nonexistent)
         if img.shape[0] != 0:
@@ -172,7 +175,7 @@ def extractHoneSegments(image_ids,part_suffix=None,bound=True,rotate_to_vertical
             if write:
                 write_path = proj_dir + "/data/segments/" + seg_subfolder + id + "_segment.png"
                 cv2.imwrite(write_path,img) # plus part suffix
-                if (print_steps): {print("Wrote segment to " + write_path)}
+                if (print_details): {print("Wrote segment to " + write_path)}
 
             # convert final masked image to RGBA
             img = cv2.cvtColor(img, cv2.COLOR_RGB2RGBA)

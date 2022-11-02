@@ -33,22 +33,30 @@ def loadTrainClassModel(training_dir_name, num_epochs, batch_size, num_workers, 
     # set default transforms
     if data_transforms is None:
         data_transforms = {
-            'train': transforms.Compose([
+            'default': transforms.Compose([
                 transforms.Resize([256, 256]),
-                transforms.RandomHorizontalFlip(),  # horizontally flip with 50% prob
                 transforms.ToTensor(),
             ]),
-            # just normalization for validation
-            'test': transforms.Compose([
+            'train': transforms.Compose([
                 transforms.Resize([256, 256]),
                 transforms.ToTensor(),
             ]),
         }
 
     # create image datasets
-    image_datasets = {x: datasets.ImageFolder(os.path.join(proj_dir + "/data/other/training_dirs/" + training_dir_name, x),
-                                          data_transforms[x])
-                  for x in ['train', 'test']}
+    raw_train = datasets.ImageFolder(os.path.join(proj_dir + "/data/other/training_dirs/" + training_dir_name, 'train'),
+                                     data_transforms['default'])
+    transf_train = datasets.ImageFolder(os.path.join(proj_dir + "/data/other/training_dirs/" + training_dir_name, 'train'),
+                                    data_transforms['train'])
+    train = torch.utils.data.ConcatDataset([raw_train,transf_train])
+    test = datasets.ImageFolder(os.path.join(proj_dir + "/data/other/training_dirs/" + training_dir_name, 'test'),
+                                    data_transforms['default'])
+
+    #image_datasets = {x: datasets.ImageFolder(os.path.join(proj_dir + "/data/other/training_dirs/" + training_dir_name, x),
+    #                                      data_transforms[x])
+    #              for x in ['train', 'test']}
+    image_datasets = {'train':train,'test':test}
+    #image_datasets
     # create dataloaders
     dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x], batch_size=batch_size, #sampler=ImbalancedDatasetSampler(image_datasets[x])
                                                  shuffle=True, num_workers=num_workers) #shuffle = True
@@ -56,7 +64,7 @@ def loadTrainClassModel(training_dir_name, num_epochs, batch_size, num_workers, 
     dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'test']}
     if print_steps: print("Created datasets and dataloaders using params")
 
-    class_names = image_datasets['train'].classes
+    class_names = image_datasets['train'].datasets[1].classes
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print("Training model on " + str(device))
@@ -78,7 +86,7 @@ def loadTrainClassModel(training_dir_name, num_epochs, batch_size, num_workers, 
     criterion = nn.CrossEntropyLoss()
     
     # Observe that all parameters are being optimized
-    optimizer = optim.SGD(model.parameters(), lr=0.01) #lr = 0.001 momentum=0.9)
+    optimizer = optim.SGD(model.parameters(), lr = 0.001, momentum=0.9) #lr = 0.001 momentum=0.9) #lr = 0.01
     
     # Decay LR by a factor of 0.1 every 5 epochs
     exp_lr_scheduler = lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)

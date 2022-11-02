@@ -9,7 +9,8 @@
 library(recolorize)
 
 # get image paths
-dragonflies <- list.files(path="/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize:recolorize/segments/example_clade_2")
+dragonflies <- list.files(path="E:/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade_2")
+#dragonflies <- list.files(path="/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade_2")
 
 # define a custom recolorize function
 custom_recolorize_function <- function(img) {
@@ -51,3 +52,13 @@ plot(rc3)
 #rc5 <- absorbLayer(rc4, 2, 
 #                   function(s) s <= 2000,
   #                 y_range = c(0, 0.8))
+img <- readImage("E:/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade/INATRANDOM-23567781_segment.png")
+
+custom_recolorize_function(img)
+
+img2 <- blurImage(img, blur_function = "medianblur", n = 10,threshold=8, plotting = TRUE)
+img2 <- blurImage(img, blur_function = "blur_anisotropic", amplitude=1e2,sharpness=0.2, plotting = TRUE)
+img2 <- blurImage(img, blur_function = "boxblur", boxsize=5, plotting = TRUE)
+?blurImage
+class(img)
+dim(img)

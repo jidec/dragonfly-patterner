@@ -1,0 +1,1308 @@
+ Epoch 0/19
+----------
+train Loss: 1.1462 Acc: 0.4987
+test Loss: 1.0147 Acc: 0.5940
+              precision    recall  f1-score   support
+
+         bad       0.63      0.42      0.51       149
+      dorsal       0.61      0.73      0.66       149
+dorsolateral       0.53      0.52      0.53       149
+     lateral       0.62      0.70      0.65       149
+
+    accuracy                           0.59       596
+   macro avg       0.60      0.59      0.59       596
+weighted avg       0.60      0.59      0.59       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      63                39                      20                 27
+Actual dorsal                   12               109                      25                  3
+Actual dorsolateral             11                25                      78                 35
+Actual lateral                  14                 6                      25                104
+None
+
+ 
+ Epoch 1/19
+----------
+train Loss: 0.9035 Acc: 0.6296
+test Loss: 1.0883 Acc: 0.5889
+              precision    recall  f1-score   support
+
+         bad       0.55      0.67      0.61       149
+      dorsal       0.69      0.64      0.66       149
+dorsolateral       0.59      0.27      0.37       149
+     lateral       0.56      0.77      0.65       149
+
+    accuracy                           0.59       596
+   macro avg       0.60      0.59      0.57       596
+weighted avg       0.60      0.59      0.57       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                     100                16                       8                 25
+Actual dorsal                   35                96                      13                  5
+Actual dorsolateral             26                21                      40                 62
+Actual lateral                  20                 7                       7                115
+None
+
+ 
+ Epoch 2/19
+----------
+train Loss: 0.7136 Acc: 0.7153
+test Loss: 1.1464 Acc: 0.6023
+              precision    recall  f1-score   support
+
+         bad       0.61      0.59      0.60       149
+      dorsal       0.75      0.65      0.70       149
+dorsolateral       0.53      0.35      0.42       149
+     lateral       0.54      0.82      0.65       149
+
+    accuracy                           0.60       596
+   macro avg       0.61      0.60      0.59       596
+weighted avg       0.61      0.60      0.59       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      88                11                      18                 32
+Actual dorsal                   26                97                      15                 11
+Actual dorsolateral             18                19                      52                 60
+Actual lateral                  12                 2                      13                122
+None
+
+ 
+ Epoch 3/19
+----------
+train Loss: 0.5761 Acc: 0.7818
+test Loss: 1.3393 Acc: 0.5688
+              precision    recall  f1-score   support
+
+         bad       0.63      0.42      0.51       149
+      dorsal       0.74      0.64      0.68       149
+dorsolateral       0.46      0.37      0.41       149
+     lateral       0.51      0.85      0.64       149
+
+    accuracy                           0.57       596
+   macro avg       0.58      0.57      0.56       596
+weighted avg       0.58      0.57      0.56       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      63                22                      24                 40
+Actual dorsal                   12                95                      30                 12
+Actual dorsolateral             17                 8                      55                 69
+Actual lateral                   8                 4                      11                126
+None
+
+ 
+ Epoch 4/19
+----------
+train Loss: 0.4581 Acc: 0.8324
+test Loss: 1.2089 Acc: 0.5822
+              precision    recall  f1-score   support
+
+         bad       0.52      0.69      0.60       149
+      dorsal       0.70      0.58      0.64       149
+dorsolateral       0.50      0.44      0.47       149
+     lateral       0.64      0.61      0.62       149
+
+    accuracy                           0.58       596
+   macro avg       0.59      0.58      0.58       596
+weighted avg       0.59      0.58      0.58       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                     103                14                      18                 14
+Actual dorsal                   32                87                      27                  3
+Actual dorsolateral             32                16                      66                 35
+Actual lateral                  30                 8                      20                 91
+None
+
+ 
+ Epoch 5/19
+----------
+train Loss: 0.2378 Acc: 0.9244
+test Loss: 1.1683 Acc: 0.6174
+              precision    recall  f1-score   support
+
+         bad       0.62      0.57      0.59       149
+      dorsal       0.77      0.62      0.68       149
+dorsolateral       0.51      0.51      0.51       149
+     lateral       0.61      0.77      0.68       149
+
+    accuracy                           0.62       596
+   macro avg       0.63      0.62      0.62       596
+weighted avg       0.63      0.62      0.62       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      85                14                      24                 26
+Actual dorsal                   25                92                      29                  3
+Actual dorsolateral             16                12                      76                 45
+Actual lateral                  12                 2                      20                115
+None
+
+ 
+ Epoch 6/19
+----------
+train Loss: 0.1613 Acc: 0.9536
+test Loss: 1.1883 Acc: 0.6242
+              precision    recall  f1-score   support
+
+         bad       0.59      0.64      0.61       149
+      dorsal       0.75      0.66      0.70       149
+dorsolateral       0.52      0.50      0.51       149
+     lateral       0.65      0.70      0.67       149
+
+    accuracy                           0.62       596
+   macro avg       0.63      0.62      0.62       596
+weighted avg       0.63      0.62      0.62       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      95                16                      17                 21
+Actual dorsal                   25                99                      24                  1
+Actual dorsolateral             25                15                      74                 35
+Actual lateral                  17                 2                      26                104
+None
+
+ 
+ Epoch 7/19
+----------
+train Loss: 0.1150 Acc: 0.9675
+test Loss: 1.3010 Acc: 0.6191
+              precision    recall  f1-score   support
+
+         bad       0.65      0.58      0.61       149
+      dorsal       0.76      0.60      0.67       149
+dorsolateral       0.49      0.59      0.53       149
+     lateral       0.63      0.70      0.67       149
+
+    accuracy                           0.62       596
+   macro avg       0.63      0.62      0.62       596
+weighted avg       0.63      0.62      0.62       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      86                15                      26                 22
+Actual dorsal                   23                90                      34                  2
+Actual dorsolateral             13                11                      88                 37
+Actual lateral                  10                 2                      32                105
+None
+
+ 
+ Epoch 8/19
+----------
+train Loss: 0.0987 Acc: 0.9738
+test Loss: 1.3444 Acc: 0.6225
+              precision    recall  f1-score   support
+
+         bad       0.62      0.64      0.63       149
+      dorsal       0.76      0.60      0.67       149
+dorsolateral       0.53      0.51      0.52       149
+     lateral       0.61      0.74      0.67       149
+
+    accuracy                           0.62       596
+   macro avg       0.63      0.62      0.62       596
+weighted avg       0.63      0.62      0.62       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      95                14                      15                 25
+Actual dorsal                   26                90                      30                  3
+Actual dorsolateral             18                13                      76                 42
+Actual lateral                  14                 2                      23                110
+None
+
+ 
+ Epoch 9/19
+----------
+train Loss: 0.0791 Acc: 0.9769
+test Loss: 1.3930 Acc: 0.6057
+              precision    recall  f1-score   support
+
+         bad       0.59      0.58      0.59       149
+      dorsal       0.78      0.61      0.68       149
+dorsolateral       0.47      0.54      0.50       149
+     lateral       0.64      0.69      0.67       149
+
+    accuracy                           0.61       596
+   macro avg       0.62      0.61      0.61       596
+weighted avg       0.62      0.61      0.61       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      87                13                      30                 19
+Actual dorsal                   26                91                      30                  2
+Actual dorsolateral             21                12                      80                 36
+Actual lateral                  13                 1                      32                103
+None
+
+ 
+ Epoch 10/19
+----------
+train Loss: 0.0680 Acc: 0.9817
+test Loss: 1.4206 Acc: 0.6074
+              precision    recall  f1-score   support
+
+         bad       0.57      0.70      0.63       149
+      dorsal       0.77      0.58      0.66       149
+dorsolateral       0.49      0.52      0.50       149
+     lateral       0.67      0.63      0.65       149
+
+    accuracy                           0.61       596
+   macro avg       0.62      0.61      0.61       596
+weighted avg       0.62      0.61      0.61       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                     104                12                      17                 16
+Actual dorsal                   30                86                      32                  1
+Actual dorsolateral             29                12                      78                 30
+Actual lateral                  20                 2                      33                 94
+None
+
+ 
+ Epoch 11/19
+----------
+train Loss: 0.0656 Acc: 0.9834
+test Loss: 1.4038 Acc: 0.6023
+              precision    recall  f1-score   support
+
+         bad       0.58      0.63      0.61       149
+      dorsal       0.77      0.59      0.67       149
+dorsolateral       0.46      0.54      0.50       149
+     lateral       0.66      0.64      0.65       149
+
+    accuracy                           0.60       596
+   macro avg       0.62      0.60      0.61       596
+weighted avg       0.62      0.60      0.61       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      94                12                      26                 17
+Actual dorsal                   27                88                      33                  1
+Actual dorsolateral             24                12                      81                 32
+Actual lateral                  16                 2                      35                 96
+None
+
+ 
+ Epoch 12/19
+----------
+train Loss: 0.0667 Acc: 0.9833
+test Loss: 1.3988 Acc: 0.6208
+              precision    recall  f1-score   support
+
+         bad       0.59      0.62      0.61       149
+      dorsal       0.76      0.60      0.67       149
+dorsolateral       0.51      0.52      0.52       149
+     lateral       0.65      0.74      0.69       149
+
+    accuracy                           0.62       596
+   macro avg       0.63      0.62      0.62       596
+weighted avg       0.63      0.62      0.62       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      92                14                      20                 23
+Actual dorsal                   27                89                      32                  1
+Actual dorsolateral             21                13                      78                 37
+Actual lateral                  15                 1                      22                111
+None
+
+ 
+ Epoch 13/19
+----------
+train Loss: 0.0737 Acc: 0.9805
+test Loss: 1.3305 Acc: 0.6309
+              precision    recall  f1-score   support
+
+         bad       0.59      0.68      0.64       149
+      dorsal       0.77      0.62      0.68       149
+dorsolateral       0.54      0.48      0.51       149
+     lateral       0.64      0.74      0.69       149
+
+    accuracy                           0.63       596
+   macro avg       0.64      0.63      0.63       596
+weighted avg       0.64      0.63      0.63       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                     102                13                      13                 21
+Actual dorsal                   29                92                      26                  2
+Actual dorsolateral             26                13                      71                 39
+Actual lateral                  15                 2                      21                111
+None
+
+ 
+ Epoch 14/19
+----------
+train Loss: 0.0707 Acc: 0.9814
+test Loss: 1.3976 Acc: 0.6174
+              precision    recall  f1-score   support
+
+         bad       0.58      0.59      0.59       149
+      dorsal       0.76      0.62      0.68       149
+dorsolateral       0.51      0.48      0.49       149
+     lateral       0.64      0.78      0.70       149
+
+    accuracy                           0.62       596
+   macro avg       0.62      0.62      0.62       596
+weighted avg       0.62      0.62      0.62       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      88                14                      22                 25
+Actual dorsal                   26                92                      29                  2
+Actual dorsolateral             24                14                      72                 39
+Actual lateral                  13                 1                      19                116
+None
+
+ 
+ Epoch 15/19
+----------
+train Loss: 0.0655 Acc: 0.9839
+test Loss: 1.4120 Acc: 0.6007
+              precision    recall  f1-score   support
+
+         bad       0.59      0.58      0.58       149
+      dorsal       0.77      0.59      0.67       149
+dorsolateral       0.47      0.55      0.51       149
+     lateral       0.63      0.68      0.66       149
+
+    accuracy                           0.60       596
+   macro avg       0.62      0.60      0.60       596
+weighted avg       0.62      0.60      0.60       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      86                14                      27                 22
+Actual dorsal                   27                88                      31                  3
+Actual dorsolateral             21                11                      82                 35
+Actual lateral                  12                 1                      34                102
+None
+
+ 
+ Epoch 16/19
+----------
+train Loss: 0.0585 Acc: 0.9849
+test Loss: 1.3951 Acc: 0.6074
+              precision    recall  f1-score   support
+
+         bad       0.58      0.59      0.58       149
+      dorsal       0.77      0.60      0.67       149
+dorsolateral       0.48      0.57      0.52       149
+     lateral       0.66      0.67      0.66       149
+
+    accuracy                           0.61       596
+   macro avg       0.62      0.61      0.61       596
+weighted avg       0.62      0.61      0.61       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      88                14                      28                 19
+Actual dorsal                   28                89                      30                  2
+Actual dorsolateral             22                11                      85                 31
+Actual lateral                  14                 1                      34                100
+None
+
+ 
+ Epoch 17/19
+----------
+train Loss: 0.0581 Acc: 0.9863
+test Loss: 1.4327 Acc: 0.6275
+              precision    recall  f1-score   support
+
+         bad       0.59      0.65      0.62       149
+      dorsal       0.77      0.60      0.67       149
+dorsolateral       0.53      0.49      0.51       149
+     lateral       0.64      0.77      0.70       149
+
+    accuracy                           0.63       596
+   macro avg       0.63      0.63      0.63       596
+weighted avg       0.63      0.63      0.63       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      97                13                      16                 23
+Actual dorsal                   29                89                      29                  2
+Actual dorsolateral             25                12                      73                 39
+Actual lateral                  13                 1                      20                115
+None
+
+ 
+ Epoch 18/19
+----------
+train Loss: 0.0589 Acc: 0.9860
+test Loss: 1.3544 Acc: 0.6292
+              precision    recall  f1-score   support
+
+         bad       0.58      0.66      0.62       149
+      dorsal       0.76      0.61      0.68       149
+dorsolateral       0.55      0.47      0.51       149
+     lateral       0.65      0.77      0.70       149
+
+    accuracy                           0.63       596
+   macro avg       0.63      0.63      0.63       596
+weighted avg       0.63      0.63      0.63       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      99                14                      14                 22
+Actual dorsal                   29                91                      27                  2
+Actual dorsolateral             27                13                      70                 39
+Actual lateral                  16                 1                      17                115
+None
+
+ 
+ Epoch 19/19
+----------
+train Loss: 0.0611 Acc: 0.9846
+test Loss: 1.3472 Acc: 0.6174
+              precision    recall  f1-score   support
+
+         bad       0.59      0.61      0.60       149
+      dorsal       0.74      0.62      0.68       149
+dorsolateral       0.51      0.50      0.51       149
+     lateral       0.64      0.73      0.69       149
+
+    accuracy                           0.62       596
+   macro avg       0.62      0.62      0.62       596
+weighted avg       0.62      0.62      0.62       596
+
+                     Predicted bad  Predicted dorsal  Predicted dorsolateral  Predicted lateral
+Actual bad                      91                16                      20                 22
+Actual dorsal                   26                93                      29                  1
+Actual dorsolateral             23                14                      75                 37
+Actual lateral                  13                 3                      24                109
+None
+Training complete in 95m 4s
+Best test Acc: 0.630872
+Training model on cuda:0
+
+ 
+ Epoch 0/19
+----------
+train Loss: 0.3113 Acc: 0.8945
+test Loss: 0.8998 Acc: 0.6823
+              precision    recall  f1-score   support
+
+         bad       0.55      0.69      0.61       149
+      dorsal       0.78      0.62      0.69       149
+     lateral       0.77      0.73      0.75       149
+
+    accuracy                           0.68       447
+   macro avg       0.70      0.68      0.69       447
+weighted avg       0.70      0.68      0.69       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                103                19                 27
+Actual dorsal              51                93                  5
+Actual lateral             33                 7                109
+None
+
+ 
+ Epoch 1/19
+----------
+train Loss: 0.2525 Acc: 0.9127
+test Loss: 0.7205 Acc: 0.7315
+              precision    recall  f1-score   support
+
+         bad       0.66      0.68      0.67       149
+      dorsal       0.74      0.79      0.76       149
+     lateral       0.80      0.73      0.76       149
+
+    accuracy                           0.73       447
+   macro avg       0.73      0.73      0.73       447
+weighted avg       0.73      0.73      0.73       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                101                26                 22
+Actual dorsal              26               117                  6
+Actual lateral             25                15                109
+None
+
+ 
+ Epoch 2/19
+----------
+train Loss: 0.1792 Acc: 0.9427
+test Loss: 0.8933 Acc: 0.7338
+              precision    recall  f1-score   support
+
+         bad       0.60      0.85      0.70       149
+      dorsal       0.85      0.70      0.76       149
+     lateral       0.87      0.66      0.75       149
+
+    accuracy                           0.73       447
+   macro avg       0.77      0.73      0.74       447
+weighted avg       0.77      0.73      0.74       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                126                11                 12
+Actual dorsal              42               104                  3
+Actual lateral             43                 8                 98
+None
+
+ 
+ Epoch 3/19
+----------
+train Loss: 0.1607 Acc: 0.9447
+test Loss: 0.8180 Acc: 0.7606
+              precision    recall  f1-score   support
+
+         bad       0.71      0.64      0.67       149
+      dorsal       0.80      0.81      0.81       149
+     lateral       0.77      0.83      0.80       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                 96                22                 31
+Actual dorsal              22               121                  6
+Actual lateral             18                 8                123
+None
+
+ 
+ Epoch 4/19
+----------
+train Loss: 0.1308 Acc: 0.9539
+test Loss: 0.8819 Acc: 0.7360
+              precision    recall  f1-score   support
+
+         bad       0.63      0.81      0.71       149
+      dorsal       0.79      0.72      0.75       149
+     lateral       0.86      0.68      0.76       149
+
+    accuracy                           0.74       447
+   macro avg       0.76      0.74      0.74       447
+weighted avg       0.76      0.74      0.74       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                121                16                 12
+Actual dorsal              37               107                  5
+Actual lateral             35                13                101
+None
+
+ 
+ Epoch 5/19
+----------
+train Loss: 0.0729 Acc: 0.9800
+test Loss: 0.8138 Acc: 0.7562
+              precision    recall  f1-score   support
+
+         bad       0.68      0.72      0.70       149
+      dorsal       0.82      0.77      0.79       149
+     lateral       0.77      0.79      0.78       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                107                16                 26
+Actual dorsal              27               114                  8
+Actual lateral             23                 9                117
+None
+
+ 
+ Epoch 6/19
+----------
+train Loss: 0.0486 Acc: 0.9890
+test Loss: 0.8361 Acc: 0.7494
+              precision    recall  f1-score   support
+
+         bad       0.66      0.76      0.70       149
+      dorsal       0.82      0.74      0.78       149
+     lateral       0.80      0.74      0.77       149
+
+    accuracy                           0.75       447
+   macro avg       0.76      0.75      0.75       447
+weighted avg       0.76      0.75      0.75       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                113                15                 21
+Actual dorsal              31               111                  7
+Actual lateral             28                10                111
+None
+
+ 
+ Epoch 7/19
+----------
+train Loss: 0.0335 Acc: 0.9925
+test Loss: 0.7998 Acc: 0.7584
+              precision    recall  f1-score   support
+
+         bad       0.68      0.73      0.70       149
+      dorsal       0.82      0.76      0.79       149
+     lateral       0.79      0.79      0.79       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                109                16                 24
+Actual dorsal              28               113                  8
+Actual lateral             24                 8                117
+None
+
+ 
+ Epoch 8/19
+----------
+train Loss: 0.0331 Acc: 0.9922
+test Loss: 0.8267 Acc: 0.7606
+              precision    recall  f1-score   support
+
+         bad       0.69      0.73      0.71       149
+      dorsal       0.82      0.75      0.79       149
+     lateral       0.78      0.80      0.79       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                109                16                 24
+Actual dorsal              28               112                  9
+Actual lateral             22                 8                119
+None
+
+ 
+ Epoch 9/19
+----------
+train Loss: 0.0309 Acc: 0.9920
+test Loss: 0.8213 Acc: 0.7629
+              precision    recall  f1-score   support
+
+         bad       0.70      0.68      0.69       149
+      dorsal       0.80      0.79      0.80       149
+     lateral       0.78      0.82      0.80       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                101                20                 28
+Actual dorsal              25               118                  6
+Actual lateral             18                 9                122
+None
+
+ 
+ Epoch 10/19
+----------
+train Loss: 0.0210 Acc: 0.9957
+test Loss: 0.8365 Acc: 0.7718
+              precision    recall  f1-score   support
+
+         bad       0.69      0.74      0.72       149
+      dorsal       0.84      0.76      0.80       149
+     lateral       0.80      0.81      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.78      0.77      0.77       447
+weighted avg       0.78      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                111                15                 23
+Actual dorsal              29               113                  7
+Actual lateral             21                 7                121
+None
+
+ 
+ Epoch 11/19
+----------
+train Loss: 0.0229 Acc: 0.9951
+test Loss: 0.8402 Acc: 0.7584
+              precision    recall  f1-score   support
+
+         bad       0.69      0.72      0.70       149
+      dorsal       0.84      0.73      0.78       149
+     lateral       0.76      0.83      0.79       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                107                14                 28
+Actual dorsal              29               109                 11
+Actual lateral             19                 7                123
+None
+
+ 
+ Epoch 12/19
+----------
+train Loss: 0.0235 Acc: 0.9939
+test Loss: 0.8880 Acc: 0.7539
+              precision    recall  f1-score   support
+
+         bad       0.68      0.71      0.70       149
+      dorsal       0.84      0.72      0.78       149
+     lateral       0.76      0.83      0.79       149
+
+    accuracy                           0.75       447
+   macro avg       0.76      0.75      0.75       447
+weighted avg       0.76      0.75      0.75       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                106                14                 29
+Actual dorsal              31               107                 11
+Actual lateral             19                 6                124
+None
+
+ 
+ Epoch 13/19
+----------
+train Loss: 0.0159 Acc: 0.9980
+test Loss: 0.8419 Acc: 0.7517
+              precision    recall  f1-score   support
+
+         bad       0.67      0.74      0.70       149
+      dorsal       0.80      0.77      0.78       149
+     lateral       0.81      0.75      0.78       149
+
+    accuracy                           0.75       447
+   macro avg       0.76      0.75      0.75       447
+weighted avg       0.76      0.75      0.75       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                110                19                 20
+Actual dorsal              28               114                  7
+Actual lateral             27                10                112
+None
+
+ 
+ Epoch 14/19
+----------
+train Loss: 0.0196 Acc: 0.9963
+test Loss: 0.8365 Acc: 0.7584
+              precision    recall  f1-score   support
+
+         bad       0.67      0.74      0.70       149
+      dorsal       0.82      0.76      0.79       149
+     lateral       0.80      0.77      0.78       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                111                16                 22
+Actual dorsal              29               113                  7
+Actual lateral             26                 8                115
+None
+
+ 
+ Epoch 15/19
+----------
+train Loss: 0.0160 Acc: 0.9965
+test Loss: 0.8578 Acc: 0.7517
+              precision    recall  f1-score   support
+
+         bad       0.66      0.77      0.71       149
+      dorsal       0.85      0.71      0.78       149
+     lateral       0.78      0.78      0.78       149
+
+    accuracy                           0.75       447
+   macro avg       0.76      0.75      0.75       447
+weighted avg       0.76      0.75      0.75       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                114                13                 22
+Actual dorsal              32               106                 11
+Actual lateral             28                 5                116
+None
+
+ 
+ Epoch 16/19
+----------
+train Loss: 0.0209 Acc: 0.9949
+test Loss: 0.8544 Acc: 0.7651
+              precision    recall  f1-score   support
+
+         bad       0.70      0.68      0.69       149
+      dorsal       0.82      0.77      0.79       149
+     lateral       0.78      0.84      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.76       447
+weighted avg       0.77      0.77      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                102                19                 28
+Actual dorsal              26               115                  8
+Actual lateral             17                 7                125
+None
+
+ 
+ Epoch 17/19
+----------
+train Loss: 0.0206 Acc: 0.9943
+test Loss: 0.8504 Acc: 0.7629
+              precision    recall  f1-score   support
+
+         bad       0.70      0.69      0.70       149
+      dorsal       0.81      0.77      0.79       149
+     lateral       0.78      0.83      0.80       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                103                19                 27
+Actual dorsal              26               114                  9
+Actual lateral             18                 7                124
+None
+
+ 
+ Epoch 18/19
+----------
+train Loss: 0.0230 Acc: 0.9953
+test Loss: 0.8680 Acc: 0.7562
+              precision    recall  f1-score   support
+
+         bad       0.68      0.72      0.70       149
+      dorsal       0.84      0.72      0.78       149
+     lateral       0.76      0.82      0.79       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                108                14                 27
+Actual dorsal              30               108                 11
+Actual lateral             21                 6                122
+None
+
+ 
+ Epoch 19/19
+----------
+train Loss: 0.0215 Acc: 0.9955
+test Loss: 0.8378 Acc: 0.7651
+              precision    recall  f1-score   support
+
+         bad       0.70      0.68      0.69       149
+      dorsal       0.82      0.78      0.80       149
+     lateral       0.78      0.83      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.76       447
+weighted avg       0.77      0.77      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                102                19                 28
+Actual dorsal              26               116                  7
+Actual lateral             18                 7                124
+None
+Training complete in 55m 51s
+Best test Acc: 0.771812
+Training model on cuda:0
+
+ 
+ Epoch 0/19
+----------
+train Loss: 0.0772 Acc: 0.9806
+test Loss: 1.2224 Acc: 0.7047
+              precision    recall  f1-score   support
+
+         bad       0.56      0.85      0.68       149
+      dorsal       0.83      0.74      0.78       149
+     lateral       0.88      0.52      0.66       149
+
+    accuracy                           0.70       447
+   macro avg       0.76      0.70      0.71       447
+weighted avg       0.76      0.70      0.71       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                127                12                 10
+Actual dorsal              38               110                  1
+Actual lateral             61                10                 78
+None
+
+ 
+ Epoch 1/19
+----------
+train Loss: 0.0954 Acc: 0.9706
+test Loss: 0.9166 Acc: 0.7517
+              precision    recall  f1-score   support
+
+         bad       0.70      0.60      0.65       149
+      dorsal       0.86      0.77      0.82       149
+     lateral       0.70      0.88      0.78       149
+
+    accuracy                           0.75       447
+   macro avg       0.76      0.75      0.75       447
+weighted avg       0.76      0.75      0.75       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                 90                15                 44
+Actual dorsal              23               115                 11
+Actual lateral             15                 3                131
+None
+
+ 
+ Epoch 2/19
+----------
+train Loss: 0.0921 Acc: 0.9694
+test Loss: 1.1716 Acc: 0.7383
+              precision    recall  f1-score   support
+
+         bad       0.64      0.74      0.69       149
+      dorsal       0.84      0.70      0.76       149
+     lateral       0.77      0.78      0.77       149
+
+    accuracy                           0.74       447
+   macro avg       0.75      0.74      0.74       447
+weighted avg       0.75      0.74      0.74       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                110                16                 23
+Actual dorsal              33               104                 12
+Actual lateral             29                 4                116
+None
+
+ 
+ Epoch 3/19
+----------
+train Loss: 0.0693 Acc: 0.9786
+test Loss: 0.9085 Acc: 0.7830
+              precision    recall  f1-score   support
+
+         bad       0.76      0.65      0.70       149
+      dorsal       0.85      0.79      0.82       149
+     lateral       0.75      0.91      0.82       149
+
+    accuracy                           0.78       447
+   macro avg       0.79      0.78      0.78       447
+weighted avg       0.79      0.78      0.78       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                 97                19                 33
+Actual dorsal              18               118                 13
+Actual lateral             12                 2                135
+None
+
+ 
+ Epoch 4/19
+----------
+train Loss: 0.0636 Acc: 0.9790
+test Loss: 1.0690 Acc: 0.6734
+              precision    recall  f1-score   support
+
+         bad       0.60      0.54      0.57       149
+      dorsal       0.67      0.72      0.69       149
+     lateral       0.75      0.77      0.75       149
+
+    accuracy                           0.67       447
+   macro avg       0.67      0.67      0.67       447
+weighted avg       0.67      0.67      0.67       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                 80                40                 29
+Actual dorsal              32               107                 10
+Actual lateral             22                13                114
+None
+
+ 
+ Epoch 5/19
+----------
+train Loss: 0.0540 Acc: 0.9851
+test Loss: 0.9210 Acc: 0.7472
+              precision    recall  f1-score   support
+
+         bad       0.68      0.66      0.67       149
+      dorsal       0.82      0.75      0.78       149
+     lateral       0.75      0.83      0.79       149
+
+    accuracy                           0.75       447
+   macro avg       0.75      0.75      0.75       447
+weighted avg       0.75      0.75      0.75       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                 99                17                 33
+Actual dorsal              29               112                  8
+Actual lateral             18                 8                123
+None
+
+ 
+ Epoch 6/19
+----------
+train Loss: 0.0266 Acc: 0.9939
+test Loss: 0.8852 Acc: 0.7562
+              precision    recall  f1-score   support
+
+         bad       0.68      0.67      0.68       149
+      dorsal       0.81      0.79      0.80       149
+     lateral       0.77      0.81      0.79       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                100                19                 30
+Actual dorsal              26               117                  6
+Actual lateral             20                 8                121
+None
+
+ 
+ Epoch 7/19
+----------
+train Loss: 0.0241 Acc: 0.9935
+test Loss: 0.9419 Acc: 0.7606
+              precision    recall  f1-score   support
+
+         bad       0.70      0.68      0.69       149
+      dorsal       0.80      0.79      0.79       149
+     lateral       0.78      0.81      0.80       149
+
+    accuracy                           0.76       447
+   macro avg       0.76      0.76      0.76       447
+weighted avg       0.76      0.76      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                102                20                 27
+Actual dorsal              25               117                  7
+Actual lateral             19                 9                121
+None
+
+ 
+ Epoch 8/19
+----------
+train Loss: 0.0222 Acc: 0.9953
+test Loss: 0.9047 Acc: 0.7696
+              precision    recall  f1-score   support
+
+         bad       0.70      0.70      0.70       149
+      dorsal       0.84      0.76      0.80       149
+     lateral       0.77      0.85      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                104                17                 28
+Actual dorsal              27               113                  9
+Actual lateral             18                 4                127
+None
+
+ 
+ Epoch 9/19
+----------
+train Loss: 0.0137 Acc: 0.9963
+test Loss: 0.9035 Acc: 0.7696
+              precision    recall  f1-score   support
+
+         bad       0.71      0.68      0.69       149
+      dorsal       0.83      0.79      0.81       149
+     lateral       0.77      0.85      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                101                18                 30
+Actual dorsal              24               117                  8
+Actual lateral             17                 6                126
+None
+
+ 
+ Epoch 10/19
+----------
+train Loss: 0.0088 Acc: 0.9978
+test Loss: 0.9075 Acc: 0.7785
+              precision    recall  f1-score   support
+
+         bad       0.73      0.68      0.71       149
+      dorsal       0.83      0.81      0.82       149
+     lateral       0.77      0.85      0.81       149
+
+    accuracy                           0.78       447
+   macro avg       0.78      0.78      0.78       447
+weighted avg       0.78      0.78      0.78       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                102                18                 29
+Actual dorsal              21               120                  8
+Actual lateral             17                 6                126
+None
+
+ 
+ Epoch 11/19
+----------
+train Loss: 0.0133 Acc: 0.9976
+test Loss: 0.9171 Acc: 0.7718
+              precision    recall  f1-score   support
+
+         bad       0.72      0.68      0.70       149
+      dorsal       0.83      0.79      0.81       149
+     lateral       0.77      0.85      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                101                18                 30
+Actual dorsal              23               117                  9
+Actual lateral             16                 6                127
+None
+
+ 
+ Epoch 12/19
+----------
+train Loss: 0.0127 Acc: 0.9971
+test Loss: 0.8874 Acc: 0.7651
+              precision    recall  f1-score   support
+
+         bad       0.70      0.68      0.69       149
+      dorsal       0.82      0.78      0.80       149
+     lateral       0.78      0.84      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.76      0.77      0.76       447
+weighted avg       0.76      0.77      0.76       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                101                20                 28
+Actual dorsal              26               116                  7
+Actual lateral             18                 6                125
+None
+
+ 
+ Epoch 13/19
+----------
+train Loss: 0.0099 Acc: 0.9980
+test Loss: 0.9026 Acc: 0.7673
+              precision    recall  f1-score   support
+
+         bad       0.70      0.69      0.70       149
+      dorsal       0.83      0.77      0.80       149
+     lateral       0.77      0.85      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                103                18                 28
+Actual dorsal              26               114                  9
+Actual lateral             18                 5                126
+None
+
+ 
+ Epoch 14/19
+----------
+train Loss: 0.0171 Acc: 0.9973
+test Loss: 0.8527 Acc: 0.7740
+              precision    recall  f1-score   support
+
+         bad       0.71      0.68      0.70       149
+      dorsal       0.82      0.79      0.81       149
+     lateral       0.79      0.85      0.82       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                102                20                 27
+Actual dorsal              24               118                  7
+Actual lateral             17                 6                126
+None
+
+ 
+ Epoch 15/19
+----------
+train Loss: 0.0090 Acc: 0.9982
+test Loss: 0.8880 Acc: 0.7696
+              precision    recall  f1-score   support
+
+         bad       0.69      0.72      0.71       149
+      dorsal       0.84      0.74      0.79       149
+     lateral       0.79      0.84      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                108                15                 26
+Actual dorsal              31               111                  7
+Actual lateral             18                 6                125
+None
+
+ 
+ Epoch 16/19
+----------
+train Loss: 0.0086 Acc: 0.9984
+test Loss: 0.9003 Acc: 0.7696
+              precision    recall  f1-score   support
+
+         bad       0.70      0.70      0.70       149
+      dorsal       0.83      0.78      0.80       149
+     lateral       0.78      0.83      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                104                18                 27
+Actual dorsal              25               116                  8
+Actual lateral             19                 6                124
+None
+
+ 
+ Epoch 17/19
+----------
+train Loss: 0.0085 Acc: 0.9992
+test Loss: 0.8672 Acc: 0.7740
+              precision    recall  f1-score   support
+
+         bad       0.71      0.70      0.71       149
+      dorsal       0.83      0.79      0.81       149
+     lateral       0.78      0.83      0.81       149
+
+    accuracy                           0.77       447
+   macro avg       0.77      0.77      0.77       447
+weighted avg       0.77      0.77      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                104                18                 27
+Actual dorsal              24               118                  7
+Actual lateral             18                 7                124
+None
+
+ 
+ Epoch 18/19
+----------
+train Loss: 0.0111 Acc: 0.9980
+test Loss: 0.8870 Acc: 0.7763
+              precision    recall  f1-score   support
+
+         bad       0.72      0.67      0.70       149
+      dorsal       0.82      0.81      0.82       149
+     lateral       0.78      0.85      0.81       149
+
+    accuracy                           0.78       447
+   macro avg       0.78      0.78      0.77       447
+weighted avg       0.78      0.78      0.77       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                100                20                 29
+Actual dorsal              21               121                  7
+Actual lateral             17                 6                126
+None
+
+ 
+ Epoch 19/19
+----------
+train Loss: 0.0106 Acc: 0.9986
+test Loss: 0.8687 Acc: 0.7763
+              precision    recall  f1-score   support
+
+         bad       0.70      0.72      0.71       149
+      dorsal       0.83      0.80      0.81       149
+     lateral       0.81      0.81      0.81       149
+
+    accuracy                           0.78       447
+   macro avg       0.78      0.78      0.78       447
+weighted avg       0.78      0.78      0.78       447
+
+                Predicted bad  Predicted dorsal  Predicted lateral
+Actual bad                107                18                 24
+Actual dorsal              25               119                  5
+Actual lateral             21                 7                121
+None
+Training complete in 67m 56s
+Best test Acc: 0.782998
+
+Process finished with exit code 0

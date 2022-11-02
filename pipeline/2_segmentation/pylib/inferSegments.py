@@ -4,8 +4,9 @@ import pandas as pd
 import numpy as np
 from showImages import showImages
 from writeToInferences import writeToInferences
+from rotateToVertical import rotateToVertical
 
-def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False, greyscale=False, part_suffix=None, activation_threshold=0.5, show=False, print_steps=False, proj_dir="../.."):
+def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False, greyscale=False, part_suffix=None, activation_threshold=0.6, bad_hw_multiplier=4, show=False, print_steps=True, print_details=False,proj_dir="../.."):
     """
         Infer and save segment masks for the specified image_ids using a trained model
 
@@ -33,7 +34,7 @@ def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False
     # pick cuda device
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     if (print_steps): print("Using device " + str(device))
-
+    if (print_steps): print("Estimated time " + str(1.46 * (len(image_locs)/100)) + " minutes")
     if (print_steps): print("Starting loop through image ids...")
     # for each image location
     for index, img_loc in enumerate(image_locs):
@@ -72,14 +73,14 @@ def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False
 
         # transpose to correct shape for model
         img = img.transpose(2, 0, 1).reshape(1, 3, image_size, image_size)  #344 # cracks are 480 x 320
-        if (print_steps): print("Read, resized, & transposed image...")
+        if (print_details): print("Read, resized, & transposed image...")
 
         model.to(device)
 
         # get output from model
         with torch.no_grad():
             a = model((torch.from_numpy(img).type(torch.cuda.FloatTensor) / 255).to(device))
-        if (print_steps): print("Retrieved output from model...")
+        if (print_details): print("Retrieved output from model...")
 
         # make mask using activation threshold
         mask = a['out'].cpu().detach().numpy()[0][0] > activation_threshold
@@ -87,18 +88,42 @@ def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False
         mask *= 255
         mask = cv2.resize(mask,img_dims)
 
-        if (print_steps): print("Made mask from output...")
+        if (print_details): print("Made mask from output...")
 
         # check if mask is bad
         bad_signifier = 0
+        # if mask is all white
         if cv2.countNonZero(mask) == 0:
             bad_signifier = 1
+        # if mask is all black
         elif cv2.countNonZero(mask) == mask.shape[0] * mask.shape[1]:
             bad_signifier = 1
-        #elif
-        #    detector = cv2.SimpleBlobDetector()
-        #    keypoints = detector.detect(mask)
-        #    if
+        else:
+            # if more than 2 or 3 components
+            output = cv2.connectedComponentsWithStats(mask, 4, cv2.CV_32S)
+            num_labels = output[0]
+            if num_labels > 2:
+                bad_signifier = 1
+
+            # if largest component is less than 1% of the image
+            stats = output[2]
+            cc_areas = stats[:, cv2.CC_STAT_AREA]
+            max_area = max(cc_areas)
+            if max_area < (0.01 * (mask.shape[0] * mask.shape[1])):
+                bad_signifier = 1
+
+            rgb_mask = cv2.cvtColor(mask,cv2.COLOR_GRAY2BGR)
+            vert = rotateToVertical([rgb_mask])
+
+            if vert is None:
+                bad_signifier = 1
+            else:
+                vert = vert[0]
+                h = np.shape(vert)[0]
+                w = np.shape(vert)[1]
+                if (h / w) < bad_hw_multiplier:
+                    bad_signifier = 1
+
 
         # get ids (kinda dumb, fix this later to do above)
         id = image_ids[index].split("/")[-1].replace(".jpg","")
@@ -107,7 +132,7 @@ def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False
 
         writeToInferences(inferences,proj_dir)
 
-        if (print_steps): print("Checked if mask is bad and saved in inferences")
+        if (print_details): print("Checked if mask is bad and saved in inferences")
 
         showImages(show,[start_img,mask],["Image","Inferred Mask"])
 
@@ -119,7 +144,7 @@ def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False
 
         cv2.imwrite(dest,mask)
 
-        if(print_steps): print("Saved to " + dest)
+        if(print_details): print("Saved to " + dest)
 
-        if index % 1000 == 0:
+        if index % 100 == 0:
             print("Processed " + str(index))

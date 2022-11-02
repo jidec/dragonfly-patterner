@@ -24,23 +24,33 @@ def inferImageClasses(image_ids, infer_colname, infer_names,model_name, image_si
     image_locs = image_ids.copy()
     # turn list of ids into list of locations
     for i in range(0,len(image_locs)):
-        image_locs[i] = "../../data/all_images/" + image_locs[i] + ".jpg"
+        image_locs[i] = proj_dir + "/data/all_images/" + image_locs[i] + ".jpg"
 
     # load the trained model and set it to eval mode
     model = torch.load(proj_dir + "/data/ml_models/" + model_name + ".pt")
     model.eval()
     if print_steps: print("Loaded trained model")
-
+    if (print_steps): print("Estimated time " + str(1.5 * (len(image_locs) / 1000)) + " minutes")
     if print_steps: print("Starting loop over images")
+
     inferences = []
     weights0 = []
     weights1 = []
     weights2 = []
     weights3 = []
+    conf_inferences1 = []
+    conf_inferences3 = []
+    conf_inferences5 = []
+    conf_inferences7 = []
+
     for index, img_loc in enumerate(image_locs):
         # read  a sample image
         img = cv2.imread(img_loc)
         # save start dims and resize to input
+        if img is None:
+            # remove that image id so cols remain same size
+            del image_ids[index]
+            continue
         img_dims = (img.shape[1],img.shape[0])
         img = cv2.resize(img,(image_size,image_size))
 
@@ -62,12 +72,55 @@ def inferImageClasses(image_ids, infer_colname, infer_names,model_name, image_si
         weights0.append(weights_list[0])
         weights1.append(weights_list[1])
         weights2.append(weights_list[2])
-        weights3.append(weights_list[3])
+        #weights3.append(weights_list[3]) # fix for 3 or 4 class
 
-        showImages(show,cv2.imread(img_loc),["Inferred " + infer_names[max_index]])
+        #showImages(show, cv2.imread(img_loc), ["Inferred " + infer_names[max_index]])
+        #showImages(show,cv2.imread(img_loc),
+        #           ["Bad " + str(weights_list[0]) +", Dorsal " + str(weights_list[1]) +", Lateral " + str(weights_list[2])],
+        #           title_fontsize=15)
+
+        bad = weights_list[0]
+        dorsal = weights_list[1]
+        lateral = weights_list[2]
+
+        #if bad == max(weights_list) or bad > 0.7 * max(weights_list):
+        #    print("Bad")
+        #else:
+        #    print(infer_names[max_index])
+
+        # calculate confidence as the difference in weights from the largest to the 2nd largest
+        weights_list.sort()
+        confidence = weights_list[2] - weights_list[1]
+
+
+        # if confident above thresholds and not bad
+        if confidence > 1 and bad != max(weights_list):
+            conf_inferences1.append(infer_names[max_index])
+        else:
+            conf_inferences1.append("bad")
+
+        if confidence > 3 and bad != max(weights_list):
+            conf_inferences3.append(infer_names[max_index])
+        else:
+            conf_inferences3.append("bad")
+
+        if confidence > 5 and bad != max(weights_list):
+            conf_inferences5.append(infer_names[max_index])
+        else:
+            conf_inferences5.append("bad")
+
+        if confidence > 7 and bad != max(weights_list):
+             conf_inferences7.append(infer_names[max_index])
+        else:
+             conf_inferences7.append("bad")
+
+            #showImages(show,cv2.imread(img_loc),
+            #       ["Inferred " + infer_names[max_index]],
+            #       title_fontsize=15)
 
         if index > 0 and index % 1000 == 0:
             if print_steps: print(index)
+
         # Plot histogram of the prediction to find a suitable threshold. From the histogram a 0.1 looks like a good choice.
         # plt.hist(a['out'].data.cpu().numpy().flatten())
         #plt.show()
@@ -87,11 +140,15 @@ def inferImageClasses(image_ids, infer_colname, infer_names,model_name, image_si
         #cv2.imwrite("out/" + imgname + "_segout.png", img)
 
 
-    inferences = pd.DataFrame({'imageID': image_ids, infer_colname: inferences,
-                               'weight' + infer_names[0]: weights0,
-                               'weight' + infer_names[1]: weights1,
-                               'weight' + infer_names[2]: weights2,
-                               'weight' + infer_names[3]: weights3})
+    inferences = pd.DataFrame({'imageID': image_ids,
+                               infer_colname: inferences,
+                               'weight_' + infer_names[0]: weights0,
+                               'weight_' + infer_names[1]: weights1,
+                               'weight_' + infer_names[2]: weights2,
+                               'conf_infers1': conf_inferences1,
+                               'conf_infers3': conf_inferences3,
+                               'conf_infers5': conf_inferences5,
+                               'conf_infers7': conf_inferences7})
 
     # fill in inference col (0..4) with text name
     for index, name in enumerate(infer_names):
@@ -100,6 +157,7 @@ def inferImageClasses(image_ids, infer_colname, infer_names,model_name, image_si
     if exists(proj_dir + "/data/inferences.csv"):
         current_infers = pd.read_csv(proj_dir + "/data/inferences.csv")
         inferences = pd.concat([current_infers,inferences])
+
 
     inferences.to_csv(proj_dir + "/data/inferences.csv")
     if print_steps: print("Saved all inferences")

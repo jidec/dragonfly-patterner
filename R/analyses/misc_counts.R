@@ -1,7 +1,31 @@
 # count number of a specific genus
-data <- read.csv("../data/inatdragonflyusa_records.csv",header=TRUE,row.names=NULL,sep=",")
+body_records <- read.csv("../data/records.csv",header=TRUE,row.names=NULL,sep=",")
 library(dplyr)
+plot(table(data$genus))
 View(table(data$genus))
+hist(table(data$genus))
+
+library(dplyr)
+test <- data %>%
+    group_by(genus) %>%
+    summarise(n_species = length(unique(species)))
+
+sum(test$n_species)
+hist(test$n_species)
+
+test <- data %>%
+    group_by(family) %>%
+    summarise(n_species = length(unique(species)), n = n())
+
+
+table(data$family)
+sum(test$n_species)
+hist(test$n_species)
+
+aesh_sp <- data[data$family=="Aeshnidae",]$species
+table(aesh_sp)
+
+
 devtools::install_github("jaredhuling/jcolors")
 
 genus_obs <- dplyr::filter(data, genus == "Stylurus")
