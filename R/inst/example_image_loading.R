@@ -4,6 +4,7 @@ library(imager)
 library(ggplot2)
 library(raster)
 img <- load.image("../data/segments/INATRANDOM-210309_segment.png")
+img <- load.dir("../data/segments/INATRANDOM-210309_segment.png")
 pixels <- img[img[,,,1] != 0]
 
 pix <- as.pixset(img)
@@ -25,3 +26,6 @@ ggplot(img_df,aes(value))+geom_histogram(bins=30)
 
 # Use stack function to read in all bands
 img_stack <- stack("../../experiments/odo_seg_analyzer/images/4155610_198_discrete.png")
+
+img <- load.image("../data/segments/INATRANDOM-210309_segment.png")
+imager::load.

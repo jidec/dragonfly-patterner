@@ -1,6 +1,6 @@
 # path = "../experiments/odo_seg_analyzer/images/4155610_198_discrete.png"
-img_dir = "E:/dragonfly-patterner/data/patterns/gomph_grouped_5000"
-start_index = 1
+#img_dir = "E:/dragonfly-patterner/data/patterns/gomph_grouped_5000"
+#start_index = 1
 extractSimpleColorStats <- function(img_dir, start_index=1){
     library(imager)
     df <- data.frame()
@@ -76,15 +76,19 @@ extractSimpleColorStats <- function(img_dir, start_index=1){
         df <- rbind(df,row)
         }
     }
-    #print(colnames)
-    #print(df[1,])
+
     colnames(df) <- colnames
+    df[,2:ncol(df)] <- as.data.frame(sapply(df[,2:ncol(df)], as.numeric))
+    df$mean_lightness <- rowMeans(df[,3:5])
+    
     return(df)
 }
 
-#wing_colors <- extractSimpleColorStats("D:/wing-color/data/patterns",1)
+#wing_colors <- extractSimpleColorStats("D:/wing-color/data/patterns")
 #img_dir <- "D:/wing-color/data/patterns"
 #start_index <- 1000
 #View(df)
 #as.character(1)
 #View(wing_colors)
+
+install.packages("hablar")

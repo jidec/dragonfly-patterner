@@ -1,7 +1,7 @@
 
-dir = "E:/dragonfly-patterner/data/all_images"
-records=inat_records
-new_records_colname = "has_downloaded_image"
+#dir = "E:/dragonfly-patterner/data/all_images"
+#records=inat_records
+#new_records_colname = "has_downloaded_image"
 
 # use to get records for data at different stages in the pipeline
 mergeImagesToRecords <- function(dir, records, new_records_colname){

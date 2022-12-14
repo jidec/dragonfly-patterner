@@ -1,15 +1,19 @@
 tree <- odonate_tree
+plot(odonate_tree)
+library(ape)
+
+# working
+tips <- c()
+for(genus in unique(str_split_fixed(tree$tip.label, " ", 2)[,1])) {
+  tip <- grep(genus,tree$tip.label)[1]
+  tips <- c(tips,tip)
+}
+tree <- keep.tip(tree,tips)
+plot(tree)
 
 library(stringr)
 #genus <- "Pinheyschna"
 str_split_fixed(tree$tip.label, " ", 2)[,1]
-#species<-grep("Pinheyschna",tree$tip.label)
-tips <- c()
-for(genus in unique(str_split_fixed(tree$tip.label, " ", 2)[,1])) {
-    tip <- grep(genus,tree$tip.label)[1]
-    tips <- c(tips,tip)
-}
-tree <- keep.tip(tree,tips)
 tree$tip.label <- str_split_fixed(tree$tip.label, " ", 2)[,1]
 plot(tree)
 length(tree$tip.label)
