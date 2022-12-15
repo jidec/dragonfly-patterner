@@ -31,7 +31,7 @@ def getFilterImageIDs(start_ids=None,records_fields=[],records_values=[], in_rec
 
     # add all records matching
     records_ids = list(records['recordID'])
-    print(records_ids[1:100])
+    #print(records_ids[1:100])
     if print_steps: print("Retrieved/filtered " + str(len(records_ids)) + " ids from records...")
 
     if len(records_fields) > 0 or in_records_data == True:

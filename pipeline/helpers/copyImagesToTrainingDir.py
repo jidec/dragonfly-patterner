@@ -35,12 +35,12 @@ def copyImagesToTrainingDir(training_dir_name, image_ids, ntest, class_dir_name=
             test_masks = [s + "_mask" for s in test_ids]
 
         # copy train masks
-        copyImages(proj_dir + "/data/masks/train_masks", training_dir + "/train/mask",train_masks)
+        copyImages(proj_dir + "/data/other/train_masks", training_dir + "/train/mask",train_masks)
         # copy train images
         copyImages(proj_dir + "/data/all_images", training_dir + "/train/image", train_ids)
 
         # copy test masks
-        copyImages(proj_dir + "/data/masks/train_masks", training_dir + "/test/mask", test_masks)
+        copyImages(proj_dir + "/data/other/train_masks", training_dir + "/test/mask", test_masks)
         # copy test images
         copyImages(proj_dir + "/data/all_images", training_dir + "/test/image", test_ids)
 

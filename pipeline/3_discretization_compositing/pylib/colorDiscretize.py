@@ -18,15 +18,13 @@ import os
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-# problems before I forget
-# image ids getting modified in methods, create copy at beginning of each method - done I think
-# bad or empty images slipping through
 def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col = None, group_cluster_raw_ids = False,
                     by_contours=False, erode_contours_kernel_size=0, dilate_multiplier = 2, min_contour_pixel_area=10,
                     cluster_model="gaussian_mixture", nclusters=None, nclust_metric = "ch", cluster_eps=0.5, cluster_min_samples=4,
                     colorspace = None, scale = False, use_positions=False, downweight_axis=None, upweight_axis=None,
-                    bilat_blur = True, vert_resize = 400,
-                    print_steps=True, print_details=False, write_subfolder= "", show=False, proj_dir="../.."):
+                    vert_resize = 400,
+                    gaussian_blur= False, bilat_blur = True, blur_size = 15, blur_sigma = 150,
+                    print_steps=True, print_details=False, preclust_read_subfolder = "", write_subfolder= "", show=False, proj_dir="../.."):
     """
         Discretize (AKA quantize or recolorize) continuously shaded organismal segments to discrete patterns
 
@@ -45,9 +43,10 @@ def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col =
         :param bool print_steps: whether or not to print processing step info after they are performed
         :param bool proj_dir: the path to the project directory containing /data and /trainset_tasks folders
     """
+
     image_ids = image_ids.copy()
     populated_ids = []
-    #print(image_ids)
+
     # gather either contour data or pixel data for every image
     contour_or_pixel_data = []
     if (print_steps):
@@ -56,50 +55,53 @@ def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col =
         else:
             print("Estimated time " + str((len(image_ids)/30)/3) + " minutes at default cluster mode, metric, and vert resize")
 
+    # load BGR images
     if print_steps: print("Started gathering pixel or contour data for each image")
     for id in image_ids:
         if not preclustered:
             img = cv2.imread(proj_dir + "/data/segments/" + id + "_segment.png",cv2.IMREAD_UNCHANGED)
         else:
-            img = cv2.imread(proj_dir + "/data/patterns/" + id + "_pattern.png", cv2.IMREAD_UNCHANGED)
+            img = cv2.imread(proj_dir + "/data/patterns/" + preclust_read_subfolder + "/" + id + "_pattern.png", cv2.IMREAD_UNCHANGED)
 
         showImages(show,[img],"Segment")
 
-        # blur if specified
-        #if blur_kernel_size != 0:
-        #    img = cv2.blur(img,blur_kernel_size)
-        #    if print_details: print("Blurred input image")
-
-        #img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         if print_details: print("Loaded segment for ID " + id)
         if img is None:
             if print_details: print("Image is empty - skipping")
-            #image_ids.remove(id)
             continue
+
+        # apply bilateral blur
         if bilat_blur:
             alpha = img[:, :, 3]
             img = img[:, :, :3]
-            img = cv2.bilateralFilter(img, d=15, sigmaColor=100, sigmaSpace=60)
-            img = cv2.cvtColor(img, cv2.COLOR_RGB2RGBA)
+            img = cv2.bilateralFilter(img, d=blur_size, sigmaColor=blur_sigma, sigmaSpace=blur_sigma)
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
             img[:, :, 3] = alpha
             showImages(show,[img],['Blurred Image'])
 
+        # apply gaussian blur
+        if gaussian_blur:
+            img = cv2.GaussianBlur(img, ksize=(blur_size, blur_size), sigmaX = blur_sigma, sigmaY= blur_sigma)
+            showImages(show, [img], ['Blurred Image'])
+
+        # convert to hls or lab
         if colorspace == "hls":
             alpha = img[:, :, 3] # save alpha
             img = img[:, :, :3] # remove alpha
-            img = cv2.cvtColor(img, cv2.COLOR_RGB2HLS_FULL)
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2HLS_FULL)
             img = np.dstack((img, alpha))
         elif colorspace == "lab":
             alpha = img[:, :, 3]  # save alpha
             img = img[:, :, :3]  # remove alpha
-            img = cv2.cvtColor(img, cv2.COLOR_RGB2LAB)
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
             img = np.dstack((img, alpha)) # return alpha (necessary for excluding pixels)
 
+        # resize
         if vert_resize is not None:
             dim_mult = vert_resize / img.shape[0]
             img = cv2.resize(img, dsize=(int(img.shape[1] * dim_mult),vert_resize))
         if show:
-            plotPixels(img)
+            plotPixels(img[:, :, :3],colorspace)
 
         if by_contours:
             contour_or_pixel_data.append(getContoursAndContourPixelMeans(img,erode_contours_kernel_size,dilate_multiplier,min_contour_pixel_area,show))
@@ -207,7 +209,7 @@ def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col =
             alpha = img[:, :, 3]  # save alpha
             img = img[:, :, :3]  # remove alpha
             img = img.astype(np.float32)
-            img = cv2.cvtColor(img, cv2.COLOR_HLS2RGB_FULL)
+            img = cv2.cvtColor(img, cv2.COLOR_HLS2BGR_FULL)
             img = np.dstack((img, alpha))
         elif colorspace == "lab":
             alpha = img[:, :, 3]

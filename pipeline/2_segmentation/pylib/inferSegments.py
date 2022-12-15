@@ -5,6 +5,7 @@ import numpy as np
 from showImages import showImages
 from writeToInferences import writeToInferences
 from rotateToVertical import rotateToVertical
+from extractHoneSegments import extractHoneSegments
 
 def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False, greyscale=False, part_suffix=None, activation_threshold=0.6, bad_hw_multiplier=4, show=False, print_steps=True, print_details=False,proj_dir="../.."):
     """

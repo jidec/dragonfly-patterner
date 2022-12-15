@@ -5,157 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/experiments/blurring/blur_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/histogram-matching/match.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/wings/createOdomaticWingMasks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/download_darners.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/1_classification/run_create_class_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/odomatic_helpers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_seg_models_10-26.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_seg_models_10-27.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_segments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_segment_wings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/anisoDiff.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/run_discretize.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/plotPixels.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/class.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/discr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/extract_segs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/final_night.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/last.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/last_small.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/last_small2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/resume_midway.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/resume_midway2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/resume_midway3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/seg.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/train_test_segs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/run_all_new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments/earth-movers-dist/emd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments/fdtd/reflectance attempt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments/fdtd/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments/object-detection/object-detection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments/ssim/ssim.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/experiments/symmetry-detector/sym.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/preprocessLice.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/infer_quality_metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/inferQualityMetrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/helpers/folderImagesToGreyscale.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/helpers/getIDsFromFolder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/helpers/visualizeSegmentPatterns.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/art/run_wing_collage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/collages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/lice-ids.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/run_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/run_test2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/run_test_discretize_wings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/test3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/test4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/extract_color_stats_df.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/extract_color_stats_df.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/misc_counts.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/misc_counts.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/dragonfly-patternR.Rproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/IMP_using_genus_records.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/aesh.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/analyze_antheads.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/clade_counts.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/colordistance_plots.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/extract_color_stats_df.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/filesize_info.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/misc_counts.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/pattern_pca.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/species_count_thresholds.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/bad_segs.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/get_lost_ids.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/gomph.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/import_infers.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/inst/example_image_loading.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/inst/example_image_loading.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/pca stuff.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/phy_helpers_paste.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/plot_records_discrep.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/presence_absence_plot.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/sdms_phy_wings.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/seg_training_results.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/sp_tree_to_genus_tree.R" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/inferences.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/patternize_recolorize/Batch_Processing.R" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/patternize_recolorize/Batch_Processing.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/patternize_recolorize/Recolorize_experimentation.R" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/patternize_recolorize/Recolorize_experimentation.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_data_prep/run_preprocess_records.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_data_prep/run_preprocess_records.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatGenusImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/downloadiNatGenusImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/getiNatRecords.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/pylib/getiNatRecords.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_genera.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_genera.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_image_downloading/run_download_random.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/inferImageClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/inferImageClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/pylib/loadTrainClassModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/pylib/loadTrainClassModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/1_classification/run_infer_4class_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/1_classification/run_infer_4class_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/extractHoneSegments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/extractHoneSegments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/mergeImagesToRecords.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/mergeImagesToRecords.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/test_merge_imgs_to_records.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/inferences.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/inferences.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/train_metadata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/train_metadata.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/old/run_create_segmentation_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_segmentation_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/loadTrainSegModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/loadTrainSegModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/tests/test_infer_segments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/tests/test_infer_segments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_segment_wings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/alignDiscretized.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/alignDiscretized.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/rotateToVertical.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/rotateToVertical.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/helpers/copyImagesToTrainingDir.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/copyImagesToTrainingDir.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/helpers/getFilterImageIDs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/getFilterImageIDs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/showImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/showImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-100727588.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-100727588_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-12566981.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-12566981_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-13027767.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-13027767_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-13961054.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-13961054_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-14354746.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-14354746_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-18762504.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-18762504_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-20255951.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-20255951_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-21008967.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-21008967_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-21753956.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-21753956_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-25277609.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-25277609_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-25872602.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-25872602_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-27735709.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-27735709_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-27854093.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-27854093_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-29145492.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-29145492_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-30847353.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-30847353_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32215038.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32215038_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32278977.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32278977_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32327110.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32327110_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32518647.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-32518647_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-3479986.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-3479986_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-3522656.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-3522656_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-35605923.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-35605923_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-51112729.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-51112729_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-51984417.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-51984417_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-52389204.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-52389204_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-52693206.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-52693206_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-54203854.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-54203854_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-54425540.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-54425540_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55168334.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55168334_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55228389.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55228389_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55292210.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55292210_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55347145.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-55347145_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-57575567.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-57575567_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-59624702.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-59624702_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-63778417.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-63778417_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-65792355.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-65792355_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-7673346.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-7673346_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-79761933.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-79761933_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-81095815.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-81095815_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-81815337.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-81815337_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-83788085.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-83788085_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-84619194.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-84619194_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-86209878.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-86209878_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-86463949.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-86463949_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-87472976.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-87472976_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-8913064.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-8913064_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-90744931.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-90744931_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-95610371.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-95610371_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-96163356.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-96163356_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-98001162.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trainset_tasks/Camilla/10-4-22_LSegs50/INATRANDOM-98001162_mask.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/helpers/makeCollage.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/makeCollage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/helpers/plotPixels.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/plotPixels.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,15 +166,15 @@
       <recent name="E:\dragonfly-patterner" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\dragonfly-patterner\pipeline\3_discretization_compositing" />
-      <recent name="E:\dragonfly-patterner" />
-      <recent name="E:\dragonfly-patterner\pipeline\1_classification\pylib\old" />
-      <recent name="E:\dragonfly-patterner\pipeline\0_image_downloading\old" />
+      <recent name="E:\dragonfly-patterner\experiments\object-detection" />
+      <recent name="E:\dragonfly-patterner\pipeline\2_segmentation" />
       <recent name="E:\dragonfly-patterner\pipeline\2_segmentation\old" />
+      <recent name="E:\dragonfly-patterner\pipeline\3_discretization_compositing\pylib" />
+      <recent name="E:\dragonfly-patterner\pipeline\3_discretization_compositing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.last_small2">
-    <configuration name="last_small" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.test4">
+    <configuration name="run_discretize_wings" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -274,11 +182,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/entsoc" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/wings" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/entsoc/last_small.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/wings/run_discretize_wings.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -287,7 +195,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="last_small2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -295,11 +203,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/entsoc" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/wings" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/entsoc/last_small2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/wings/run_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -308,7 +216,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="makeCollage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run_test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -316,53 +224,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/helpers" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/wings" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/helpers/makeCollage.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="resume_midway" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dragonfly-patterner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/entsoc" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/entsoc/resume_midway.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="resume_midway2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dragonfly-patterner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/entsoc" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/entsoc/resume_midway2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/wings/run_test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -392,21 +258,63 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dragonfly-patterner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/wings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/wings/test3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dragonfly-patterner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/wings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/wings/test4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.run_update_training_metadata" />
-      <item itemvalue="Python.last_small2" />
-      <item itemvalue="Python.resume_midway2" />
-      <item itemvalue="Python.last_small" />
-      <item itemvalue="Python.makeCollage" />
-      <item itemvalue="Python.resume_midway" />
+      <item itemvalue="Python.run_test2" />
+      <item itemvalue="Python.test3" />
+      <item itemvalue="Python.test4" />
+      <item itemvalue="Python.run_test" />
+      <item itemvalue="Python.run_discretize_wings" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.last_small2" />
-        <item itemvalue="Python.resume_midway2" />
-        <item itemvalue="Python.last_small" />
-        <item itemvalue="Python.resume_midway" />
-        <item itemvalue="Python.makeCollage" />
+        <item itemvalue="Python.test4" />
+        <item itemvalue="Python.test3" />
+        <item itemvalue="Python.run_test2" />
+        <item itemvalue="Python.run_test" />
+        <item itemvalue="Python.run_discretize_wings" />
       </list>
     </recent_temporary>
   </component>
