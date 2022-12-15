@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pipeline/papers/Idec-Bishop-and-Fisher-2022/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_ant_head_segmodel.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_ant_head_segmodel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
