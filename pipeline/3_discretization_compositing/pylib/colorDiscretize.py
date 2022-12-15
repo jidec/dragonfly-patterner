@@ -28,19 +28,44 @@ def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col =
     """
         Discretize (AKA quantize or recolorize) continuously shaded organismal segments to discrete patterns
 
-        :param List image_ids: the imageIDs (image names) to extract segments from
-        :param bool group_cluster_records_col: the column in records to group images before clustering i.e "species"
+        :param List image_ids: the imageIDs (image names) to use segments from
+        :param bool preclustered: specify whether you want to cluster preclustered data, applying the second step in a typical 2-part clustering run
+        :param str group_cluster_records_col: the column in records to group images before clustering i.e "species"
             can also be "speciesMorph" which gets merged from inferences
+        :param bool group_cluster_raw_ids: whether to group cluster the provided ids as whole, rather than splitting them into groups with the group_cluster_records_col
+
         :param bool by_contours: whether to cluster by contours instead of by pixels
         :param int erode_contours_kernel_size: the size of the kernel with which to erode contours, no erosion if 0
-        :param float dilate_multiplier: not sure what this does LMAO
+        :param float dilate_multiplier: the amount to dilate contours
         :param int min_contour_pixel_area: the minimum number of pixels in a contour to include it as a pattern element in clustering
+
         :param str cluster_model: the type of clustering to perform, either "kmeans" or "optics" for now
-        :param int nclusters: the number of clusters (if using an algo that requires specifying)
+        :param int nclusters: the number of clusters, if None the nclusters are chosen using the nclust_metric
+        :param int nclust_metric: the metric to calculate for each nclusters and use in selecting an optimal one
+            "ch" is Calinski-Harabasz and "db is Davies-Bouldlin
+        :param int cluster_eps: a parameter of OPTICS clustering
         :param int cluster_min_samples: a parameter of OPTICS clustering
 
-        :param bool show: whether or not to show image processing outputs and intermediates
+        :param colorspace: the colorspace to cluster in, None uses rgb, "hls" uses HLS, and "lab" uses CIELAB
+        :param scale: whether to scale the pixel data together before clustering
+        :param use_positions: whether to cluster using pixel positions within the image in addition to pixel values
+        :param int downweight_axis: the index of the color axis (such as R,G,B or H,S,L) to downweight
+        :param int upweight_axis: the index of the color axis (such as R,G,B or H,S,L) to upweight
+
+        :param int vert_resize: the number of pixels to resize to in height before pixels are extracted and clustered, keeping the image aspect ratio intact
+
+        :param bool gaussian_blur: whether to apply gaussian blur to input images
+        :param bool bilat_blur: whether to apply bilateral blur to input images - preserves edges very well
+        :param int blur_size: param of bilateral blur
+        :param int blur_sigma: param of bilarteral blur
+
         :param bool print_steps: whether or not to print processing step info after they are performed
+        :param bool print_details: whether or not to print very verbose details for each segment
+
+        :param str preclust_read_subfolder: the folder to draw preclustered images from if using preclustered
+        :param str write_subfolder: the folder to write discretized patterns to
+
+        :param bool show: whether or not to show image processing outputs and intermediates
         :param bool proj_dir: the path to the project directory containing /data and /trainset_tasks folders
     """
 

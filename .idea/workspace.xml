@@ -5,65 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/experiments/earth-movers-dist/emd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/fdtd/reflectance attempt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/fdtd/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/object-detection/object-detection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/ssim/ssim.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/symmetry-detector/sym.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/preprocessLice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/infer_quality_metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/inferQualityMetrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/folderImagesToGreyscale.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/getIDsFromFolder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/helpers/visualizeSegmentPatterns.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/art/run_wing_collage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/entsoc/collages.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/lice-ids.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/run_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/run_test2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/run_test_discretize_wings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/test3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/test4.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/IMP_using_genus_records.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/aesh.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/analyze_antheads.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/clade_counts.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/colordistance_plots.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/extract_color_stats_df.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/filesize_info.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/misc_counts.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/pattern_pca.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/shared_annotation_comparison.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/species_count_thresholds.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/bad_segs.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/get_lost_ids.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/gomph.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/import_infers.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/inst/example_image_loading.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/inst/example_image_loading.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/pca stuff.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/phy_helpers_paste.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/plot_records_discrep.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/presence_absence_plot.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/sdms_phy_wings.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/seg_training_results.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/sp_tree_to_genus_tree.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/mergeImagesToRecords.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/mergeImagesToRecords.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/test_merge_imgs_to_records.R" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/inferences.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/inferences.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train_metadata.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/train_metadata.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/0_trainset_curation/run_create_training_tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/old/run_create_segmentation_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_create_segmentation_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_segment_wings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/alignDiscretized.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/alignDiscretized.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/copyImagesToTrainingDir.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/copyImagesToTrainingDir.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/getFilterImageIDs.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/getFilterImageIDs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/makeCollage.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/makeCollage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/plotPixels.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/plotPixels.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
