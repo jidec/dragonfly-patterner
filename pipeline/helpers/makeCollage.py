@@ -17,7 +17,7 @@ from PIL import Image, ImageOps
 # make spiral
 # make rotate to center or corner
 # allow full overlap rather than blending
-def makeCollage(imgs,n_per_row,resize_wh,white_bg=False,overlap_wh=None,rotation="45",rot_jitter=0,show=True):
+def makeCollage(imgs,n_per_row,resize_wh,white_bg=False,overlap_wh=None,rotation=None,rot_jitter=0,show=True):
     imgs = [cv2.resize(im,resize_wh) for im in imgs]
     print(len(imgs))
     collage = None
@@ -29,7 +29,7 @@ def makeCollage(imgs,n_per_row,resize_wh,white_bg=False,overlap_wh=None,rotation
     dim_argmax = np.argmax([np.shape(im)[0] * np.shape(im)[1] for im in imgs])
     dim_max = (np.shape(imgs[dim_argmax])[0],np.shape(imgs[dim_argmax])[1])
     #imgs = [cv2.resize(im,dim_max) for im in imgs]
-    imgs = [resize_with_padding(im, dim_max) for im in imgs]
+    #imgs = [resize_with_padding(im, dim_max) for im in imgs]
 
     i = 0
     row_imgs = []

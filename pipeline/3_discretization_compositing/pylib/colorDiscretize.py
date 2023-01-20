@@ -86,7 +86,7 @@ def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col =
         if not preclustered:
             img = cv2.imread(proj_dir + "/data/segments/" + id + "_segment.png",cv2.IMREAD_UNCHANGED)
         else:
-            img = cv2.imread(proj_dir + "/data/patterns/" + preclust_read_subfolder + "/" + id + "_pattern.png", cv2.IMREAD_UNCHANGED)
+            img = cv2.imread(proj_dir + "/data/patterns/" + preclust_read_subfolder + "/" + id + "_segment.png", cv2.IMREAD_UNCHANGED) #_pattern.ong
 
         showImages(show,[img],"Segment")
 
@@ -172,12 +172,12 @@ def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col =
 
     elif group_cluster_raw_ids:
         if print_steps: print("Group clustering all IDs together")
-        #print("gc raw")
-        # get all
-        #print(contour_or_pixel_data[1][1])
+        # get pixels or contours then take mean
         group_means = [cpd[1] for cpd in contour_or_pixel_data]
-        group_coords = [cpd[0] for cpd in contour_or_pixel_data]
         group_means = sum(group_means, [])
+        # get coords
+        group_coords = [cpd[0] for cpd in contour_or_pixel_data]
+
         print("Len group means " + str(len(group_means)))
         clustered_values = getClusterCentroids(group_means, group_coords, cluster_model, nclusters, cluster_eps, cluster_min_samples,scale,use_positions,downweight_axis,upweight_axis,preclustered,nclust_metric,img,show)
         print("Len clust vals " + str(len(clustered_values)))
