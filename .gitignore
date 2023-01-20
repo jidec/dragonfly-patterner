@@ -205,3 +205,8 @@ R/data/large
 experiments/bio-gans/data/data
 experiments/bio-gans/model
 data/annotations.csv
+
+# worldclim data
+*.hdr
+*.bil
+*.zip
