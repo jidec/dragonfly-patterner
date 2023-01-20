@@ -9,7 +9,9 @@
 library(recolorize)
 
 # get image paths
-dragonflies <- list.files(path="E:/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade_2")
+#dragonflies <- list.files(path="E:/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade_2",full.names = TRUE)
+dragonflies <- list.files(path="E:/dragonfly-patterner/experiments/patternize_recolorize/wings",full.names = TRUE)
+
 #dragonflies <- list.files(path="/Users/louiseppel/Documents/GitHub/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade_2")
 
 # define a custom recolorize function
@@ -36,8 +38,7 @@ dragonflies_rc <- lapply(dragonflies, custom_recolorize_function)
 # to make more subjective calls about number and type of colors
 
 # BONUS -- making two color maps ####
-img <- blurImage(readImage(dragonflies[4], resize = 0.5), n = 4)
-
+img <- blurImage(readImage(dragonflies[7], resize = 0.5), n = 4)
 # version 1
 rc <- recolorize2(img, bins = 3,
                   color_space = "sRGB",
@@ -54,7 +55,8 @@ plot(rc3)
   #                 y_range = c(0, 0.8))
 img <- readImage("E:/dragonfly-patterner/experiments/patternize_recolorize/segments/example_clade/INATRANDOM-23567781_segment.png")
 
-custom_recolorize_function(img)
+rc3 <- custom_recolorize_function(dragonflies[9])
+
 
 img2 <- blurImage(img, blur_function = "medianblur", n = 10,threshold=8, plotting = TRUE)
 img2 <- blurImage(img, blur_function = "blur_anisotropic", amplitude=1e2,sharpness=0.2, plotting = TRUE)
