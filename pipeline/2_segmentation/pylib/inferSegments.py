@@ -39,7 +39,7 @@ def inferSegments(image_ids, model_name, image_size=344, increase_contrast=False
     if (print_steps): print("Starting loop through image ids...")
     # for each image location
     for index, img_loc in enumerate(image_locs):
-
+        print(img_loc)
         # read a sample image
         img = cv2.imread(img_loc)
 

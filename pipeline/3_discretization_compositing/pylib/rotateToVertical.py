@@ -48,7 +48,10 @@ def rotateToVertical(imgs,show=False):
       ybot = yc + math.sin(math.radians(angle+180))*rmajor
 
       # create axis line from values
-      axis_line = ((int(xtop),int(ytop)), (int(xbot),int(ybot)), (255, 255, 255), 3)
+      # axis_line = ((int(xtop),int(ytop)), (int(xbot),int(ybot)), (255, 255, 255), 3)
+
+      if(math.isnan(xtop) or math.isnan(ytop) or math.isnan(xbot) or math.isnan(ybot)):
+        return(None)
 
       # create empty image and draw line
       line_img = np.zeros_like(img,dtype = np.uint8)

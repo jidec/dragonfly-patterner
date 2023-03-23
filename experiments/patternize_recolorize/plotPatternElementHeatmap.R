@@ -1,4 +1,4 @@
-
+src("src/extractSimpleColorStats.R")
 colors_row <- extractSimpleColorStats("E:/dragonfly-patterner/experiments/patternize_recolorize/wings_for_brown_heat")[1,2:20] * 255
 # colors row just has the unique colors that you might want to plot a heat of
 colors_row
@@ -36,3 +36,4 @@ plotPatternElementHeatmap <- function(pattern_dir, target_rgb, ref_img_name){
   plotHeat(summedRaster_regRGB, IDlist, plotCartoon = FALSE, refShape = 'target', flipRaster = 'xy', imageList = imageList, cartoonID = 'BC0004', 
            cartoonFill = 'black', cartoonOrder = 'under', colpalette = colfunc)
 }
+

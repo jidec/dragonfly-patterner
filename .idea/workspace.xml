@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a67b155-7f65-4c8f-ae95-7233bd9466c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/experiments/detect_lines/detect_lines_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiments/detect_lines/test_wing2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pipeline/pipes/wings/collage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_wings/analyze_odomatic_wings.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/analyses/dragonfly_wings/analyze_odomatic_wings.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/extractSimpleColorStats.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/patternize_recolorize/Batch_Processing.R" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/patternize_recolorize/Batch_Processing.R" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/colorDiscretize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/helpers/makeCollage.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/helpers/makeCollage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/pipes/wings/run_discretize_wings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/pipes/wings/run_discretize_wings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/ants/analyze_antheads.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/analyze_clade_diversity.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/analyze_class_seg_inferences.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/analyze_entsoc_aeshnids.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/analyze_entsoc_gomphs.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/analyze_filesizes.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/analyze_pipeline_taxa_bias.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/analyze_raw_inat_clade_counts.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/compare_shared_annotations.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_bodies/plot_seg_training_progress.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/analyses/dragonfly_wings/analyze_odomatic_wings.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/discretizedPCA.R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/phy_helpers_paste.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/phy_helpers_paste.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/recolorizeWingSegmentDir.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/recolorizeWingSegmentDir.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/R/src/visualizeID.R" beforeDir="false" afterPath="$PROJECT_DIR$/R/src/visualizeID.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/experiments/patternize_recolorize/plotPatternElementHeatmap.R" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/patternize_recolorize/plotPatternElementHeatmap.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/pylib/inferSegments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_extract_segments_ants.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_extract_segments_ants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/rotateToVertical.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/3_discretization_compositing/pylib/rotateToVertical.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +111,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/dragonfly-patterner/experiments/detect_lines&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/dragonfly-patterner&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -124,7 +134,7 @@
       <recent name="E:\dragonfly-patterner\pipeline\3_discretization_compositing" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.collage">
+  <component name="RunManager" selected="Python.run_infer_extract_segments_ants">
     <configuration name="collage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -209,6 +219,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run_infer_extract_segments_ants" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="dragonfly-patterner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/2_segmentation" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/2_segmentation/run_infer_extract_segments_ants.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="run_update_training_metadata" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="dragonfly-patterner" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -230,42 +261,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="dragonfly-patterner" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pipeline/pipes/wings" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline/pipes/wings/test4.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.run_update_training_metadata" />
+      <item itemvalue="Python.run_infer_extract_segments_ants" />
       <item itemvalue="Python.collage" />
       <item itemvalue="Python.collages" />
       <item itemvalue="Python.run_discretize_wings" />
       <item itemvalue="Python.detect_lines_test" />
-      <item itemvalue="Python.test4" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.run_infer_extract_segments_ants" />
         <item itemvalue="Python.collage" />
         <item itemvalue="Python.collages" />
         <item itemvalue="Python.run_discretize_wings" />
         <item itemvalue="Python.detect_lines_test" />
-        <item itemvalue="Python.test4" />
       </list>
     </recent_temporary>
   </component>

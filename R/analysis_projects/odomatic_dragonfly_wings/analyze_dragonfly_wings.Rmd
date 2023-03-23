@@ -1,0 +1,109 @@
+---
+title: "analyze_dragonfly_wings"
+author: "Jacob Idec"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Q1: What is the most informative model formula predicting wing pigments using climate, flight style, sex, and body size without interactions?
+
+First, step model and get VIFs with all variables
+
+```{r vifs_and_step}
+
+
+vifsAndStep(wings,response="black",formula="flight_type + wing_type + Sex + 
+            temp_indv + temp_mean_sp + temp_sd_sp + temp_q5_sp + temp_q95_sp + 
+            se_indv + se_mean_sp + prec_indv + prec_mean_sp
+            + fore_length",mixed=FALSE)
+
+vifsAndStep(wings,response="black",formula="flight_type + wing_type + Sex + temp_sd_sp + 
+    temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length",mixed=FALSE)
+
+```
+
+Good formula is "flight_type + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length"
+
+Run lmer and pglmm with this
+
+```{r cars}
+
+getPlotLM(wings,model_type = "lmer",response="black",formula= "flight_type + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length + (1 | species)")
+
+getPlotLM(wings_phy_trim,phy=wings_phy,model_type = "pglmm",response="black",formula="flight_type_rm_inter + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length + (1 | species__)")
+
+```
+
+TODO - this but with responses other than black
+
+## Q2: A priori, do perchers have more pigments, how does sex interact, and do perchers in colder environments have more pigments and especially pigments at the wing base?
+
+Perchers in colder environments should have more pigment at base of wings
+
+Perchers in warmer environments should have pigments anywhere
+
+If this is true, PCs which upweight base pigments should be correlated with flight style
+
+```{r pattern_pcs, results='hide'}
+
+makePatternPCA(wings,pattern_dir = "D:/wing-color/data/patterns/grouped/size_normalized",
+               color_by_flight_style = TRUE,wing_type="fore")
+makePatternPCA(wings,pattern_dir = "D:/wing-color/data/patterns/grouped/size_normalized",
+               color_by_flight_style = TRUE,wing_type="hind")
+
+```
+
+Run interaction models
+
+```{r interaction_lms, results='hide'}
+
+# plot two way interaction
+m <- getPlotLM(wings,model_type = "lmer",response="black",formula="(flight_type + Sex + temp_indv)^2 + (1 | species)",
+                plotmodel_terms = c("flight_type","Sex","temp_indv"))
+
+# plot 3 way interaction
+m <- getPlotLM(wings,model_type = "lmer",response="black",formula="flight_type * Sex * temp_indv + (1 | species)",
+                plotmodel_terms = c("flight_type","Sex","temp_indv"))
+plot_model(m,type="pred",terms=c("flight_type","Sex","temp_indv"))
+
+
+# try with wing type and fore length
+m <- getPlotLM(wings,model_type = "lmer",response="black",formula="(flight_type + Sex + temp_indv + wing_type + fore_length)^2 + (1 | species)")
+
+m <- getPlotLM(wings,model_type = "lmer",response="black",formula="flight_type * Sex * temp_indv * fore_length + (1 | species)")
+plot_model(m,type="pred",terms=c("flight_type","Sex","temp_indv","fore_length"))
+
+
+# try with brown
+m <- getPlotLM(wings,model_type = "lmer",response="bb_total",formula="(flight_type + Sex + temp_indv + wing_type + fore_length)^2 + (1 | species)")
+
+m <- getPlotLM(wings,model_type = "lmer",response="bb_total",formula="flight_type * Sex * temp_indv * fore_length + (1 | species)")
+plot_model(m,type="pred",terms=c("flight_type","Sex","temp_indv","fore_length"))
+
+
+# try pglmm
+
+m <- getPlotLM(wings_phy_trim,phy=wings_phy,model_type = "pglmm",response="black",formula="flight_type_rm_inter * Sex * temp_indv * fore_length + (1 | species__)")
+
+
+
+```
+
+## Q3: Can we predict percher/flyer or m/f via logistic regression of color or pattern?
+
+```{r logregs, results='hide'}
+
+getPlotLogReg(wings_sp_sex,response="Sex",formula="black + brown + yellow + all_fore_pc1 + all_fore_pc2 + all_hind_pc1 + all_hind_pc2")
+
+wings_sp_sex$flight_type <- as.factor(as.character(wings_sp_sex$flight_type))
+getPlotLogReg(wings_sp_sex,response="flight_type",formula="black + brown + yellow + all_fore_pc1 + all_fore_pc2 + all_hind_pc1 + all_hind_pc2")
+
+```
+
+Sex actually is predicable! May suggest that males and females have different signals or thermoregulatory functions
+
+But flight type isn't at all!

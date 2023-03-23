@@ -1,0 +1,123 @@
+---
+title: "describe_wings"
+author: "Jacob Idec"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## Q1: How is each response variable distributed and correlated?
+
+```{r responses, echo=FALSE}
+
+#saveRDS(wings,"../../saved/processed/wings.rds")
+#saveRDS(wings_sp_sex,"../../saved/processed/wings_sp_sex.rds")
+wings <- readRDS("../../saved/processed/wings.rds")
+wings_sp_sex <- readRDS("../../saved/processed/wings_sp_sex.rds")
+
+library(colorEvoHelpers)
+# view in text associations between pertinent variables
+describeCols(wings,colnames=c("black","brown","yellow",
+                              "PC1_foreall","PC2_foreall","PC1_hindall","PC2_hindall"),
+             factors=FALSE)
+
+```
+
+Amounts of pigments are not normally distributed at all - a small number of dragonfly species have all the pigment, while most have none or almost none
+
+Few have a large percent of black-pigmented area, but many have a little bit (pterostigma or nodus!)
+
+Compared to black, fewer have ANY brown pigment, but those that do tend to have more.
+
+Fewer still have ANY yellow pigment, but those that do tend to have more
+
+The 2nd PCs of the hind and forewing are more normally distributed than the 1st PCs - the average 2nd PC value is more like an average dragonfly
+
+Black and yellow are both slightly (0.13) correlated with brown
+
+The PC1 for fore and hind wings are very strongly correlated and the PC2s are correlated as well
+
+## Q2: How is each predictor variable distributed and correlated?
+
+```{r preds, echo=FALSE}
+
+describeCols(wings,colnames=c("Sex","flight_type","species","Family","Country","wing_type"),
+             factors=TRUE)
+
+describeCols(wings,colnames=c("temp_indv","prec_indv","se_indv","Length..inner..FW..mm."))
+
+```
+
+More males and females due to sampling bias, and more perchers than flyers due to there just being more percher species
+
+Climatic predictors fairly normally distributed
+
+Temperature is strongly negatively correlated with seasonality
+
+## Q3: How are predictors and responses associated? 
+
+```{r p_r, echo=FALSE}
+
+describeDfAssoc(wings,colnames=c("black","brown","yellow",
+                              "PC1_foreall","PC2_foreall","PC1_hindall","PC2_hindall",
+                              "Sex","flight_type","species","Family","Country","wing_type",
+                                 "temp_indv","prec_indv","se_indv","Length..inner..FW..mm."))
+
+```
+
+## Q4: What exactly are the colors that come out of optimized clustering?
+
+```{r cluster_colors, echo=FALSE}
+library(colorEvoHelpers)
+
+# plot pigment cluster colors
+row <- wings[1,]
+# three are notably darker, and looking at images correspond to visibly pigmented areas
+plotRGB(c(row$col_1_r,row$col_1_g,row$col_1_b),max=1)
+plotRGB(c(row$col_2_r,row$col_2_g,row$col_2_b),max=1)
+plotRGB(c(row$col_6_r,row$col_6_g,row$col_6_b),max=1)
+# other 3 are different shades of white and tan, shades of unpigmented wings
+plotRGB(c(row$col_3_r,row$col_3_g,row$col_3_b),max=1)
+plotRGB(c(row$col_4_r,row$col_4_g,row$col_4_b),max=1)
+plotRGB(c(row$col_5_r,row$col_5_g,row$col_5_b),max=1)
+
+```
+
+Three are notably darker, and looking at images correspond to visibly pigmented areas
+
+Other 3 are different shades of white and tan, shades of unpigmented wings
+
+## Q5: how are individuals spatially distributed?
+
+```{r spatial_heatmap, echo=FALSE}
+plotLatLonHeatmap(wings)
+```
+
+Somewhat biased towards populated east coast regions, but not too bad at all
+
+## Q6: What do PCAs of the responses look like? How is the variation structured? 
+
+```{r response_pca, echo=FALSE}
+runPlotBindPCA(wings,c("black","brown","yellow"),colour_column = "Sex")
+
+wss_na <- select(wings_sp_sex, c("black","brown","yellow",
+                                             "all_fore_pc1","all_fore_pc2",
+                                             "all_hind_pc1","all_hind_pc2","Sex"))
+wss_na <- na.omit(wss_na)
+runPlotBindPCA(as.data.frame(wss_na),c("all_fore_pc1","all_fore_pc2",
+                                     "all_hind_pc1","all_hind_pc2"),colour_column="Sex")
+runPlotBindPCA(as.data.frame(wss_na),c("black","brown","yellow",
+                                             "all_fore_pc1","all_fore_pc2",
+                                             "all_hind_pc1","all_hind_pc2"),colour_column="Sex")
+
+```
+
+Black brown and yellow are not related, so PC axes of them are basically just them on their own
+
+Each axis of a PCA of wing PCs has the PC1s together and the PC2s together
+
+PCA of all doesn't account for as much variation and has the same relationships but with yellow and brown together

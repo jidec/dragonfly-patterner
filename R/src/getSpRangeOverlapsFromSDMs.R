@@ -5,6 +5,7 @@ getSpRangeOverlapsFromSDMs <- function(sdm_data){
   sp2 <- c()
   overlap <- c()
   c <- 0
+  print(length(unique(sdm_data$binomial)))
   for(species in unique(sdm_data$binomial)){
     sp1_pts <- sdm_data[sdm_data$binomial == species,1:2]
     
