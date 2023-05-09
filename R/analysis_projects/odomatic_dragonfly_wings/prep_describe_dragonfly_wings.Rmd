@@ -1,0 +1,106 @@
+---
+title: "prep_describe_dragonfly_wings"
+author: "Jacob Idec"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## Q1: What do pattern PCAs of different pigments look like for fore and hind wings? Can we successfully reduce pattern to components that capture a lot of variance?
+
+```{r pca, echo=FALSE}
+
+# fore and hind with different cutoffs
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, only_males_with_females = T)
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.05)
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.1)
+
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, only_males_with_females = T)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.05)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.1)
+
+# settled on 5% as a cutoff
+# fore and hind with all pigment, marking p/f and m/f 
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F)
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T)
+
+# fore and hind with black only 
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F,target_channel1_2 = -1,target_channel1_3 = -1)
+wings <- mergePatPCToData(wings,pca,"foreblack")
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F,target_channel1_2 = -1,target_channel1_3 = -1)
+wings <- mergePatPCToData(wings,pca,"hindblack")
+
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T,target_channel1_2 = -1,target_channel1_3 = -1)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T,target_channel1_2 = -1,target_channel1_3 = -1)
+
+
+```
+
+## Q3: What is a good cutoff for pigments that filter out those with no significant pigmentation?
+
+```{r filtercutoff, echo=FALSE}
+
+# for PCA
+# fore total
+library(colorEvoHelpers)
+vizID(ids=dplyr::filter(wings,bby_total > 0.075 & bby_total < 0.1 & wing_type == "fore")$recordID[sample(1:100,20)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+# hind total
+vizID(ids=dplyr::filter(wings,bby_total > 0.075 & bby_total < 0.1 & wing_type == "hind")$recordID[sample(1:100,20)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_hind_segment.png",pat_suffix_ext = "_hind_pattern.png")
+
+# for regression
+# fore black
+vizID(ids=dplyr::filter(wings,black > 0.04 & black< 0.05 & wing_type == "fore")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+# hind black
+vizID(ids=dplyr::filter(wings,black > 0.04 & black< 0.05 & wing_type == "hind")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+
+# for regression
+# fore yellow
+vizID(ids=dplyr::filter(wings,yellow > 0.04 & yellow< 0.05 & wing_type == "fore")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+# hind yellow
+vizID(ids=dplyr::filter(wings,yellow > 0.04 & yellow < 0.05 & wing_type == "hind")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+
+wings_black <- dplyr::filter(wings,black > 0.05)
+nrow(wings_black)
+wings_brown <- dplyr::filter(wings,brown > 0.05)
+nrow(wings_brown)
+wings_yellow <- dplyr::filter(wings,yellow > 0.05)
+nrow(wings_yellow)
+wings_bb <- dplyr::filter(wings,bb_total > 0.05)
+nrow(wings_bb)
+```

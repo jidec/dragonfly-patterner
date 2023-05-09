@@ -1,0 +1,17 @@
+Aim of this paradigm
+1. Minimize repeating of code by packing commonly used combinations of operations into functions
+    in my colorEvoHelpers package
+2. Establish a simple pipeline where "prep.R" or "prep_from_saved.R" is all that is needed to be ready for "describe.Rmd", "analysis.Rmd", and "paper_plots.Rmd"
+3. Keep track of everything that has been attempted as independent, repeatable code chunks
+
+
+prep.R contains calls to prep functions and adds dataframes to the R environment
+
+all Rmds contain independent code chunks that will ALL run properly after prep is run
+describe.Rmd visualizes distributions and correlations of predictors and responses, spatial distributions,
+    cutoffs and clustering, and other project specific descriptive questions
+
+analyze.Rmd contains more formal analysis taking into account what was discovered in describe, including
+    an overview of hypotheses, model selection, linear mixed modeling, and phylogenetic comparative methods
+
+paper_plots.Rmd contains the cream of the analysis crop turned into publication-ready figures

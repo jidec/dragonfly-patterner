@@ -1,0 +1,73 @@
+---
+title: "paper_plots_dragonfly_wings"
+author: "Jacob Idec"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Large dragonflies in colder environments are almost always black
+
+```{r size_thermo, results='hide'}
+
+library(marginaleffects)
+library(ggplot2)
+library(colorEvoHelpers)
+wings$b_01 <- wings$black > 0.02
+
+
+getPlotLogReg(wings,"b_01","wing_area + Sex")
+wings_b <- dplyr::filter(wings,black > 0.02)
+
+wings_phy_trim$b01 <- wings_phy_trim$black > 0.05
+wings_phy_trim$wing_area <- wings_phy_trim$Area.FW..mm2.
+
+wings_phy_trim$b01 <- as.factor(wings_phy_trim$b01)
+m <- pglmm(b01 ~ wing_area + Sex + (1|species__), data = wings_phy_trim, cov_ranef = list(species=wings_phy), bayes=T, family="binomial")
+summary(m)
+# model for interaction between wing_area and temperature for black, then brown
+m <- getPlotLM(wings,model_type="glmmTMB_beta_zi",response="black",
+               formula="wing_area + Sex + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("wing_area","Sex")) + xlab("Scaled wing area") + ylab("Proportion of black color cluster in wing") + ylim(0,0.4)
+
+m <- getPlotLM(wings_bb,model_type="glmmTMB_beta_zi",response="brown",
+               formula="wing_area * temp_indv + Sex + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("wing_area","temp_indv","Sex")) + xlab("Scaled wing area") + ylab("Proportion of brown color cluster in wing") + ylim(0,0.4)
+
+```
+
+## Perchers and flyers are sexually dimorphic in different ways
+
+```{r flighttype_sex}
+
+# model for interaction between wing_area and temperature for black, then brown, then yellow
+m <- getPlotLM(wings,model_type="glmmTMB_beta_zi",response="black",
+               formula="Sex * flight_type + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("flight_type", "Sex")) + xlab("Flight style") + ylab("Percent of wing with black cluster")
+
+wings$brown[wings$brown < 0] <- 0 
+m <- getPlotLM(wings,model_type="glmmTMB_beta_zi",response="brown",
+               formula="Sex * flight_type + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("flight_type", "Sex")) + xlab("Flight style") + ylab("Percent of wing with brown cluster")
+
+m <- getPlotLM(wings,model_type="glmmTMB_beta_zi",response="yellow",
+               formula="Sex * flight_type + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("flight_type", "Sex")) + xlab("Flight style") + ylab("Percent of wing with yellow cluster")
+
+
+# m <- getPlotLM(wings,model_type="lmer",response="PC3_hindall",
+#                formula="Sex * flight_type + (1 | species)")
+# plot_predictions(m, type="conditional", condition = list("flight_type", "Sex")) + xlab("Flight style") + ylab("Percent of wing with yellow cluster")
+
+
+```
+
+## Some pattern is phylogenetically conserved
+
+```{r pattern_phylo}
+
+assessTraitsOnTree(wings_sp_na0,trait_colname="all_fore_pc2",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp_na0,trait_colname="all_hind_pc2",tree_location="../../data/odonata.tre")
+
+assessTraitsOnTree(wings_sp_na0,trait_colname="cut_fore_pc2",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp_na0,trait_colname="cut_hind_pc2",tree_location="../../data/odonata.tre")
+```

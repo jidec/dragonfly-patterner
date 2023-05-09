@@ -9,38 +9,81 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Q1: What is the most informative model formula predicting wing pigments using climate, flight style, sex, and body size without interactions?
+## Hypotheses
+
+Test
+
+## Q1: What are the most informative model formulas predicting wing pigments and pattern PCs using climate, flight style, sex, and body size without interactions?
 
 First, step model and get VIFs with all variables
 
 ```{r vifs_and_step}
 
-
-vifsAndStep(wings,response="black",formula="flight_type + wing_type + Sex + 
+# black
+vifsAndStep(wings_black,response="black",formula="flight_type + wing_type + Sex + 
             temp_indv + temp_mean_sp + temp_sd_sp + temp_q5_sp + temp_q95_sp + 
             se_indv + se_mean_sp + prec_indv + prec_mean_sp
             + fore_length",mixed=FALSE)
+vifsAndStep(wings_black,response="black",formula="flight_type + wing_type + Sex + temp_sd_sp + 
+    temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length",mixed=FALSE)
 
-vifsAndStep(wings,response="black",formula="flight_type + wing_type + Sex + temp_sd_sp + 
+# brown
+vifsAndStep(wings_brown,response="brown",formula="flight_type + wing_type + Sex + 
+            temp_indv + temp_mean_sp + temp_sd_sp + temp_q5_sp + temp_q95_sp + 
+            se_indv + se_mean_sp + prec_indv + prec_mean_sp
+            + fore_length",mixed=FALSE)
+vifsAndStep(wings_brown,response="brown",formula="flight_type + wing_type + Sex + temp_sd_sp + 
+    temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length",mixed=FALSE)
+
+# yellow
+vifsAndStep(wings_brown,response="yellow",formula="flight_type + wing_type + Sex + 
+            temp_indv + temp_mean_sp + temp_sd_sp + temp_q5_sp + temp_q95_sp + 
+            se_indv + se_mean_sp + prec_indv + prec_mean_sp
+            + fore_length",mixed=FALSE)
+vifsAndStep(wings_brown,response="yellow",formula="flight_type + wing_type + Sex + temp_sd_sp + 
+    temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length",mixed=FALSE)
+
+# black and brown
+vifsAndStep(wings_bb,response="bb_total",formula="flight_type + wing_type + Sex + 
+            temp_indv + temp_mean_sp + temp_sd_sp + temp_q5_sp + temp_q95_sp + 
+            se_indv + se_mean_sp + prec_indv + prec_mean_sp
+            + fore_length",mixed=FALSE)
+vifsAndStep(wings_bb,response="bb_total",formula="flight_type + Sex + temp_indv + temp_q5_sp + 
     temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length",mixed=FALSE)
 
 ```
 
-Good formula is "flight_type + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length"
+Formula for black: is "flight_type + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length"
 
-Run lmer and pglmm with this
+Formula for brown: "flight_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + fore_length"
+
+Formula for yellow: "wing_type + Sex + temp_indv + temp_mean_sp + se_mean_sp"
+
+The fact that we can predict the amount of black better than the amount of black and brown suggests that black is somehow biologically different from brown
+
+Run lmers with these:
 
 ```{r cars}
 
-getPlotLM(wings,model_type = "lmer",response="black",formula= "flight_type + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length + (1 | species)")
+getPlotLM(wings_black,model_type = "lmer",response="black",formula="flight_type + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length + (1 | species)")
 
-getPlotLM(wings_phy_trim,phy=wings_phy,model_type = "pglmm",response="black",formula="flight_type_rm_inter + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length + (1 | species__)")
+getPlotLM(wings_brown,model_type = "lmer",response="brown",formula= "flight_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + fore_length + (1 | species)")
+
+getPlotLM(wings_yellow,model_type = "lmer",response="yellow",formula= "wing_type + Sex + temp_indv + temp_mean_sp + se_mean_sp + (1 | species)")
+
+getPlotLM(wings_brown,model_type = "lmer",response="bb_total",formula= "flight_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + fore_length")
+
+# getPlotLM(wings_phy_trim,phy=wings_phy,model_type = "pglmm",response="black",formula="flight_type_rm_inter + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length + (1 | species__)")
+# 
+# getPlotLM(wings,tree_location = "../../data/odonata.tre",model_type = "pglmm",response="black",formula="flight_type_rm_inter + wing_type + Sex + temp_sd_sp + temp_q95_sp + se_indv + prec_indv + prec_mean_sp + fore_length + (1 | species__)")
 
 ```
 
-TODO - this but with responses other than black
+Males have more black pigments, but less brown pigments
 
-## Q2: A priori, do perchers have more pigments, how does sex interact, and do perchers in colder environments have more pigments and especially pigments at the wing base?
+Hindwings have less black pigment
+
+## Q1: Are patterns with pigment at the base of the wing associated with climate?
 
 Perchers in colder environments should have more pigment at base of wings
 
@@ -48,48 +91,107 @@ Perchers in warmer environments should have pigments anywhere
 
 If this is true, PCs which upweight base pigments should be correlated with flight style
 
-```{r pattern_pcs, results='hide'}
+```{r base_pigs, results='hide'}
 
-makePatternPCA(wings,pattern_dir = "D:/wing-color/data/patterns/grouped/size_normalized",
-               color_by_flight_style = TRUE,wing_type="fore")
-makePatternPCA(wings,pattern_dir = "D:/wing-color/data/patterns/grouped/size_normalized",
-               color_by_flight_style = TRUE,wing_type="hind")
+wings_sp$temp_mean_indv
+m <- lm("PC2_foreallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_foreall ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindall ~ temp_indv * wing_area",data=wings)
+summary(m)
 
+m <- lm("PC1_foreallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_foreall ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_hindallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_hindall ~ temp_indv * wing_area",data=wings)
+summary(m)
+
+
+m <- lm("PC1_foreblack ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_foreblack ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_hindblack ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindblack ~ temp_indv * wing_area",data=wings)
+summary(m)
+
+
+
+
+m <- lm("PC2_foreallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_foreall ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindall ~ temp_indv * wing_area",data=wings)
+summary(m)
+
+m <- lm("PC1_foreallcut ~ temp_indv * wing_area",data=wings_sp)
+summary(m)
+m <- lm("PC1_foreall ~ temp_indv * wing_area",data=wings_sp)
+summary(m)
+m <- lm("PC1_hindallcut ~ temp_indv * wing_area",data=wings_sp)
+summary(m)
+m <- lm("PC1_hindall ~ temp_indv * wing_area",data=wings_sp)
+summary(m)
+
+m <- lm("cut_fore_pc2 ~ temp_mean_sp",data=wings_sp)
+summary(m)
+m <- lm("cut_hind_pc2 ~ temp_mean_indv + temp_mean_sp",data=wings_sp)
+summary(m)
+m <- lm("black_fore_pc2 ~ temp_mean_indv + temp_mean_sp",data=wings_sp)
+su
+m <- lm("black_hind_pc2 ~ temp_mean_indv + temp_mean_sp",data=wings_sp)
+summary(m)
 ```
 
-Run interaction models
+No strong temp relationship, but relatively phylo conserved
 
-```{r interaction_lms, results='hide'}
+## Q2: Are patterns phylo conserved?
 
-# plot two way interaction
-m <- getPlotLM(wings,model_type = "lmer",response="black",formula="(flight_type + Sex + temp_indv)^2 + (1 | species)",
-                plotmodel_terms = c("flight_type","Sex","temp_indv"))
+Perchers in colder environments should have more pigment at base of wings
 
-# plot 3 way interaction
-m <- getPlotLM(wings,model_type = "lmer",response="black",formula="flight_type * Sex * temp_indv + (1 | species)",
-                plotmodel_terms = c("flight_type","Sex","temp_indv"))
-plot_model(m,type="pred",terms=c("flight_type","Sex","temp_indv"))
+Perchers in warmer environments should have pigments anywhere
 
+If this is true, PCs which upweight base pigments should be correlated with flight style
 
-# try with wing type and fore length
-m <- getPlotLM(wings,model_type = "lmer",response="black",formula="(flight_type + Sex + temp_indv + wing_type + fore_length)^2 + (1 | species)")
+```{r base_pigs, results='hide'}
 
-m <- getPlotLM(wings,model_type = "lmer",response="black",formula="flight_type * Sex * temp_indv * fore_length + (1 | species)")
-plot_model(m,type="pred",terms=c("flight_type","Sex","temp_indv","fore_length"))
+m <- lm("PC2_foreallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_foreall ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindall ~ temp_indv * wing_area",data=wings)
+summary(m)
 
-
-# try with brown
-m <- getPlotLM(wings,model_type = "lmer",response="bb_total",formula="(flight_type + Sex + temp_indv + wing_type + fore_length)^2 + (1 | species)")
-
-m <- getPlotLM(wings,model_type = "lmer",response="bb_total",formula="flight_type * Sex * temp_indv * fore_length + (1 | species)")
-plot_model(m,type="pred",terms=c("flight_type","Sex","temp_indv","fore_length"))
-
-
-# try pglmm
-
-m <- getPlotLM(wings_phy_trim,phy=wings_phy,model_type = "pglmm",response="black",formula="flight_type_rm_inter * Sex * temp_indv * fore_length + (1 | species__)")
+m <- lm("PC1_foreallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_foreall ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_hindallcut ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_hindall ~ temp_indv * wing_area",data=wings)
+summary(m)
 
 
+m <- lm("PC1_foreblack ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_foreblack ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC1_hindblack ~ temp_indv * wing_area",data=wings)
+summary(m)
+m <- lm("PC2_hindblack ~ temp_indv * wing_area",data=wings)
+summary(m)
 
 ```
 
@@ -99,11 +201,324 @@ m <- getPlotLM(wings_phy_trim,phy=wings_phy,model_type = "pglmm",response="black
 
 getPlotLogReg(wings_sp_sex,response="Sex",formula="black + brown + yellow + all_fore_pc1 + all_fore_pc2 + all_hind_pc1 + all_hind_pc2")
 
-wings_sp_sex$flight_type <- as.factor(as.character(wings_sp_sex$flight_type))
 getPlotLogReg(wings_sp_sex,response="flight_type",formula="black + brown + yellow + all_fore_pc1 + all_fore_pc2 + all_hind_pc1 + all_hind_pc2")
+
+plot()
+```
+
+Sex actually is predictable! May suggest that males and females have different signals or thermoregulatory functions
+
+But flight type isn't at all!
+
+## Q4: Do pigments or patterns have a phylogenetic signature?
+
+wings_sp_na0\$clade \<- wings_sp_na0\$species
+
+```{r physig, results='hide'}
+
+assessTraitsOnTree(wings_sp,trait_colname="black",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp,trait_colname="brown",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp,trait_colname="yellow",tree_location="../../data/odonata.tre")
+
+# combinations of pigments 
+wings_sp$bb_total <- wings_sp$black + wings_sp$brown
+wings_sp$by_total <- wings_sp$yellow + wings_sp$brown
+assessTraitsOnTree(wings_sp,trait_colname="bb_total",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp,trait_colname="bby_total",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp,trait_colname="by_total",tree_location="../../data/odonata.tre")
+
+# PCs
+assessTraitsOnTree(wings_sp_na0,trait_colname="all_fore_pc1",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp_na0,trait_colname="all_hind_pc1",tree_location="../../data/odonata.tre")
+
+assessTraitsOnTree(wings_sp_na0,trait_colname="all_fore_pc2",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp_na0,trait_colname="all_hind_pc2",tree_location="../../data/odonata.tre")
+
+
+assessTraitsOnTree(wings_sp_na0,trait_colname="black_fore_pc1",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp_na0,trait_colname="black_hind_pc1",tree_location="../../data/odonata.tre")
+
+assessTraitsOnTree(wings_sp_na0,trait_colname="black_fore_pc2",tree_location="../../data/odonata.tre")
+assessTraitsOnTree(wings_sp_na0,trait_colname="black_hind_pc2",tree_location="../../data/odonata.tre")
 
 ```
 
-Sex actually is predicable! May suggest that males and females have different signals or thermoregulatory functions
+All responses have phylogenetic signatures
 
-But flight type isn't at all!
+Of the individual pigments, black has the strongest followed by yellow followed by brown
+
+Of the combined pigments, black + brown + yellow has the strongest followed by brown + yellow followed by black + brown
+
+In other words, these pigments often occur together phylogenetically
+
+Only the 2nd PCs have phylogenetic signature, and they are much smaller than the pigments
+
+Rerun prep and see if NAs still stand
+
+## Q5: Are pigments and patterns phylogenetically correlated?
+
+```{r phylocor, results='hide'}
+
+# brown and yellow together
+assessTraitsOnTree(wings_sp,trait_colname="yellow",trait_colname2="brown",tree_location="../../data/odonata.tre")
+
+# black and brown together
+assessTraitsOnTree(wings_sp,trait_colname="black",trait_colname2="brown",tree_location="../../data/odonata.tre")
+
+
+```
+
+Both yellow-brown and black-brown are correlated
+
+## Q6: Are pigments or patterns phylo-correlated with flight type?
+
+```{r phylocorflight, results='hide'}
+
+wings_sp2 <- wings_sp
+wings_sp2$flight_type <- as.character(wings_sp2$flight_type)
+wings_sp2$flight_type[is.na(wings_sp2$flight_type)] <- "intermediate"
+
+# black and flight type 
+assessTraitsOnTree(wings_sp2,trait_colname="black",trait_colname2="flight_type",tree_location="../../data/odonata.tre",legend=F)
+
+# black and flight type 
+assessTraitsOnTree(wings_sp2,trait_colname="yellow",trait_colname2="flight_type",tree_location="../../data/odonata.tre",legend=F)
+
+
+```
+
+Pretty much only perchers have evolved dark pigments
+
+## Q7: Rob's flight style \* Sex interaction analysis
+
+```{r rob, results='hide'}
+
+library(phyr)
+library(lme4)
+library(sjPlot)
+library(performance)
+library(dplyr)
+library(glmmTMB)
+library(tidyr)
+
+# relevant responses - black, brown, yellow, bb_total (black and brown total),
+#   bby_total (black brown and yellow total), PC1_foreall, PC2_forall, PC1_hindall, PC2_hindall
+# relevant predictors - flight_type, Sex, various temp, seasonality, precip predictors
+# example lmm
+# example lmm
+wings$temp_indv_sc <- scale(wings$temp_indv)
+
+wings2 <- wings %>% drop_na(Sex,temp_indv_sc, flight_type, black)
+m <- lmer(black ~ flight_type * Sex * temp_indv_sc + (1 | species),
+          data=wings2)
+m3 <- glmmTMB(black ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+          data=wings2, family='ordbeta')
+wings4 <- bind_rows(
+  wings2 %>%
+    group_by(flight_type) %>%
+    filter(flight_type=="flyer"),
+  wings2 %>%
+    group_by(Sex) %>%
+    filter(flight_type=="percher") %>%
+    slice_sample(n = 1000))
+m4 <- glmmTMB(black ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+              data=wings4, family='ordbeta')
+plot_model(m4,type="pred",terms=c("flight_type","Sex","temp_indv_sc"))
+# example pglmm - hard to fit bc pglmm with ordinal beta is not implemented
+m <- pglmm(black ~ flight_type * Sex * temp_indv + (1 | species__),
+    data = wings_phy_trim, cov_ranef = list(species=phy_for_wings), bayes=T)
+
+
+
+wings2 <- wings %>% drop_na(Sex,temp_indv_sc, flight_type, brown)
+m <- lmer(brown ~ flight_type * Sex * temp_indv_sc + (1 | species),
+          data=wings2)
+m3 <- glmmTMB(brown ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+          data=wings2, family='ordbeta')
+wings4 <- bind_rows(
+  wings2 %>%
+    group_by(flight_type) %>%
+    filter(flight_type=="flyer"),
+  wings2 %>%
+    group_by(Sex) %>%
+    filter(flight_type=="percher") %>%
+    slice_sample(n = 1000))
+m4 <- glmmTMB(brown ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+              data=wings4, family='ordbeta')
+plot_model(m4,type="pred",terms=c("flight_type","Sex","temp_indv_sc"))
+# example pglmm - hard to fit bc pglmm with ordinal beta is not implemented
+m <- pglmm(brown ~ flight_type * Sex * temp_indv + (1 | species__),
+    data = wings_phy_trim, cov_ranef = list(species=phy_for_wings), bayes=T)
+
+
+wings2 <- wings %>% drop_na(Sex,temp_indv_sc, flight_type, yellow)
+m <- lmer(yellow ~ flight_type * Sex * temp_indv_sc + (1 | species),
+          data=wings2)
+m3 <- glmmTMB(yellow ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+          data=wings2, family='ordbeta')
+wings4 <- bind_rows(
+  wings2 %>%
+    group_by(flight_type) %>%
+    filter(flight_type=="flyer"),
+  wings2 %>%
+    group_by(Sex) %>%
+    filter(flight_type=="percher") %>%
+    slice_sample(n = 1000))
+m4 <- glmmTMB(yellow ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+              data=wings4, family='ordbeta')
+plot_model(m4,type="pred",terms=c("flight_type","Sex","temp_indv_sc"))
+
+
+
+wings2 <- wings %>% drop_na(Sex,temp_indv_sc, flight_type, bb_total)
+m <- lmer(bb_total ~ flight_type * Sex * temp_indv_sc + (1 | species),
+          data=wings2)
+m3 <- glmmTMB(bb_total ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+          data=wings2, family='ordbeta')
+wings4 <- bind_rows(
+  wings2 %>%
+    group_by(flight_type) %>%
+    filter(flight_type=="flyer"),
+  wings2 %>%
+    group_by(Sex) %>%
+    filter(flight_type=="percher") %>%
+    slice_sample(n = 1000))
+m4 <- glmmTMB(bb_total ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+              data=wings4, family='ordbeta')
+summary(m4)
+r2_nakagawa(m4)
+plot_model(m4,type="pred",terms=c("flight_type","Sex","temp_indv_sc"))
+
+
+wings_black$temp_indv_sc <- scale(wings_black$temp_indv)
+
+wings2 <- wings_black %>% drop_na(Sex,temp_indv_sc, flight_type, black)
+m <- lmer(black ~ flight_type * Sex * temp_indv_sc + (1 | species),
+          data=wings2)
+m3 <- glmmTMB(black ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+          data=wings2, family='ordbeta')
+
+m4 <- glmmTMB(black ~ (flight_type * Sex) + temp_indv_sc + (1 | species),
+              data=wings4, family='ordbeta')
+plot_model(m3,type="pred",terms=c("flight_type","Sex","temp_indv_sc"))
+# example pglmm - hard to fit bc pglmm with ordinal beta is not implemented
+m <- pglmm(black ~ flight_type * Sex * temp_indv + (1 | species__),
+    data = wings_phy_trim, cov_ranef = list(species=phy_for_wings), bayes=T)
+
+```
+
+Pretty much only perchers have evolved dark pigments
+
+## Q8: Rob's black / black + brown + yellow analysis
+
+This metric is high if there is more black than other colors
+
+If all the pigments in a wing are black, the value is 1.
+
+If there are half brown and half black, the value is 0.5.
+
+If there is no black, the value is 0
+
+Compared to the black variable, which is 0 if there is no black, 0.5 if there is half black and any amount of brown
+
+```{r rob_prop_black, results='hide'}
+
+wings2 <- wings_black
+wings2$Area_total_sc <- scale(wings2$Area.FW..mm2. + wings2$Area.HW..mm2.)
+wings2$length_sc <- scale(wings2$Length..inner..FW..mm.)
+
+wings2$prop_black <- wings2$black / wings2$bby_total
+m2_propbl <- glmmTMB(black ~ flight_type * length_sc + Sex + (1 | species),data=wings2,family='ordbeta',na.action="na.omit")
+summary(m2_propbl)
+plot_model(m2_propbl,type="pred",terms=c("flight_type","Sex","length_sc"))
+
+m2_propbl <- glmmTMB(prop_black ~ flight_type * length_sc + Sex + (1 | species),data=wings2,family='ordbeta',na.action="na.omit")
+summary(m2_propbl)
+plot_model(m2_propbl,type="pred",terms=c("flight_type","Sex","length_sc"))
+
+test <- dplyr::filter(wings,wing_type == "fore")
+test$Area.HW..mm2.
+```
+
+Run interaction models
+
+## Q8: Rob's zero inflated models
+
+```{r zi, results='hide'}
+library(glmmTMB)
+library(dplyr)
+library(tidyr)
+
+wings$Area_total <- wings$Area.FW..mm2. + wings$Area.HW..mm2.
+
+wings2 <- wings %>% drop_na(Sex,temp_indv, flight_type, black, Area_total, bby_total)
+wings2$temp_indv_sc <- scale(wings2$temp_indv)
+wings2$Area_total_sc <- scale(wings2$Area_total)
+wings2$black01 <- ifelse(wings2$black  > 0, 1, wings2$black)
+
+library(lme4)
+area_temp_sex <- glmmTMB(black ~ Area_total_sc * temp_indv_sc + Sex  + (1 | species), data=wings2, family=beta_family(link="logit"),  ziformula = ~., na.action = "na.fail")
+
+area_temp_sex_glm <- glmer(black01 ~ Area_total_sc * temp_indv_sc + Sex  + (1 | species), data=wings2,
+                         family="binomial")
+plot_model(area_temp_sex_glm, type="pred", c("Area_total_sc","temp_indv_sc","Sex"))
+
+
+sex_flight_temp <- glmmTMB(black ~ Sex * flight_type + temp_indv_sc  + (1 | species), data=wings2, family=beta_family(link="logit"),  ziformula = ~., na.action = "na.fail")
+summary(sex_flight_temp)
+sex_flight_temp_log <- glmer(black01 ~ Sex * flight_type + temp_indv_sc  + (1 | species), data=wings2,
+                         family="binomial")
+summary(sex_flight_temp_log)
+plot_model(sex_flight_temp_log, type="pred", c("flight_type","temp_indv_sc","Sex"))
+
+library(performance)
+r2_nakagawa(sex_flight_temp_log)
+r2_nakagawa(area_temp_sex_glm)
+# strong set of effects tied to area '
+
+# plot logistic 
+
+# plot conditional
+library(marginaleffects)
+plot_predictions(area_temp_sex, type="conditional", condition = list( "Area_total_sc","temp_indv_sc", "Sex"))
+plot_predictions(sex_flight_temp, type="conditional", condition = list("flight_type", "Sex","temp_indv_sc"))
+
+library(sjPlot)
+plot_model(area_temp_sex, type="pred", c("Area_total_sc","temp_indv_sc", "Sex"))
+plot_model(sex_flight_temp, type="pred", c("flight_type", "Sex","temp_indv_sc"))
+
+# logistic regressions 
+```
+
+Run interaction models
+
+    {r zi, results='hide'}
+
+    m2_totbl_b <- glmmTMB(black ~ Area_total_sc * temp_indv_sc + Sex  + (1 | species), data=wings2, family=beta_family(link="logit"),  ziformula = ~., na.action = "na.fail")
+
+## Q10: Do the big paper effects hold in Libullids or rm Calops?
+
+```{r logregs, results='hide'}
+
+summary(wings_lib$wing_area)
+
+# model for interaction between wing_area and temperature for black, then brown
+m <- getPlotLM(wings_lib,model_type="glmmTMB_beta_zi",response="black",
+               formula="wing_area * temp_indv + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("wing_area","temp_indv")) + xlab("Scaled wing area") + ylab("Proportion of black color cluster in wing") + ylim(0,0.4)
+
+# model for interaction between wing_area and temperature for black, then brown
+m <- getPlotLM(wings_rm_cal,model_type="glmmTMB_beta_zi",response="black",
+               formula="wing_area * temp_indv + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("wing_area","temp_indv")) + xlab("Scaled wing area") + ylab("Proportion of black color cluster in wing") + ylim(0,0.4)
+
+
+# model for interaction between wing_area and temperature for black, then brown, then yellow
+m <- getPlotLM(wings_lib,model_type="glmmTMB_beta_zi",response="black",
+               formula="Sex * flight_type + (1 | species)")
+plot_predictions(m, type="conditional", condition = list("flight_type", "Sex")) + xlab("Flight style") + ylab("Percent of wing with black cluster")
+```
+
+Perchers are still dimorphic in different ways than flyers, but larger + darker = colder is no longer
+
+Seems like the signal is partially driven by Calopyerygidae, interesting!

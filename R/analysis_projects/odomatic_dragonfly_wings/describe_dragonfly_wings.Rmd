@@ -10,19 +10,72 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-## Q1: How is each response variable distributed and correlated?
+## Q1: What do pattern PCAs of different pigments look like for fore and hind wings? Can we successfully reduce pattern to components that capture a lot of variance? (PREP/DESCRIBE)
+
+```{r pca, echo=FALSE}
+
+# fore and hind with different cutoffs
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, only_males_with_females = T)
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.05)
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.1)
+
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, only_males_with_females = T)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.05)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, only_males_with_females = T, color_percent_cutoff = 0.1)
+
+# settled on 5% as a cutoff
+# fore and hind with all pigment, marking p/f and m/f 
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F)
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T)
+
+# fore and hind with black only 
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F,target_channel1_2 = -1,target_channel1_3 = -1)
+wings <- mergePatPCToData(wings,pca,"foreblack")
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = F,target_channel1_2 = -1,target_channel1_3 = -1)
+wings <- mergePatPCToData(wings,pca,"hindblack")
+
+pca <- makePatternPCA(wings,wing_type="fore", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T,target_channel1_2 = -1,target_channel1_3 = -1)
+pca <- makePatternPCA(wings,wing_type="hind", group_by_species = T, 
+                      only_males_with_females = T, 
+                      color_percent_cutoff = 0.05,
+                      color_by_flight_style = T,target_channel1_2 = -1,target_channel1_3 = -1)
+
+
+```
+
+Only perchers are positive for most PCS - only perchers have evolved pigment
+
+## Q2: How is each response variable distributed and correlated?
 
 ```{r responses, echo=FALSE}
 
-#saveRDS(wings,"../../saved/processed/wings.rds")
-#saveRDS(wings_sp_sex,"../../saved/processed/wings_sp_sex.rds")
-wings <- readRDS("../../saved/processed/wings.rds")
-wings_sp_sex <- readRDS("../../saved/processed/wings_sp_sex.rds")
-
 library(colorEvoHelpers)
-# view in text associations between pertinent variables
-describeCols(wings,colnames=c("black","brown","yellow",
-                              "PC1_foreall","PC2_foreall","PC1_hindall","PC2_hindall"),
+describeCols(wings,colnames=c("black","brown","yellow","prop_black",
+                              "PC1_foreall","PC2_foreall","PC1_hindall","PC2_hindall",#
+                              "PC1_foreallcut","PC2_foreallcut","PC1_hindallcut","PC2_hindallcut"),
              factors=FALSE)
 
 ```
@@ -41,14 +94,52 @@ Black and yellow are both slightly (0.13) correlated with brown
 
 The PC1 for fore and hind wings are very strongly correlated and the PC2s are correlated as well
 
-## Q2: How is each predictor variable distributed and correlated?
+## Q3: What is a good cutoff for pigments that filter out those with no significant pigmentation?
+
+```{r filtercutoff, echo=FALSE}
+
+# for PCA
+# fore total
+library(colorEvoHelpers)
+vizID(ids=dplyr::filter(wings,bby_total > 0.075 & bby_total < 0.1 & wing_type == "fore")$recordID[sample(1:100,20)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+# hind total
+vizID(ids=dplyr::filter(wings,bby_total > 0.075 & bby_total < 0.1 & wing_type == "hind")$recordID[sample(1:100,20)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_hind_segment.png",pat_suffix_ext = "_hind_pattern.png")
+
+# for regression
+# fore black
+vizID(ids=dplyr::filter(wings,black > 0.04 & black< 0.05 & wing_type == "fore")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+# hind black
+vizID(ids=dplyr::filter(wings,black > 0.04 & black< 0.05 & wing_type == "hind")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+
+# for regression
+# fore yellow
+vizID(ids=dplyr::filter(wings,yellow > 0.04 & yellow< 0.05 & wing_type == "fore")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+# hind yellow
+vizID(ids=dplyr::filter(wings,yellow > 0.04 & yellow < 0.05 & wing_type == "hind")$recordID[sample(1:10,10)],repo_path="D:/wing-color/",viz_image = F,viz_segment = T, viz_pattern_folder = "grouped",
+      seg_suffix_ext = "_fore_segment.png",pat_suffix_ext = "_fore_pattern.png")
+
+wings_black <- dplyr::filter(wings,black > 0.05)
+nrow(wings_black)
+wings_brown <- dplyr::filter(wings,brown > 0.05)
+nrow(wings_brown)
+wings_yellow <- dplyr::filter(wings,yellow > 0.05)
+nrow(wings_yellow)
+wings_bb <- dplyr::filter(wings,bb_total > 0.05)
+nrow(wings_bb)
+```
+
+## Q4: How is each predictor variable distributed and correlated?
 
 ```{r preds, echo=FALSE}
 
 describeCols(wings,colnames=c("Sex","flight_type","species","Family","Country","wing_type"),
              factors=TRUE)
-
-describeCols(wings,colnames=c("temp_indv","prec_indv","se_indv","Length..inner..FW..mm."))
+describeCols(wings,colnames=c("temp_indv","prec_indv","se_indv","Length..inner..FW..mm.","latitude","temp_mean_sp","temp_sd_sp","temp_q95_sp","temp_q5_sp"))
 
 ```
 
@@ -58,7 +149,7 @@ Climatic predictors fairly normally distributed
 
 Temperature is strongly negatively correlated with seasonality
 
-## Q3: How are predictors and responses associated? 
+## Q5: How are predictors and responses associated?
 
 ```{r p_r, echo=FALSE}
 
@@ -69,10 +160,9 @@ describeDfAssoc(wings,colnames=c("black","brown","yellow",
 
 ```
 
-## Q4: What exactly are the colors that come out of optimized clustering?
+## Q6: What exactly are the colors that come out of optimized clustering?
 
 ```{r cluster_colors, echo=FALSE}
-library(colorEvoHelpers)
 
 # plot pigment cluster colors
 row <- wings[1,]
@@ -91,7 +181,7 @@ Three are notably darker, and looking at images correspond to visibly pigmented 
 
 Other 3 are different shades of white and tan, shades of unpigmented wings
 
-## Q5: how are individuals spatially distributed?
+## Q7: How are wing specimens spatially distributed?
 
 ```{r spatial_heatmap, echo=FALSE}
 plotLatLonHeatmap(wings)
@@ -99,7 +189,7 @@ plotLatLonHeatmap(wings)
 
 Somewhat biased towards populated east coast regions, but not too bad at all
 
-## Q6: What do PCAs of the responses look like? How is the variation structured? 
+## Q8: What do PCAs of the responses look like? How is the variation structured?
 
 ```{r response_pca, echo=FALSE}
 runPlotBindPCA(wings,c("black","brown","yellow"),colour_column = "Sex")
@@ -121,3 +211,70 @@ Black brown and yellow are not related, so PC axes of them are basically just th
 Each axis of a PCA of wing PCs has the PC1s together and the PC2s together
 
 PCA of all doesn't account for as much variation and has the same relationships but with yellow and brown together
+
+## Q9: From the images does it appear that pigment transitions (yellow-\>brown-\> black) are occurring, possibly by biological age of individuals?
+
+```{r pig_trans, echo=FALSE}
+
+library(colorEvoHelpers)
+# get the well sampled species
+ws_sp <- names(sort(table(wings$species))[320:343])
+
+# get the most pigmented species
+wings_sp$bby_total <- wings_sp$black + wings_sp$brown + wings_sp$yellow
+pig_sp <- wings_sp$species[wings_sp$bby_total > 0.1]
+
+sp <- intersect(ws_sp,pig_sp)
+
+# visualize some species
+for(s in sp){
+    ids <- dplyr::filter(wings,species==s,Sex=="M")$recordID
+    par(mar=c(0,0,0,0))
+    vizID(ids=ids,repo_path="D:/wing-color/",viz_image = F,viz_segment = T)
+}
+
+```
+
+Calopteryx maculata clearly has a gradation of development from yellow to brown to black
+
+fringes of black are often brown i.e. Plathemis lydia, also appears to be some geographic var here
+
+two Libellula luctuosa species are yellow as an early version of black
+
+no transitions visible in Pachydiplax longipennis
+
+Erythrodiplax fervida has some pigments transitioning from yellow to a red-orange, may want to try to cluster that
+
+Celithemis elisa has black steady but some brown to yellow going on
+
+not much var in Libellula needhami, Perithemis tenera, Celithemis eponina
+
+no var in Tramea lacerata or Lebellula pulchella
+
+overall, get the strong impression that the transition to black isn't instant obviously
+
+and is rarely slow enough in some species to be present in the data - is generally really fast
+
+based on expert input this is probably not development and is instead geographic gradient or misidentified sexes
+
+## Q10: Do only perchers have significant pigment?
+
+```{r percherpig, echo=FALSE}
+
+length(unique(dplyr::filter(wings_black,flight_type=="flyer")$species)) / length(unique(wings_black$species))
+
+length(unique(dplyr::filter(wings_brown,flight_type=="flyer")$species)) / length(unique(wings_brown$species))
+
+length(unique(dplyr::filter(wings_bb,flight_type=="flyer")$species)) / length(unique(wings_bb$species))
+
+wings_sp$bby_total <- wings_sp$black + wings_sp$brown + wings_sp$yellow
+wings_sp$bb_total <- wings_sp$black + wings_sp$brown
+wings_pig <- dplyr::filter(wings_sp,bb_total > 0.05)
+table(wings_pig$flight_type)
+
+
+dplyr::filter(wings_pig,flight_type=="flyer")$species
+
+```
+
+93% of species with significant wing pigments are perchers
