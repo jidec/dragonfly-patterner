@@ -21,11 +21,10 @@ import os
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from skimage import io, color
-from sklearn.metrics import silhouette_samples, silhouette_score
 
 def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col = None, group_cluster_raw_ids = False,
                     by_contours=False, erode_contours_kernel_size=0, dilate_multiplier = 2, min_contour_pixel_area=10,
-                    cluster_model="gaussian_mixture", nclusters=None, nclust_metric = "ch", cluster_eps=0.7, cluster_min_samples=3,
+                    cluster_model="gaussian_mixture", nclusters=None, nclust_metric = "ch", cluster_eps=0.5, cluster_min_samples=4,
                     colorspace = None, scale = False, use_positions=False, downweight_axis=None, upweight_axis=None,
                     vert_resize = 400,
                     gaussian_blur= False, median_blur = False, bilat_blur = False, blur_size = 15, blur_sigma = 150,
@@ -275,8 +274,7 @@ def colorDiscretize(image_ids, preclustered = False, group_cluster_records_col =
             cv2.imshow("i", img)
             cv2.waitKey(0)
 
-        if colorspace != "rgb":
-            img = img * 255
+        img = img * 255
 
         # reshape to original dims
         #img = img.reshape(cpd[2])
@@ -402,64 +400,79 @@ def getPixelsAndPixelCoords(img):
 # given a set of values (either pixel values or contour means), assign cluster centroid values to them and return
 def getClusterCentroids(values,coords,cluster_model,nclusters,cluster_eps,cluster_min_samples,scale,use_positions,downweight_axis,upweight_axis,preclustered,nclust_metric,img,colorspace,show):
 
-    start_values = values
-    # convert to np array
-    values = np.array(values)
+    # create cluster model
+    if cluster_model == "kmeans":
+        model = KMeans(n_clusters=nclusters)
+        model.fit(values)
+        preds = model.predict(values)
 
-    # using range of variation within an image, rather than of all possible ranges including unrealistic ones
-    if use_positions:
-        xpos = [p[0] for p in coords]
-        ypos = [p[1] for p in coords]
-        values = np.insert(values, np.shape(values)[1], xpos, axis=1)
-        values = np.insert(values, np.shape(values)[1], ypos, axis=1)
-    if scale:
-        scaler = MinMaxScaler().fit(values)
-        values = scaler.transform(values)
+    if cluster_model == "optics":
+        model = OPTICS(min_samples=cluster_min_samples)
+        model.fit(values)
+        preds = model.fit_predict(values)
 
-    if downweight_axis is not None:
-        values[:, downweight_axis] = values[:, downweight_axis] / 2
-    if upweight_axis is not None:
-        values[:,upweight_axis] = values[:, upweight_axis] * 2
+    if cluster_model == "spectral":
+        model = SpectralClustering(n_clusters=nclusters)
+        model.fit(values)
+        preds = model.fit_predict(values)
 
-    if nclusters is None:
-        print("Nclusters unspecified, started finding optimal nclusters")
-        # create a vector of ns to try for knee assessment
-        n_components = np.arange(2, 9)
+    if cluster_model == "dbscan":
+        model = DBSCAN(eps=cluster_eps, min_samples=cluster_min_samples)
+        model.fit(values)
+        preds = model.fit_predict(values)
 
-        if preclustered:
-            X = np.unique(values, axis=0)
-        else:
-            X = values
-        models = [GaussianMixture(n).fit(X) for n in n_components]
-        aics = [m.aic(X) for m in models]
-        preds = [m.fit_predict(X) for m in models]
+    if cluster_model == "agglomerative":
+        model = AgglomerativeClustering(n_clusters=nclusters)
+        model.fit(values)
+        preds = model.fit_predict(values)
 
-        ch_scores = [calinski_harabasz_score(X,p) for p in preds]
-        db_scores = [davies_bouldin_score(X, p) for p in preds]
-        sil_scores = [silhouette_score(X, p) for p in preds]
+    if cluster_model == "gaussian_mixture":
+        start_values = values
+        # convert to np array
+        values = np.array(values)
 
-        plt.plot(n_components, ch_scores)
-        plt.title('Calinski-Harabasz Scores')
-        plt.xlabel('Number of clusters')
-        plt.ylabel('CH score')
-        plt.show()
+        # using range of variation within an image, rather than of all possible ranges including unrealistic ones
+        if use_positions:
+            xpos = [p[0] for p in coords]
+            ypos = [p[1] for p in coords]
+            values = np.insert(values, np.shape(values)[1], xpos, axis=1)
+            values = np.insert(values, np.shape(values)[1], ypos, axis=1)
+        if scale:
+            scaler = MinMaxScaler().fit(values)
+            values = scaler.transform(values)
 
-        plt.plot(n_components, db_scores)
-        plt.title('Davies-Bouldin Scores')
-        plt.xlabel('Number of clusters')
-        plt.ylabel('DB score')
-        plt.show()
+        if downweight_axis is not None:
+            values[:, downweight_axis] = values[:, downweight_axis] / 2
+        if upweight_axis is not None:
+            values[:,upweight_axis] = values[:, upweight_axis] * 2
 
-        plt.plot(n_components, sil_scores, label='Silhouette score')
-        plt.title('Silhouette Scores')
-        plt.xlabel('Number of clusters')
-        plt.ylabel('Silhouette score')
-        plt.show()
+        if nclusters is None:
+            # create a vector of ns to try for knee assessment
+            n_components = np.arange(3, 9)
 
-        if nclust_metric == "ch":
-            nclusters = n_components[np.argmax(ch_scores)]
-        elif nclust_metric == "db":
-            nclusters = n_components[np.argmax(db_scores)]
+            if preclustered:
+                X = np.unique(values, axis=0)
+            else:
+                X = values
+            models = [GaussianMixture(n).fit(X) for n in n_components]
+            aics = [m.aic(X) for m in models]
+            preds = [m.fit_predict(X) for m in models]
+
+            ch_scores = [calinski_harabasz_score(X,p) for p in preds]
+            db_scores = [davies_bouldin_score(X, p) for p in preds]
+            sil_scores = [silhouette_score(X, p) for p in preds]
+
+            plt.plot(n_components, ch_scores, label='CH score')
+            plt.show()
+            plt.plot(n_components, db_scores, label='DB score')
+            plt.show()
+            plt.plot(n_components, sil_scores, label='Silhouette score')
+            plt.show()
+
+            if nclust_metric == "ch":
+                nclusters = n_components[np.argmax(ch_scores)]
+            elif nclust_metric == "db":
+                nclusters = n_components[np.argmax(db_scores)]
 
         #model = models[np.argmax(ch_scores)]
         #print(model)
@@ -480,6 +493,17 @@ def getClusterCentroids(values,coords,cluster_model,nclusters,cluster_eps,cluste
         #print(values)
         #values = np.delete(values, 3, 1)
 
+        model = GaussianMixture(n_components=nclusters)
+
+        # if preclustered, fit clusters only unique pixel colors (i.e. each pre-existing color cluster)
+        if preclustered:
+            model.fit(np.unique(values, axis=0))
+        # otherwise fit clusters using all values
+        else:
+            model.fit(values)
+        # regardless, predict using values
+        preds = model.fit_predict(values)
+
         #model = KMeans()
         #visualizer = KElbowVisualizer(
         #    model, k=(2, 6), metric='calinski_harabasz', timings=False
@@ -487,133 +511,66 @@ def getClusterCentroids(values,coords,cluster_model,nclusters,cluster_eps,cluste
         #visualizer.fit(X)  # Fit the data to the visualizer
         #visualizer.show()  # Finalize and render the figure
 
-    # create cluster model
-    if cluster_model == "kmeans":
-        model = KMeans(n_clusters=nclusters)
-        #preds = model.predict(values)
+    # get cluster centroids
+    clf = NearestCentroid()
+    clf.fit(values, preds)
+    values = np.array(values)
 
-    if cluster_model == "optics":
-        model = OPTICS(min_samples=cluster_min_samples)
-        #preds = model.fit_predict(values)
-
-    if cluster_model == "spectral":
-        model = SpectralClustering(n_clusters=nclusters)
-        #preds = model.fit_predict(values)
-
-    if cluster_model == "dbscan":
-        model = DBSCAN(eps=cluster_eps, min_samples=cluster_min_samples,algorithm='ball_tree')#, metric='manhattan')
-        #preds = model.fit_predict(values)
-
-    if cluster_model == "agglomerative":
-        model = AgglomerativeClustering(n_clusters=nclusters)
-        #preds = model.fit_predict(values)
-
-    if cluster_model == "gaussian_mixture":
-        model = GaussianMixture(n_components=nclusters)
-
-    print("Starting first fit")
-    # if preclustered, fit clustering model using only unique pixel colors (i.e. each pre-existing color cluster)
-    if preclustered:
-        model.fit(np.unique(values, axis=0))
-    # otherwise fit clusters using all values
-    else:
-        model.fit(values)
-
-    # predict using unique values and assign preds to all pixels
-    # create empty preds vector with length equal to the number of rows in values
-    #preds = np.zeros(np.shape(values)[0])
-
-    print("Starting second fit")
-    # get unique pixel colors
-    unique_values = np.unique(values, axis=0)
-    # get preds of what cluster each unique pixel color belongs to
-    unique_preds = model.fit_predict(unique_values)
-    
-    if show:
-        print("Starting plotting silhouette scores")
-        # Calculate Silhouette Coefficient for each sample
-        silhouette_vals = silhouette_samples(unique_values, unique_preds)
-
-        # Calculate average Silhouette Coefficient for the entire dataset
-        silhouette_avg = silhouette_score(unique_values, unique_preds)
-
-        # Create a Silhouette Plot
-        y_lower, y_upper = 0, 0
-        yticks = []
-        for i, cluster in enumerate(np.unique(unique_preds)):
-            cluster_silhouette_vals = silhouette_vals[unique_preds == cluster]
-            cluster_silhouette_vals.sort()
-            y_upper += len(cluster_silhouette_vals)
-            col = plt.cm.tab20(i / len(np.unique(unique_preds)))
-            plt.barh(range(y_lower, y_upper), cluster_silhouette_vals, height=1.0,
-                     edgecolor='none', color=col)
-            yticks.append((y_lower + y_upper) / 2.)
-            y_lower += len(cluster_silhouette_vals)
-
-        plt.axvline(x=silhouette_avg, color='red', linestyle='--')
-        plt.yticks(yticks, np.unique(unique_preds))
-        plt.ylabel('Cluster')
-        plt.xlabel('Silhouette Coefficient')
-        plt.show()
-
-    print("Starting assigning clusters to points")
-    # get unique clusters (works with algos where we dont know how many clusters we'll get)
-    unique_clusters = np.unique(unique_preds)
-
-    # for each cluster number, for example 0, 1, 2, if nclusters=3
-    for cluster_num in unique_clusters:
-        # get the colors in the cluster by indexing the unique colors to places where the unique clusters were predicted to be in the cluster
-        unique_colors_in_cluster = unique_values[np.where(unique_preds == cluster_num)[0],:]
-        # get the mean color of all colors assigned to the cluster
-        # this is a little different from the centroid, but works for clust algorithms without centroids like gaussian-mixture
-        mean_color_for_cluster = np.mean(unique_colors_in_cluster,axis=0)
-        # for every unique color assigned to the cluster
-        for c in unique_colors_in_cluster:
-            # assign the cluster to preds
-            values[np.where(np.all(values == c, axis=1))] = mean_color_for_cluster
-
-    # reverse scaling and weighting
-    # NOTE - scale not working with dbscan
+    centroids = clf.centroids_
     if scale:
-        values = scaler.inverse_transform(values)
+        centroids = scaler.inverse_transform(centroids)
+        #print(centroids)
+
     if upweight_axis is not None:
         values[:, upweight_axis] = values[:, upweight_axis] / 2
 
-    # plot points and clusters
     if show:
-        print("Starting plotting points in space")
+        pix_centroids = centroids[:, :3]
         if preclustered:
             fig = plt.figure()
             ax = Axes3D(fig)
-            uniq = np.unique(start_values,axis=0)
+            uniq = np.unique(values,axis=0)
             uniq_preds = model.fit_predict(uniq)
             #uniq = uniq[:, [2, 1, 0]]
             uniq_preds = uniq_preds.reshape(uniq_preds.size,1)
             uniq = np.hstack((uniq,uniq_preds))
-            markers = ["^","o","s","+","x","*","X","2"]
+            markers = ["^","o","s","+","x","*"]
 
-            # loop through each cluster, as we need to plot each individually for markers (dang...)
             for c in np.unique(uniq_preds):
-                points = uniq[uniq[:, 3] == c] # get points for the cluster
-                colors = points[:,0:3] * 0.99 # fix >1 bug
-
-                if colorspace == "rgb":
-                    colors = colors / 255
-                    colors = colors[:, [2, 1, 0]]
-                # convert to rgb
+                points = uniq[uniq[:, 3] == c]
+                colors = points[:,0:3] * 0.99
+                #print(colors)
                 if colorspace == "hls":
                     colors = color.hsv_to_rgb(colors)
                 if colorspace == "lab":
+                    print("LAB")
+                    print(colors)
+                    # colors[:,0] = colors[:,0] * 100
+                    # colors[:,1] = colors[:,1] * 255 - 127
+                    # colors[:,2] = colors[:,2] * 255 - 127
+                    # print("LAB")
+                    # print(colors)
                     colors = color.lab2rgb(colors,illuminant="E")
                     colors = colors[:, [2, 1, 0]]
-
+                    print("RGB")
+                    print(colors)
                 ax.scatter(points[:, 0], points[:, 1], points[:, 2], c=colors, marker= markers[c], alpha= 0.5)
+            #print(np.unique(uniq_preds))
+            #c=values[:,0:2] * 0.99
+            #ax.scatter(uniq[:,0], uniq[:,1],uniq[:,2], c=uniq*0.99,alpha=0.5)
 
-            #ax.scatter(uniq[:,0], uniq[:,1],uniq[:,2], c=uniq*0.99,alpha=0.5) # old way
+            #ax.scatter(pix_centroids[:, 0], pix_centroids[:, 1], pix_centroids[:, 2], s=600, c='black', marker='x')
+            print(pix_centroids)
             plt.show()
 
         else:
-            plotPixels(values) #pix_centroids)
+            plotPixels(values, pix_centroids)
+
+    # assign centroid of each contour or pixel
+    print(np.shape(preds))
+    print(np.shape(centroids))
+    for p in unique(preds):
+        values[preds == p] = centroids[p]
 
     return values
 
